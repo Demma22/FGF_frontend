@@ -1,0 +1,22 @@
+-Animals
+  -usecases
+    -DeleteAnimal.jsx
+    -RegisterAnimal.jsx
+    -UpdateAnimal.jsx
+    -ViewAnimal.jsx
+
+-Plants
+  usecases
+    -DeletePlant.jsx
+    -RegisterPlant.jsx
+    -UpdatePlant.jsx
+    -ViewPlant.jsx
+
+-Cultures
+  usecases
+    -DeleteCulture.jsx
+    -RegisterCulture.jsx
+    -UpdateCulture.jsx
+    -ViewCulture.jsx
+
+- Navigation
