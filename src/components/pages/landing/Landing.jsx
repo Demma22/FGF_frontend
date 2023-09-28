@@ -1,9 +1,13 @@
+import { Layout } from "../../Layout";
+
 function Landing() {
 
   return (
-    <div className="font-bold py-11"> Landing
-
-    </div>
+    <Layout>
+      <div className="font-bold">
+        Landing page..
+      </div>
+    </Layout>
   )
 }
 
