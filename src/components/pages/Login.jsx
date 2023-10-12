@@ -12,15 +12,18 @@ export const Login = (props) => {
 
     }
     return (
-      <div className="auth-form-container">
-        <h2> Login </h2>
+      <div className="auth-form-container login">
+        <h2> Hello Again </h2>
+        <h1> Login with </h1>
+        <button><img className="login" src="imgs/login/google_logo.png" alt="" /></button>
+        <button><img className="login" src="imgs/login/Facebook-Logo-2019.png" alt="facebookLogo" /></button>
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlfor="email"> Email</label>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            placeholder="youremail@gmail.com"
+            placeholder="Username/Email"
             id="email"
             name="email"
           />
@@ -29,20 +32,25 @@ export const Login = (props) => {
             value={pswd}
             onChange={(e) => setPswd(e.target.value)}
             type="password"
-            placeholder="*********"
+            placeholder="Password"
             id="password"
             name="password"
           />
           <button type="submit"> Log In </button>
+          <div>
+            <a href="#">Remember me</a><a href="#">forgot password?</a>
+          </div>
         </form>
         <Link to={"/Register"}>
           <button
-            className="link-btn"
+            // className="link-btn"
             // onClick={() => props.onFormSwitch('Login')}
-          >
-            Dont have an account? Register here.
+          className="underline-links">
+            Register/SignUp
           </button>
+          <img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" />
         </Link>
       </div>
+      
     );
 }
