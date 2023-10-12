@@ -12,37 +12,54 @@ export const Register = (props) => {
   };
 
   return (
-    <div className="auth-form-Container">
-      <h2> Register </h2>
-      <form className=" register-form" onSubmit={handleSubmit}>
-        <label htmlfor="name"> Full name</label>
-        <input value={name} name="name" id="name" placeholder="full name" />
-        <label htnmlfor="email"> Email</label>
+
+    <div className="auth-form-Container register">
+      <h2> Register <span><img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" /></span></h2>
+      <div>
+        <button><img className="register" src="imgs/regimages/icons-google.png" alt="google-logo" />Signup with Google</button><br />
+        <button><img className="register" src="imgs/regimages/facebook-logo.png" alt="facebook-logo" />Signup with facebook</button>
+      </div>
+      <form className="register-form" onSubmit={handleSubmit}>
+        <p>Signup with Email</p>
+        <label htmlfor="name"></label>
+        <input value={name} name="name" id="name" placeholder="First Name"  />
+        <label htmlfor="name"></label>
+        <input value={name} name="name" id="name" placeholder=" Last Name" />
+        <label htnmlfor="email"></label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
-          placeholder="youremail@gmail.com"
+          placeholder=" Email"
           id="email"
           name="email"
         />
-        <label htmlfor="password"> Password</label>
+        <label htmlfor="password"></label>
         <input
           value={pswd}
           onChange={(e) => setPswd(e.target.value)}
           type="password"
-          placeholder="*********"
+          placeholder="Password"
           id="password"
           name="password"
         />
-        <button type="submit"> Register </button>
+        <label htmlfor="password"></label>
+        <input
+          value={pswd}
+          onChange={(e) => setPswd(e.target.value)}
+          type="password"
+          placeholder="Confirm Password"
+          id="password"
+          name="password"
+        />
+        <button type="submit">Register </button>
       </form>
       <Link to={"/login"}>
         <button
           className="link-btn"
           // onClick={() => props.onFormSwitch('Register')}
         >
-          Already have an account? Login here.
+          Already have an account? <a className="undereg-links" href="">Login</a>
         </button>
       </Link>
     </div>
