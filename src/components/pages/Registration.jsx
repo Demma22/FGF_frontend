@@ -59,7 +59,7 @@ export const Register = (props) => {
           className="link-btn"
           // onClick={() => props.onFormSwitch('Register')}
         >
-          Already have an account? <a className="underline-links" href="">Login</a>
+          Already have an account? <a className="undereg-links" href="">Login</a>
         </button>
       </Link>
     </div>

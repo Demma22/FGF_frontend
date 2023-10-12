@@ -18,7 +18,7 @@ export const Login = (props) => {
         <button><img className="login" src="imgs/login/google_logo.png" alt="" /></button>
         <button><img className="login" src="imgs/login/Facebook-Logo-2019.png" alt="facebookLogo" /></button>
         <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlfor="email"> Email</label>
+          <label htmlfor="email"></label>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -27,7 +27,7 @@ export const Login = (props) => {
             id="email"
             name="email"
           />
-          <label htmlfor="password"> Password</label>
+          <label htmlfor="password">  </label>
           <input
             value={pswd}
             onChange={(e) => setPswd(e.target.value)}
@@ -38,17 +38,17 @@ export const Login = (props) => {
           />
           <button type="submit"> Log In </button>
           <div>
-            <a href="#">Remember me</a><a href="#">forgot password?</a>
+            <a className="log" href="#">Remember me</a><a href="#">forgot password?</a>
           </div>
         </form>
         <Link to={"/Register"}>
           <button
             // className="link-btn"
             // onClick={() => props.onFormSwitch('Login')}
-          className="underline-links">
+          className="underlog-links">
             Register/SignUp
           </button>
-          <img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" />
+          <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" />
         </Link>
       </div>
       
