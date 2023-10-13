@@ -1,22 +1,38 @@
-import React, {useState} from "react"
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button, TextInput, Text, Group, Box } from "@mantine/core";
 
 export const Login = (props) => {
-    const [email, setEmail] = useState('');
-    const [pswd, setPswd] = useState('');
+  const [email, setEmail] = useState("");
+  const [pswd, setPswd] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email);
+  
+    fetch("https://127.0.0.1:8000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: pswd,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  };
 
-    const handleSubmit =(e) =>{
-        e.preventDefault();
-        console.log(email);
-
-    }
-    return (
+  
+  return (
+    <Box maw={540} mx="auto">
       <div className="auth-form-container">
         <h2> Login </h2>
         <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlfor="email"> Email</label>
-          <input
+          <Text>Email</Text>
+          <TextInput
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
@@ -24,8 +40,8 @@ export const Login = (props) => {
             id="email"
             name="email"
           />
-          <label htmlfor="password"> Password</label>
-          <input
+          <Text>Password</Text>
+          <TextInput
             value={pswd}
             onChange={(e) => setPswd(e.target.value)}
             type="password"
@@ -33,16 +49,20 @@ export const Login = (props) => {
             id="password"
             name="password"
           />
-          <button type="submit"> Log In </button>
+          <Group justify="flex-end" mt="md">
+            <Link to="/SideBar">
+              <Button type="submit" color="green.6" c="black">Log In</Button>
+            </Link>
+          </Group>
+          
         </form>
-        <Link to={"/Register"}>
-          <button
-            className="link-btn"
-            // onClick={() => props.onFormSwitch('Login')}
-          >
-            Dont have an account? Register here.
-          </button>
-        </Link>
+          <Group justify="flex-end" mt="md">
+            Don't have an account? 
+            
+              <Link to={"/Register"}>Register here.</Link>
+            
+          </Group>
       </div>
-    );
-}
+    </Box>
+  );
+};
