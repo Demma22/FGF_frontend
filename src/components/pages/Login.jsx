@@ -19,7 +19,7 @@ export const Login = (props) => {
               <h1><br/> <br/>Indulge <br/>in <br/> Ugandan <br/> Diversity</h1>
             </div>
           </div>
-          <div className="auth-form-container login ">
+          <div className="auth-form-container login">
             <h2> Hello Again </h2>
             <h1> Login with </h1>
             <button><img className="login-logo" src="imgs/login/google_logo.png" alt="" /></button>
@@ -43,7 +43,7 @@ export const Login = (props) => {
                 id="password"
                 name="password"
               />
-              <button type="submit"> Log In </button>
+              <button type="submit" className="login-button">Log In </button>
               <div>
                 <a className="log" href="#">Remember me</a><a href="#">forgot password?</a>
               </div>

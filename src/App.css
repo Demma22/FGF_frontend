@@ -13,15 +13,19 @@
 /* login-interface */
 .main-container{
   display: flex;
-  background-color: #00ff00 !important;
+ 
 }
 
+.auth-form-container{
+  border-radius: 0px !important;
+}
 
-.auth-form-container, .login-side-list{
+.auth-form-container,  .login-side-list{
   flex: 0.5; /* Distributes the available space equally */
   padding: 10px;
   border: 1px solid #000;
   background-color: #2b5a36;
+
 }
 
 .side-log-message{
@@ -35,13 +39,25 @@
   color: #00ff00;
   font-size: 50px;
   font-family: "'Courier New', Courier, monospace'";
+  margin: 0 20px;
+  padding: 0 50px;
 }
 
 .most-out-block{
   margin: 20px;
 }
 
+.login-button{
+  padding-left:  100px !important;
+}
+
 /* login interface stops here */
+
+/* Registration Interface */
+.main-container-register{
+  display: flex;
+  
+}
 
 
 
