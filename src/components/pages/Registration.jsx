@@ -15,6 +15,10 @@ export const Register = (props) => {
     <div className="main-container-register">
       <div className="line-breaks">
         <h1>Help us Grow</h1>
+        <h3>Build Uganda's no.1 <br />Biodiversity and Heritage <br /> enclopedia</h3>
+        <h3>Build Uganda's no.1 <br />Biodiversity and Heritage <br /> enclopedia</h3>
+        <h3>Build Uganda's no.1 <br />Biodiversity and Heritage <br /> enclopedia</h3>
+
       </div>
       <div className="auth-form-Container register">
         <h2> Register <span><img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" /></span></h2>
