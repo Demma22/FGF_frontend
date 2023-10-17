@@ -8,18 +8,20 @@ import { Layout } from "../Layout"
 
 export default function Animal () {
     const [english_name, setEngName] = useState("");
+    const [animal_name, setLocalName] = useState("")
+    const [language, setLanguage] = useState("")
     const [scientific_name, setsciName] = useState("");
     const [description, setDescrip] = useState(""); 
     const [areas_in_Uganda, setArea] = useState("");
     const [animal_classifications, setClass] = useState("");
+    const [kingdom_name, setKingdom] = useState("");
+    const [species, setSpecies] = useState("");
     const [known_values, setValues] = useState(""); 
     const [value_details, setValDets] = useState("");
     const [unique_habitat, setHabitat] = useState("");
     const [threats, setThreats] = useState("");
     const [notes, setNotes] = useState("");
-    const [contributor_name, setContribName] = useState("");
-
-     
+    
     /*state = {
         // Initially, no file is selected
         image: null
@@ -32,7 +34,7 @@ export default function Animal () {
         // Initially, no file is selected
         audio: null
     }; */
-
+    const [contributor_name, setContribName] = useState("");
     const navigate = useNavigate();
       const handleSubmit = async (event) => {
         event.preventDefault();
