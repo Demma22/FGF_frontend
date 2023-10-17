@@ -9,6 +9,69 @@
   
 }
 
+
+/* login-interface */
+.main-container{
+  display: flex;
+ 
+}
+
+.auth-form-container{
+  border-radius: 0px !important;
+}
+
+.auth-form-container,  .login-side-list{
+  flex: 0.5; /* Distributes the available space equally */
+  padding: 10px;
+  border: 1px solid #000;
+  background-color: #2b5a36;
+
+}
+
+.side-log-message{
+  color: #00ff00;
+  font-size: 50px;
+  font-family: "'Courier New', Courier, monospace'";
+}
+
+.line-breaks{
+  margin: 0 150px;
+  color: #00ff00;
+  font-size: 50px;
+  font-family: "'Courier New', Courier, monospace'";
+  margin: 0 20px;
+  padding: 0 50px;
+}
+
+.most-out-block{
+  margin: 20px;
+}
+
+.login-button{
+  padding-left:  232px !important;
+  border: 1px solid #2b5a36;
+  background-color: #2b5a36; 
+}
+
+/* login interface stops here */
+
+/* Register starts here */
+.register{
+  border-radius: 0px !important
+}
+
+.square-block {
+  width: stretch; /* Adjust the width to your desired size */
+  height: stretch; /* Make it a square by setting the same height as the width */
+  padding: 10px;
+  background-color: #4a844a;; /* Set a background color or use an image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Register stops Here */
+
 /* form border  */
 @media screen and (min-width:600px) {
   .auth-form-container {
@@ -43,10 +106,12 @@ margin-left: 10px; /* Add margin for spacing between text and image */
 }
 
 .login-logo {
-width: 50px;
+width: 100px;
 height: 50px;
+margin: 0 180px;
 /* Additional styling for the image */
 }
+
 
 
 .auth-form-Container.register {
@@ -126,12 +191,14 @@ cursor: pointer;
 margin-top: 10px;
 }
 
+
+/* .......Specifically_LOGIN......... */
 /* Login Component Css */
 
 .auth-form-container.login {
-max-width: 400px;
+/* max-width: 400px; */
 margin: 0 auto;
-padding: 20px;
+/* padding: 20px; */
 background: #fff;
 border: 1px solid #2b5a36;
 border-radius: 5px;
