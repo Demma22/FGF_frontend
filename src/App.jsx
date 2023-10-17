@@ -9,6 +9,9 @@ import Settings from './components/pages/Settings';
 import ContributeForm from './components/pages/Contribute';
 import Logout from './components/pages/Logout';
 import Search from './components/pages/List';
+import { Layout } from "./components/Layout";
+import AnimalForm from "./components/pages/AnimalForm";
+import PlantForm from "./components/pages/PlantForm";
 
 
 function App() {
@@ -24,7 +27,9 @@ function App() {
         <Route path="/Contribute" element={<ContributeForm />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/Search" element={<Search />} />
-        
+        <Route path="/Layout" element={<Layout />} />
+        <Route path="/AnimalForm" element={<AnimalForm />} />
+        <Route path="/PlantForm" element={<PlantForm />} />
 
 
       </Routes>
