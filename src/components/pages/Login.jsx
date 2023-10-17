@@ -64,52 +64,47 @@ export const Login = (props) => {
       }
     };
 
-  
-  return (
-    <Box maw={540} mx="auto">
-      <div className="auth-form-container">
-        <h2> Login </h2>
+    }
+    return (
+      <div className="auth-form-container login">
+        <h2> Hello Again </h2>
+        <h1> Login with </h1>
+        <button><img className="login" src="imgs/login/google_logo.png" alt="" /></button>
+        <button><img className="login" src="imgs/login/Facebook-Logo-2019.png" alt="facebookLogo" /></button>
         <form className="login-form" onSubmit={handleSubmit}>
-          <Text>Email</Text>
-          <TextInput
+          <label htmlfor="email"></label>
+          <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            placeholder="youremail@gmail.com"
-            //id="email"
-            //name="email"
-            required
+            placeholder="Username/Email"
+            id="email"
+            name="email"
           />
-          <Text>Password</Text>
-          <TextInput
+          <label htmlfor="password">  </label>
+          <input
             value={pswd}
             onChange={(e) => setPswd(e.target.value)}
             type="password"
-            placeholder="*********"
-            //id="password"
-            //name="password"
-            required
+            placeholder="Password"
+            id="password"
+            name="password"
           />
-          <Group justify="flex-end" mt="md">
-            <Button 
-              type="" 
-              color="green.6" 
-              c="black"
-              
-            >
-              Log In
-            </Button>
-            {/* <Link to="/Layout"></Link> */}
-          </Group>
-          
+          <button type="submit"> Log In </button>
+          <div>
+            <a className="log" href="#">Remember me</a><a href="#">forgot password?</a>
+          </div>
         </form>
-          <Group justify="flex-end" mt="md">
-            Don't have an account? 
-            
-              <Link to={"/Register"}>Register here.</Link>
-            
-          </Group>
+        <Link to={"/Register"}>
+          <button
+            // className="link-btn"
+            // onClick={() => props.onFormSwitch('Login')}
+          className="underlog-links">
+            Register/SignUp
+          </button>
+          <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" />
+        </Link>
       </div>
-    </Box>
-  );
-};
+      
+    );
+}
