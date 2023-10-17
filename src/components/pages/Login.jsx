@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, TextInput, Text, Group, Box } from "@mantine/core";
 
 export const Login = (props) => {
   const [email, setEmail] = useState("");
   const [pswd, setPswd] = useState("");
+  // const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
+  // const users = [{ username: "Fgf", password: "testpassword" }];
+  // const [isLoggedIn,setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  /* const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
   
@@ -23,7 +28,41 @@ export const Login = (props) => {
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
-  };
+  }; */ 
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      // If the POST request is successful, clear the form inputs
+      setEmail('');
+      setPswd('');
+
+      /* const account = users.find((user) => user.username === username);
+      if (account && account.password === password) {
+        setauthenticated(true)
+        localStorage.setItem("authenticated", true);
+      }
+      // Create a data object with the form values
+      const login = {
+        email: email,
+        password: pswd,
+      }; */
+  
+      try {
+        const response = await axios.post('https://localhost:8000/login', {
+          email: email,
+          password: pswd,
+        });
+  
+        if (response.data.username === "fgf@user.com") {
+          navigate("/Layout")
+        }else if (response.data.role === "is_contributor"){
+          navigate("/Layout")
+        }
+  
+        
+      } catch (error) {
+        console.error('Error logging in:', error);
+      }
+    };
 
   
   return (
@@ -37,8 +76,9 @@ export const Login = (props) => {
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="youremail@gmail.com"
-            id="email"
-            name="email"
+            //id="email"
+            //name="email"
+            required
           />
           <Text>Password</Text>
           <TextInput
@@ -46,13 +86,20 @@ export const Login = (props) => {
             onChange={(e) => setPswd(e.target.value)}
             type="password"
             placeholder="*********"
-            id="password"
-            name="password"
+            //id="password"
+            //name="password"
+            required
           />
           <Group justify="flex-end" mt="md">
-            <Link to="/SideBar">
-              <Button type="submit" color="green.6" c="black">Log In</Button>
-            </Link>
+            <Button 
+              type="" 
+              color="green.6" 
+              c="black"
+              
+            >
+              Log In
+            </Button>
+            {/* <Link to="/Layout"></Link> */}
           </Group>
           
         </form>

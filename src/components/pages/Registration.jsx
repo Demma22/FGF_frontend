@@ -3,12 +3,30 @@ import { Link } from "react-router-dom";
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
-  const [pswd, setPswd] = useState("");
   const [name, setName] = useState("");
+  const [pswd, setPswd] = useState("");
+  const [pswd2, setPswd2] = useState("");
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
+
+    fetch("https://127.0.0.1:8000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        password: pswd,
+        password2: pswd2,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
 
   return (

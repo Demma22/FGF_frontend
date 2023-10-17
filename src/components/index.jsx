@@ -9,4 +9,5 @@ export * from "./pages/Settings";
 export * from "./pages/List";
 export * from "./pages/Contribute";
 
-
+export * from "./pages/AnimalForm";
+export * from "./pages/PlantForm";
