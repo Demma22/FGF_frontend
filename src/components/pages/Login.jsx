@@ -12,7 +12,7 @@ export const Login = (props) => {
 
     }
     return (
-      <div className="most-out-block">
+      <div className="square-block">
         <div className="main-container">
           <div  className="login-side-list">
             <div className="line-breaks">

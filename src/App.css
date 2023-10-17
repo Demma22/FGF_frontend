@@ -48,43 +48,29 @@
 }
 
 .login-button{
-  padding-left:  100px !important;
+  padding-left:  232px !important;
+  border: 1px solid #2b5a36;
+  background-color: #2b5a36; 
 }
 
 /* login interface stops here */
 
-/* Registration Interface */
-.main-container-register{
-  display: flex; 
+/* Register starts here */
+.register{
+  border-radius: 0px !important
 }
 
-.line-breaks-register{
-  border-radius: 0px !important;
+.square-block {
+  width: stretch; /* Adjust the width to your desired size */
+  height: stretch; /* Make it a square by setting the same height as the width */
+  padding: 10px;
+  background-color: #4a844a;; /* Set a background color or use an image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.line-breaks-register{
-  margin: 0 150px;
-  color: #00ff00;
-  font-size: 50px;
-  font-family: "'Courier New', Courier, monospace'";
-  margin: 0 20px;
-  padding:  50px;
-  
-}
-
-h3{
-  font-size: 20px !important;
-  padding: 10px 0 !important;
-}
-
-.tick-image-register{
-  height: 100px;
-  width: 100px;
-
-}
-/* Register.jsx ends here */
-
-
+/* Register stops Here */
 
 /* form border  */
 @media screen and (min-width:600px) {
@@ -120,9 +106,9 @@ margin-left: 10px; /* Add margin for spacing between text and image */
 }
 
 .login-logo {
-width: 50px;
+width: 100px;
 height: 50px;
-margin: 0 225px;
+margin: 0 180px;
 /* Additional styling for the image */
 }
 

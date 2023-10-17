@@ -12,63 +12,69 @@ export const Register = (props) => {
   };
 
   return (
-    <div className="main-container-register">
-      <div className="line-breaks-register">
-        <img className="tick-image-register" src="imgs/regimages/tick.png" alt="" /><h3>Build Uganda's no.1 <br />Biodiversity and Heritage <br /> enclopedia</h3>
-        <h3>Build Uganda's no.1 <br />Biodiversity and Heritage <br /> enclopedia</h3>
-        <h3>Build Uganda's no.1 <br />Biodiversity and Heritage <br /> enclopedia</h3>
-      </div>
-      <div className="auth-form-Container register">
-        <h2> Register <span><img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" /></span></h2>
-        <div>
-          <button><img className="register" src="imgs/regimages/icons-google.png" alt="google-logo" />Signup with Google</button><br />
-          <button><img className="register" src="imgs/regimages/facebook-logo.png" alt="facebook-logo" />Signup with facebook</button>
+    <div className="square-block">
+      <div className="main-container">
+        <div  className="login-side-list">
+          <div className="line-breaks">
+            <h1>Help us Grow</h1>
+            <h1><br/> <br/>Indulge <br/>in <br/> Ugandan <br/> Diversity</h1>
+          </div>
         </div>
-        <form className="register-form" onSubmit={handleSubmit}>
-          <p>Signup with Email</p>
-          <label htmlfor="name"></label>
-          <input value={name} name="name" id="name" placeholder="First Name"  />
-          <label htmlfor="name"></label>
-          <input value={name} name="name" id="name" placeholder=" Last Name" />
-          <label htnmlfor="email"></label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            placeholder=" Email"
-            id="email"
-            name="email"
-          />
-          <label htmlfor="password"></label>
-          <input
-            value={pswd}
-            onChange={(e) => setPswd(e.target.value)}
-            type="password"
-            placeholder="Password"
-            id="password"
-            name="password"
-          />
-          <label htmlfor="password"></label>
-          <input
-            value={pswd}
-            onChange={(e) => setPswd(e.target.value)}
-            type="password"
-            placeholder="Confirm Password"
-            id="password"
-            name="password"
-          />
-          <button type="submit">Register </button>
-        </form>
-        <Link to={"/login"}>
-          <button
-            className="link-btn"
-            // onClick={() => props.onFormSwitch('Register')}
-          >
-            Already have an account? <a className="undereg-links" href="">Login</a>
-          </button>
-        </Link>
+        <div>
+          <div className="auth-form-Container register">
+            <h2> Register <span><img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" /></span></h2>
+            <div>
+              <button><img className="register" src="imgs/regimages/icons-google.png" alt="google-logo" />Signup with Google</button><br />
+              <button><img className="register" src="imgs/regimages/facebook-logo.png" alt="facebook-logo" />Signup with facebook</button>
+            </div>
+            <form className="register-form" onSubmit={handleSubmit}>
+              <p>Signup with Email</p>
+              <label htmlfor="name"></label>
+              <input value={name} name="name" id="name" placeholder="First Name" />
+              <label htmlfor="name"></label>
+              <input value={name} name="name" id="name" placeholder=" Last Name" />
+              <label htnmlfor="email"></label>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder=" Email"
+                id="email"
+                name="email"
+              />
+              <label htmlfor="password"></label>
+              <input
+                value={pswd}
+                onChange={(e) => setPswd(e.target.value)}
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
+              />
+              <label htmlfor="password"></label>
+              <input
+                value={pswd}
+                onChange={(e) => setPswd(e.target.value)}
+                type="password"
+                placeholder="Confirm Password"
+                id="password"
+                name="password"
+              />
+              <button type="submit">Register </button>
+            </form>
+            <Link to={"/login"}>
+              <button
+                className="link-btn"
+              // onClick={() => props.onFormSwitch('Register')}
+              >
+                Already have an account? <a className="undereg-links" href="">Login</a>
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
 
+      
   );
-};
+};  
