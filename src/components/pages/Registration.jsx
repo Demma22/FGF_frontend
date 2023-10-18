@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [pswd, setPswd] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
+    console.log(email, firstName, lastName);
   };
 
   return (
@@ -17,7 +18,9 @@ export const Register = (props) => {
         <div  className="login-side-list">
           <div className="line-breaks">
             <h1>Help us Grow</h1>
-            <h1><br/> <br/>Indulge <br/>in <br/> Ugandan <br/> Diversity</h1>
+            <h4 id="reg-side">Build Ugandas no.1<br/>Biodiversity and Heritage<br/>encyclopedia</h4>
+            <h4 id="reg-side">Build Ugandas no.1<br/>Biodiversity and Heritage<br/>encyclopedia</h4>
+            <h4 id="reg-side">Build Ugandas no.1<br/>Biodiversity and Heritage<br/>encyclopedia</h4>
           </div>
         </div>
         <div>
@@ -29,10 +32,24 @@ export const Register = (props) => {
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
               <p>Signup with Email</p>
-              <label htmlfor="name"></label>
-              <input value={name} name="name" id="name" placeholder="First Name" />
-              <label htmlfor="name"></label>
-              <input value={name} name="name" id="name" placeholder=" Last Name" />
+              <label htmlFor="firstName"></label>
+              <input
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                type="text"
+                placeholder="First Name"
+                id="firstName"
+                name="firstName"
+              />
+              <label htmlFor="lastName"></label>
+              <input
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                type="text"
+                placeholder="Last Name"
+                id="lastName"
+                name="lastName"
+              />
               <label htnmlfor="email"></label>
               <input
                 value={email}
