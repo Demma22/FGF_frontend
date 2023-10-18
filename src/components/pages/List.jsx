@@ -1,53 +1,91 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function Search() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [allAnimals, setAllAnimals] = useState([]); // Store all animals from the API
+  const [selectedCategory, setSelectedCategory] = useState("animals"); // Default category
+
+  const [allAnimals, setAllAnimals] = useState([]);
+  const [allPlants, setAllPlants] = useState([]);
+  const [allCultures, setAllCultures] = useState([]);
 
   useEffect(() => {
-    // Define the API URL to fetch all animals
-    const allAnimalsApiUrl = 'https://fgf-app.onrender.com/api/docs/#/api/api_animals_animals_list';
-    // Define the API URL to search for animals
-   
-   
-    const searchApiUrl = `https://fgf-app.onrender.com/api/docs/#/api/api_animals_animals_list`;
-
-    // Fetch all animals from the API initially
-    fetch(allAnimalsApiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        
-        setAllAnimals(data); // Store all animals from the API
-      })
-      .catch((error) => {
-        console.error('Error fetching all animals:', error);
-      });
-    
-    // Ensure the searchTerm is not empty before making the search API request
-    if (searchTerm.trim() !== '') {
-      // Set loading state while fetching data
+    const fetchData = async () => {
       setLoading(true);
 
-      // Fetch data from the search API
-      fetch(searchApiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          setSearchResults(data); // Set the search results from the API response
-          setLoading(false); // Clear loading state
-        })
-        .catch((error) => {
-          console.error('Error fetching search results:', error);
-          setLoading(false); // Clear loading state
-        });
-    } else {
-      setSearchResults([]); // Clear the search results if the search term is empty
-    }
-  }, [searchTerm]);
+      // Define the API base URL
+      const baseUrl = "https://fgf-app.onrender.com/api/";
+
+      // Define the API URL for the selected category
+      let apiUrl = "";
+      if (selectedCategory === "animals") {
+        apiUrl = `${baseUrl}animals/`;
+      } else if (selectedCategory === "plants") {
+        apiUrl = `${baseUrl}plants/`;
+      } else if (selectedCategory === "cultures") {
+        apiUrl = `${baseUrl}cultures/cultures/clans/`;
+      }
+
+      // Fetch data from the selected category
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+
+      if (selectedCategory === "animals") {
+        setAllAnimals(data);
+      } else if (selectedCategory === "plants") {
+        setAllPlants(data);
+      } else if (selectedCategory === "cultures") {
+        setAllCultures(data);
+      }
+
+      setLoading(false);
+    };
+
+    fetchData();
+  }, [selectedCategory]);
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <div className="p-4">
+      <h2 className="text-3xl font-semibold mb-4 text-center">
+        Explore {selectedCategory}
+      </h2>
+      <div className="flex justify-center space-x-4">
+        <button
+          className={`${
+            selectedCategory === "animals"
+              ? "bg-green-500 text-white"
+              : "bg-green-800"
+          } hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full`}
+          onClick={() => handleCategoryChange("animals")}
+        >
+          Animals
+        </button>
+        <button
+          className={`${
+            selectedCategory === "plants"
+              ? "bg-green-500 text-white"
+              : "bg-green-800"
+          } hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full`}
+          onClick={() => handleCategoryChange("plants")}
+        >
+          Plants
+        </button>
+        <button
+          className={`${
+            selectedCategory === "cultures"
+              ? "bg-green-500 text-white"
+              : "bg-green-800"
+          } hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full`}
+          onClick={() => handleCategoryChange("cultures")}
+        >
+          Cultures
+        </button>
+      </div>
       <input
         type="text"
         placeholder="Search..."
@@ -55,24 +93,68 @@ function Search() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      {loading && <p>Loading...</p>}
-      <ul className="mt-2">
-        {searchResults.map((result) => (
-          <li key={result.id} className="py-2 border-b">
-            {result.english_name}
-            {/* Include a button or checkbox for selecting the animal here */}
-          </li>
-        ))}
-      </ul>
-      
-      <h2 className="mt-4 text-xl font-semibold">All Animals</h2>
-      <ul className="mt-2">
-        {allAnimals.map((animal) => (
-          <li key={animal.id} className="py-2 border-b">
-            {animal.local_name}
-            {/* Include a button or checkbox for selecting the animal here */}
-          </li>
-        ))}
+      {loading && <p className="text-center mt-4">Loading...</p>}
+      <ul className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {selectedCategory === "animals" &&
+          allAnimals.map((animal) => (
+            <li
+              key={animal.id}
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+            >
+              <img
+                src={animal.image} // Add the URL for animal images
+                alt={animal.english_name}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{animal.english_name}</h3>
+                <p className="text-gray-700">{animal.description}</p>
+                <button className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                  Select
+                </button>
+              </div>
+            </li>
+          ))}
+        {selectedCategory === "plants" &&
+          allPlants.map((plant) => (
+            <li
+              key={plant.id}
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+            >
+              <img
+                src={plant.image} // Add the URL for plant images
+                alt={plant.english_name}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{plant.english_name}</h3>
+                <p className="text-gray-700">{plant.description}</p>
+                <button className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+                  Select
+                </button>
+              </div>
+            </li>
+          ))}
+        {selectedCategory === "cultures" &&
+          allCultures.map((culture) => (
+            <li
+              key={culture.id}
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+            >
+              <img
+                src={culture.image} // Add the URL for culture images
+                alt={culture.clan_name}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{culture.clan_name}</h3>
+                <p className="text-gray-700">{culture.description}</p>
+                <button className="mt-2 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+                  Select
+                </button>
+              </div>
+            </li>
+          ))}
       </ul>
     </div>
   );

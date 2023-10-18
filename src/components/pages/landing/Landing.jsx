@@ -24,7 +24,7 @@ function Landing() {
       <section className="bg-green-900 text-white py-20 ml-9 mr-9 mt-5">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">Welcome to FuteGen Encyclopedia</h1>
-          <p className="text-lg">"Welcome to our platform dedicated to raising awareness about our environment, which includes the rich tapestry of animals, plants, and cultures. Our mission is to combat the loss of cultural knowledge and to foster a deeper connection with the world around us.
+          <p className="text-lg">"This platform is dedicated to raising awareness about our environment, which includes the rich tapestry of animals, plants, and cultures. Our mission is to combat the loss of cultural knowledge and to foster a deeper connection with the world around us.
 On this platform, you'll discover a wealth of information about a wide array of subjects, complete with captivating images that bring these topics to life. Whether you're here to learn or conduct research, our comprehensive resources are accessible to all users.
 We're united in our commitment to safeguarding our natural surroundings for the benefit of future generations. Together, we can ensure that the beauty and diversity of our world endure for years to come."</p>
         </div>
@@ -187,6 +187,8 @@ We're united in our commitment to safeguarding our natural surroundings for the 
               <a href="Login" className="text-blue-400 hover:underline"><button className="bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
                 Login
               </button></a>
+              
+              
             </div>
           </div>
         </div>

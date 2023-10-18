@@ -2,6 +2,7 @@
   "name": "fgf",
   "private": true,
   "version": "0.0.0",
+  "proxy": "https://fgf-app.onrender.com/",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +13,9 @@
   "dependencies": {
     "@mantine/core": "^6.0.20",
     "@mantine/hooks": "^6.0.20",
+    "chart.js": "^4.4.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0"
