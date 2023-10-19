@@ -3,13 +3,24 @@ import { Link } from "react-router-dom";
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
-  const [pswd, setPswd] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true); // State to track password matching
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, firstName, lastName);
+    if (password === confirmPassword) {
+      // Passwords match
+      console.log(email, firstName, lastName, password, confirmPassword);
+      setPasswordsMatch(true);
+      // Continue with registration logic
+    } else {
+      // Passwords don't match
+      setPasswordsMatch(false);
+    }
   };
 
   return (
@@ -59,24 +70,27 @@ export const Register = (props) => {
                 id="email"
                 name="email"
               />
-              <label htmlfor="password"></label>
+              <label htmlFor="password"></label>
               <input
-                value={pswd}
-                onChange={(e) => setPswd(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 placeholder="Password"
                 id="password"
                 name="password"
               />
-              <label htmlfor="password"></label>
+              <label htmlFor="confirmPassword"></label>
               <input
-                value={pswd}
-                onChange={(e) => setPswd(e.target.value)}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
                 placeholder="Confirm Password"
-                id="password"
-                name="password"
+                id="confirmPassword"
+                name="confirmPassword"
               />
+              {passwordsMatch ? null : (
+                <p className="error-message">Passwords do not match</p>
+              )}
               <button type="submit">Register </button>
             </form>
             <Link to={"/login"}>
@@ -90,8 +104,6 @@ export const Register = (props) => {
           </div>
         </div>
       </div>
-    </div>
-
-      
+    </div> 
   );
 };  
