@@ -3,24 +3,30 @@ import { Link } from "react-router-dom";
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [passwordsMatch, setPasswordsMatch] = useState(true); // State to track password matching
-
+  const [name, setName] = useState("");
+  const [pswd, setPswd] = useState("");
+  const [pswd2, setPswd2] = useState("");
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      // Passwords match
-      console.log(email, firstName, lastName, password, confirmPassword);
-      setPasswordsMatch(true);
-      // Continue with registration logic
-    } else {
-      // Passwords don't match
-      setPasswordsMatch(false);
-    }
+    console.log(email);
+
+    fetch("https://127.0.0.1:8000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        password: pswd,
+        password2: pswd2,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -29,9 +35,7 @@ export const Register = (props) => {
         <div  className="login-side-list">
           <div className="line-breaks">
             <h1>Help us Grow</h1>
-            <h4 id="reg-side">Build Ugandas no.1<br/>Biodiversity and Heritage<br/>encyclopedia</h4>
-            <h4 id="reg-side">Build Ugandas no.1<br/>Biodiversity and Heritage<br/>encyclopedia</h4>
-            <h4 id="reg-side">Build Ugandas no.1<br/>Biodiversity and Heritage<br/>encyclopedia</h4>
+            <h1><br/> <br/>Indulge <br/>in <br/> Ugandan <br/> Diversity</h1>
           </div>
         </div>
         <div>
@@ -43,24 +47,10 @@ export const Register = (props) => {
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
               <p>Signup with Email</p>
-              <label htmlFor="firstName"></label>
-              <input
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                type="text"
-                placeholder="First Name"
-                id="firstName"
-                name="firstName"
-              />
-              <label htmlFor="lastName"></label>
-              <input
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                type="text"
-                placeholder="Last Name"
-                id="lastName"
-                name="lastName"
-              />
+              <label htmlfor="name"></label>
+              <input value={name} name="name" id="name" placeholder="First Name" />
+              <label htmlfor="name"></label>
+              <input value={name} name="name" id="name" placeholder=" Last Name" />
               <label htnmlfor="email"></label>
               <input
                 value={email}
@@ -70,27 +60,24 @@ export const Register = (props) => {
                 id="email"
                 name="email"
               />
-              <label htmlFor="password"></label>
+              <label htmlfor="password"></label>
               <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={pswd}
+                onChange={(e) => setPswd(e.target.value)}
                 type="password"
                 placeholder="Password"
                 id="password"
                 name="password"
               />
-              <label htmlFor="confirmPassword"></label>
+              <label htmlfor="password"></label>
               <input
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={pswd}
+                onChange={(e) => setPswd(e.target.value)}
                 type="password"
                 placeholder="Confirm Password"
-                id="confirmPassword"
-                name="confirmPassword"
+                id="password"
+                name="password"
               />
-              {passwordsMatch ? null : (
-                <p className="error-message">Passwords do not match</p>
-              )}
               <button type="submit">Register </button>
             </form>
             <Link to={"/login"}>
@@ -104,6 +91,8 @@ export const Register = (props) => {
           </div>
         </div>
       </div>
-    </div> 
+    </div>
+
+      
   );
 };  

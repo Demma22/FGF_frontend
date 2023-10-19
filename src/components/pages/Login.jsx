@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 
 export const Login = (props) => {
-    const [email, setEmail] = useState('');
-    const [pswd, setPswd] = useState('');
+  const [email, setEmail] = useState('');
+  const [pswd, setPswd] = useState('');
 
     const handleSubmit =(e) =>{
         e.preventDefault();

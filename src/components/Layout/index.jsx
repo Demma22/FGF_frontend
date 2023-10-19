@@ -2,6 +2,10 @@ import { Sidebar } from "../menu/Sidebar";
 import { Header } from "../Header";
 
 export function Layout({ children }) {
+
+
+
+
     return (
         // <main className="flex w-screen h-screen items-center justify-between outline fixed">
         <main className="flex w-screen h-screen items-start justify-start fixed top-0 left-0">
