@@ -1,33 +1,40 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { TextInput, Button, Paper, Col, Container, Text, Checkbox } from '@mantine/core';
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [pswd, setPswd] = useState("");
   const [pswd2, setPswd2] = useState("");
+  const [name, setName] = useState("");
   
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     console.log(email);
 
-    fetch("https://127.0.0.1:8000/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    try {
+      const response = await axios.post('http://localhost:8000/register/', {
         email: email,
-        name: name,
-        password: pswd,
+        username: username,
+        password1: pswd,
         password2: pswd2,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
-  };
+        name: name,
+
+      });
+
+      if (response.ok) {
+        console.log('Successfully register!');
+        navigate("/Layout")
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+    }
+  }
+
 
   return (
     <div className="square-block">
@@ -48,17 +55,26 @@ export const Register = (props) => {
             <form className="register-form" onSubmit={handleSubmit}>
               <p>Signup with Email</p>
               <label htmlfor="name"></label>
-              <input value={name} name="name" id="name" placeholder="First Name" />
+              <input value={name} name="name" id="name" placeholder="Name" />
               <label htmlfor="name"></label>
-              <input value={name} name="name" id="name" placeholder=" Last Name" />
+              
+              <input 
+              value={username} 
+              onChange={(e) => setUsername(e.target.value)}
+              name="username" 
+              //id="name" 
+              placeholder=" Username" 
+              />
+              
               <label htnmlfor="email"></label>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder=" Email"
-                id="email"
-                name="email"
+                //id="email"
+                //name="email"
+                required
               />
               <label htmlfor="password"></label>
               <input
@@ -66,17 +82,18 @@ export const Register = (props) => {
                 onChange={(e) => setPswd(e.target.value)}
                 type="password"
                 placeholder="Password"
-                id="password"
-                name="password"
+                //id="password"
+                //name="password"
+                required
               />
               <label htmlfor="password"></label>
               <input
-                value={pswd}
-                onChange={(e) => setPswd(e.target.value)}
+                value={pswd2}
+                onChange={(e) => setPswd2(e.target.value)}
                 type="password"
                 placeholder="Confirm Password"
-                id="password"
-                name="password"
+                //id="password"
+                //name="password"
               />
               <button type="submit">Register </button>
             </form>

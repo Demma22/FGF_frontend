@@ -1,15 +1,58 @@
-import React, {useState} from "react"
-import { Link } from "react-router-dom";
-
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { Button, TextInput, Text, Group, Box } from "@mantine/core";
 
 export const Login = (props) => {
-  const [email, setEmail] = useState('');
-  const [pswd, setPswd] = useState('');
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  // const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
+  // const users = [{ username: "Fgf", password: "testpassword" }];
+  // const [isLoggedIn,setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
-    const handleSubmit =(e) =>{
-        e.preventDefault();
-        console.log(email);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      email: '',
+      password: '',
+    });
+  };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+  // Clear the form inputs
+  //setEmail('');
+  //setPswd('');
+
+    /* const account = users.find((user) => user.username === username);
+    if (account && account.password === password) {
+      setauthenticated(true)
+      localStorage.setItem("authenticated", true);
+    }
+    // Create a data object with the form values
+    const login = {
+      email: email,
+      password: pswd,
+    }; */
+
+      try {
+        const response = await axios.post('http://localhost:8000/login/', {
+          email: formData.email,
+          password: formData.password,
+        });
+
+        if (response.data.email === email) {
+          navigate("/Layout")
+        }else if (response.data.email === "is_contributor"){
+          navigate("/Layout")
+        }
+      } catch (error) {
+        console.error('Error logging in:', error);
+      }
     }
     return (
       <div className="square-block">
@@ -25,23 +68,21 @@ export const Login = (props) => {
             <button><img className="login-logo" src="imgs/login/google_logo.png" alt="" /></button>
             <button><img className="login-logo" src="imgs/login/Facebook-Logo-2019.png" alt="facebookLogo" /></button>
             <form className="login-form" onSubmit={handleSubmit}>
-              <label htmlfor="email"></label>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                placeholder="Username/Email"
-                id="email"
+              
+            <TextInput
+                value={formData.email}
+                onChange={handleInputChange}
                 name="email"
+                placeholder="Username/Email"
+                label="Email"
               />
-              <label htmlfor="password">  </label>
-              <input
-                value={pswd}
-                onChange={(e) => setPswd(e.target.value)}
+              <TextInput
+                value={formData.password}
+                onChange={handleInputChange}
+                name="password"
                 type="password"
                 placeholder="Password"
-                id="password"
-                name="password"
+                label="Password"
               />
               <button type="submit" className="login-button">Log In </button>
               <div>
