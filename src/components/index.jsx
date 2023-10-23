@@ -11,3 +11,4 @@ export * from "./pages/Contribute";
 
 export * from "./pages/AnimalForm";
 export * from "./pages/PlantForm";
+export * from "./pages/Contributors"
