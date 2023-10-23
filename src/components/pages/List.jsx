@@ -111,7 +111,7 @@ function Search() {
       <input
         type="text"
         placeholder="Search..."
-        className="w-1/2 px-3 py-2 border rounded-md focus:outline-none focus:border-green-600 mt-3"
+        className="w-2/3 px-3 py-2 border rounded-md focus:outline-none focus:border-green-600 mt-3"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
@@ -181,7 +181,7 @@ function Search() {
         selectedCategory === "animals" && (
           <li
             key={animal.id}
-            className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+            className="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:bg-green-100"
           >
             <img
               src={animal.image}
@@ -202,7 +202,7 @@ function Search() {
           selectedCategory === "plants" && (
             <li
               key={plant.id}
-              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:bg-green-100"
             >
               <img
                 src={plant.image}
@@ -224,7 +224,7 @@ function Search() {
           selectedCategory === "cultures" && (
             <li
               key={culture.id}
-              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:bg-green-100"
             >
               <img
                 src={culture.image}
