@@ -72,9 +72,9 @@ We're united in our commitment to safeguarding our natural surroundings for the 
       </section>
 
       <div className='description ml-10 mr-10 mb-10'>
+      
       {/* Create an Account */}
-
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-2 mb-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 text-blue-500"
@@ -91,7 +91,7 @@ We're united in our commitment to safeguarding our natural surroundings for the 
         </svg>
         <p className="text-xl font-semibold">Create an Account</p>
       </div>
-      <p className="text-gray-600">
+      <p className="text-gray-600 mb-20">
         Unlock a world of exclusive features and captivating content by signing up for an account. With your own account, you can log in at any time to embark on research journeys, expand your knowledge, and immerse yourself in the rich tapestry of information about our environment, culture, and the steps we can take to ensure a brighter future for generations to come. If you share our mission of nurturing our culture and surroundings, we invite you to{' '}
         <a href="/register" className="text-blue-500 hover:underline">
           Register here
@@ -117,7 +117,7 @@ We're united in our commitment to safeguarding our natural surroundings for the 
         </svg>
         <p className="text-xl font-semibold">Search Item</p>
       </div>
-      <p className="text-gray-600">
+      <p className="text-gray-600 mb-20">
         With our platform, you can search for your preferred items in a language that feels like second nature to you. Dive into a world of exploration, whether it's unraveling the mysteries of nature, delving deep into cultural treasures, or satisfying your curiosity on a wide range of subjects. You can query/search items you need{' '}
         <a href="/search" className="text-blue-500 hover:underline">
           here
@@ -143,7 +143,7 @@ We're united in our commitment to safeguarding our natural surroundings for the 
         </svg>
         <p className="text-xl font-semibold">Provide Information (Contribute)</p>
       </div>
-      <p className="text-gray-600">
+      <p className="text-gray-600 mb-20">
         Share your knowledge and contribute to our community's growth. We appreciate your contribution of vital information, and with a registered account, you can always contribute to this platform's purpose. You can also provide more insights or corrections to already existing information. Contribution in any language is welcome. Information provided will be published and accessible to all users.{' '}
         <a href="/contribute" className="text-blue-500 hover:underline">
           Contribute here

@@ -14,10 +14,10 @@ function Search() {
     const fetchData = async () => {
       setLoading(true);
 
-      // Define the API base URL
+      // Definining the API base URL
       const baseUrl = "https://fgf-app.onrender.com/api/";
 
-      // Define the API URL for the selected category
+      // Definining the API URL for the selected category
       let apiUrl = "";
       if (selectedCategory === "animals") {
         apiUrl = `${baseUrl}animals/animals/`;
@@ -60,7 +60,7 @@ function Search() {
             selectedCategory === "animals"
               ? "bg-red-600 text-white"
               : "bg-green-800"
-          } hover:bg-green-900 text-white font-bold py-2 px-4`}
+          } hover:bg-green-800 text-white font-bold py-1 px-10`}
           onClick={() => handleCategoryChange("animals")}
         >
           Animals
@@ -70,7 +70,7 @@ function Search() {
             selectedCategory === "plants"
               ? "bg-red-600 text-white"
               : "bg-green-800"
-          } hover:bg-green-900 text-white font-bold py-2 px-4`}
+          } hover:bg-green-800 text-white font-bold py-2 px-10`}
           onClick={() => handleCategoryChange("plants")}
         >
           Plants
@@ -80,22 +80,25 @@ function Search() {
             selectedCategory === "cultures"
               ? "bg-red-600 text-white"
               : "bg-green-800"
-          } hover:bg-green-900 text-white font-bold py-2 px-4`}
+          } hover:bg-green-800 text-white font-bold py-2 px-10`}
           onClick={() => handleCategoryChange("cultures")}
         >
           Cultures
         </button>
-      </div>
+        </div>
+ 
+      <div className="flex justify-center">
       <input
         type="text"
         placeholder="Search..."
-        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-green-500"
+        className="w-1/2 px-3 py-2 border rounded-md focus:outline-none focus:border-green-600 mt-3"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      </div>
 
       {loading && <p className="text-center mt-4">Loading...</p>}
-      <ul className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mr-10 ml-10">
         {selectedCategory === "animals" &&
           allAnimals.map((animal) => (
             <li
