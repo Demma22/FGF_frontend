@@ -45,6 +45,26 @@ function Search() {
     fetchData();
   }, [selectedCategory]);
 
+  useEffect(() => {
+    // Filter and update search results when the search term changes
+    const filteredResults = selectedCategory === "animals"
+      ? allAnimals.filter(animal =>
+        animal.english_name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      : selectedCategory === "plants"
+      ? allPlants.filter(plant =>
+        plant.botanical_name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      : selectedCategory === "cultures"
+      ? allCultures.filter(culture =>
+        culture.clan_name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      : [];
+
+    setSearchResults(filteredResults);
+  }, [searchTerm, allAnimals, allPlants, allCultures, selectedCategory]);
+
+
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
   };
@@ -98,34 +118,94 @@ function Search() {
       </div>
 
       {loading && <p className="text-center mt-4">Loading...</p>}
+     
       <ul className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mr-10 ml-10">
-        {selectedCategory === "animals" &&
-          allAnimals.map((animal) => (
-            <li
-              key={animal.id}
-              className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
-            >
-              <img
-                src={animal.image} // Add the URL for animal images
-                alt={animal.english_name}
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">
-                  {animal.english_name}
-                </h3>
-                <p className="text-gray-700">{animal.description}</p>
-              </div>
-            </li>
-          ))}
-        {selectedCategory === "plants" &&
-          allPlants.map((plant) => (
+  {searchTerm
+    ? searchResults.length > 0
+      ? searchResults.map((item) => (
+          <li
+            key={item.id}
+            className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+          >
+            <div>
+              {selectedCategory === "animals" && (
+                <>
+                  <img
+                    src={item.image}
+                    alt={item.english_name}
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold mb-2">
+                      {item.english_name}
+                    </h3>
+                    <p className="text-gray-700">{item.description}</p>
+                  </div>
+                </>
+              )}
+              {selectedCategory === "plants" && (
+                <>
+                  <img
+                    src={item.image}
+                    alt={item.botanical_name}
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold mb-2">
+                      {item.botanical_name}
+                    </h3>
+                    <p className="text-gray-700">{item.notes}</p>
+                  </div>
+                </>
+              )}
+              {selectedCategory === "cultures" && (
+                <>
+                  <img
+                    src={item.image}
+                    alt={item.clan_name}
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold mb-2">
+                      {item.clan_name}
+                    </h3>
+                    <p className="text-gray-700">{item.description}</p>
+                  </div>
+                </>
+              )}
+            </div>
+          </li>
+        ))
+      : <li className="text-center">No Results Found</li>
+    : allAnimals.map((animal) => (
+        selectedCategory === "animals" && (
+          <li
+            key={animal.id}
+            className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
+          >
+            <img
+              src={animal.image}
+              alt={animal.english_name}
+              className="w-full h-40 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2">
+                {animal.english_name}
+              </h3>
+              <p className="text-gray-700">{animal.description}</p>
+            </div>
+          </li>
+        )
+      ))
+      .concat(
+        allPlants.map((plant) => (
+          selectedCategory === "plants" && (
             <li
               key={plant.id}
               className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
             >
               <img
-                src={plant.image} // Add the URL for plant images
+                src={plant.image}
                 alt={plant.botanical_name}
                 className="w-full h-40 object-cover"
               />
@@ -136,15 +216,18 @@ function Search() {
                 <p className="text-gray-700">{plant.notes}</p>
               </div>
             </li>
-          ))}
-        {selectedCategory === "cultures" &&
-          allCultures.map((culture) => (
+          )
+        ))
+      )
+      .concat(
+        allCultures.map((culture) => (
+          selectedCategory === "cultures" && (
             <li
               key={culture.id}
               className="border border-gray-200 rounded-lg overflow-hidden shadow-lg"
             >
               <img
-                src={culture.image} // Add the URL for culture images
+                src={culture.image}
                 alt={culture.clan_name}
                 className="w-full h-40 object-cover"
               />
@@ -155,9 +238,13 @@ function Search() {
                 <p className="text-gray-700">{culture.description}</p>
               </div>
             </li>
-          ))}
-      </ul>
-    </div>
+          )
+        ))
+      )
+  }
+</ul>
+
+</div>
   );
 }
 
