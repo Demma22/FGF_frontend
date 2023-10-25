@@ -12,6 +12,7 @@ import Search from './components/pages/List';
 import { Layout } from "./components/Layout";
 import AnimalForm from "./components/pages/AnimalForm";
 import PlantForm from "./components/pages/PlantForm";
+import Contributor from "./components/pages/Contributors";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/Layout" element={<Layout />} />
         <Route path="/AnimalForm" element={<AnimalForm />} />
         <Route path="/PlantForm" element={<PlantForm />} />
+        <Route path="/Contributors" element={<Contributor />} />
 
 
       </Routes>

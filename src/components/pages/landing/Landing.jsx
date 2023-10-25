@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Header } from '../../Header';
 
 function Landing() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,15 +21,23 @@ function Landing() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-green-900 text-white py-20 ml-9 mr-9 mt-5">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4">Welcome to FuteGen Encyclopedia</h1>
-          <p className="text-lg">"Welcome to our platform dedicated to raising awareness about our environment, which includes the rich tapestry of animals, plants, and cultures. Our mission is to combat the loss of cultural knowledge and to foster a deeper connection with the world around us.
-On this platform, you'll discover a wealth of information about a wide array of subjects, complete with captivating images that bring these topics to life. Whether you're here to learn or conduct research, our comprehensive resources are accessible to all users.
-We're united in our commitment to safeguarding our natural surroundings for the benefit of future generations. Together, we can ensure that the beauty and diversity of our world endure for years to come."</p>
-        </div>
-      </section>
+{/* Hero Section */}
+<section className="bg-green-900 text-white py-20 ml-9 mr-9 mt-5">
+  <div className="container mx-auto text-center">
+    <h1 className="text-4xl font-bold mb-4">Welcome to FuteGen Encyclopedia</h1>
+    <p className="text-lg leading-relaxed">
+      "This platform is dedicated to raising awareness about our environment, which includes the rich tapestry of animals, plants, and cultures. Our mission is to combat the loss of cultural knowledge and to foster a deeper connection with the world around us.
+      On this platform, you'll discover a wealth of information about a wide array of subjects, complete with captivating images that bring these topics to life. Whether you're here to learn or conduct research, our comprehensive resources are accessible to all users.
+      We're united in our commitment to safeguarding our natural surroundings for the benefit of future generations. Together, we can ensure that the beauty and diversity of our world endure for years to come."
+    </p>
+    <div className="mt-8">
+      <a href="/Login" className="text-xl font-semibold border-b-2 border-white hover:border-green-400">
+        Explore Now
+      </a>
+    </div>
+  </div>
+</section>
+
 
       {/* Cards Section */}
       <section className="py-10">
@@ -72,9 +81,9 @@ We're united in our commitment to safeguarding our natural surroundings for the 
       </section>
 
       <div className='description ml-10 mr-10 mb-10'>
+      
       {/* Create an Account */}
-
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-2 mb-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 text-blue-500"
@@ -91,7 +100,7 @@ We're united in our commitment to safeguarding our natural surroundings for the 
         </svg>
         <p className="text-xl font-semibold">Create an Account</p>
       </div>
-      <p className="text-gray-600">
+      <p className="text-gray-600 mb-20">
         Unlock a world of exclusive features and captivating content by signing up for an account. With your own account, you can log in at any time to embark on research journeys, expand your knowledge, and immerse yourself in the rich tapestry of information about our environment, culture, and the steps we can take to ensure a brighter future for generations to come. If you share our mission of nurturing our culture and surroundings, we invite you to{' '}
         <a href="/register" className="text-blue-500 hover:underline">
           Register here
@@ -117,7 +126,7 @@ We're united in our commitment to safeguarding our natural surroundings for the 
         </svg>
         <p className="text-xl font-semibold">Search Item</p>
       </div>
-      <p className="text-gray-600">
+      <p className="text-gray-600 mb-20">
         With our platform, you can search for your preferred items in a language that feels like second nature to you. Dive into a world of exploration, whether it's unraveling the mysteries of nature, delving deep into cultural treasures, or satisfying your curiosity on a wide range of subjects. You can query/search items you need{' '}
         <a href="/search" className="text-blue-500 hover:underline">
           here
@@ -143,7 +152,7 @@ We're united in our commitment to safeguarding our natural surroundings for the 
         </svg>
         <p className="text-xl font-semibold">Provide Information (Contribute)</p>
       </div>
-      <p className="text-gray-600">
+      <p className="text-gray-600 mb-20">
         Share your knowledge and contribute to our community's growth. We appreciate your contribution of vital information, and with a registered account, you can always contribute to this platform's purpose. You can also provide more insights or corrections to already existing information. Contribution in any language is welcome. Information provided will be published and accessible to all users.{' '}
         <a href="/contribute" className="text-blue-500 hover:underline">
           Contribute here

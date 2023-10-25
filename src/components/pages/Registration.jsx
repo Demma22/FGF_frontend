@@ -39,18 +39,32 @@ export const Register = (props) => {
   return (
     <div className="square-block">
       <div className="main-container">
-        <div  className="login-side-list">
+        <div className="login-side-list">
           <div className="line-breaks">
             <h1>Help us Grow</h1>
-            <h1><br/> <br/>Indulge <br/>in <br/> Ugandan <br/> Diversity</h1>
+            <h1>
+              <br /> <br /> Indulge <br /> in <br /> Ugandan <br /> Diversity
+            </h1>
           </div>
         </div>
         <div>
           <div className="auth-form-Container register">
-            <h2> Register <span><img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" /></span></h2>
+            <h2>
+              Register{" "}
+              <span>
+                <img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" />
+              </span>
+            </h2>
             <div>
-              <button><img className="register" src="imgs/regimages/icons-google.png" alt="google-logo" />Signup with Google</button><br />
-              <button><img className="register" src="imgs/regimages/facebook-logo.png" alt="facebook-logo" />Signup with facebook</button>
+              <button>
+                <img className="register" src="imgs/regimages/icons-google.png" alt="google-logo" />
+                Signup with Google
+              </button>
+              <br />
+              <button>
+                <img className="register" src="imgs/regimages/facebook-logo.png" alt="facebook-logo" />
+                Signup with Facebook
+              </button>
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
               <p>Signup with Email</p>
@@ -76,7 +90,7 @@ export const Register = (props) => {
                 //name="email"
                 required
               />
-              <label htmlfor="password"></label>
+              <label htmlFor="password"></label>
               <input
                 value={pswd}
                 onChange={(e) => setPswd(e.target.value)}
@@ -86,8 +100,10 @@ export const Register = (props) => {
                 //name="password"
                 required
               />
-              <label htmlfor="password"></label>
+              <label htmlFor="password"></label>
               <input
+                value={pswd2}
+                onChange={(e) => setPswd2(e.target.value)}
                 value={pswd2}
                 onChange={(e) => setPswd2(e.target.value)}
                 type="password"
@@ -95,13 +111,10 @@ export const Register = (props) => {
                 //id="password"
                 //name="password"
               />
-              <button type="submit">Register </button>
+              <button type="submit">Register</button>
             </form>
-            <Link to={"/login"}>
-              <button
-                className="link-btn"
-              // onClick={() => props.onFormSwitch('Register')}
-              >
+            <Link to="/login">
+              <button className="link-btn">
                 Already have an account? <a className="undereg-links" href="">Login</a>
               </button>
             </Link>
@@ -109,7 +122,5 @@ export const Register = (props) => {
         </div>
       </div>
     </div>
-
-      
   );
-};  
+};
