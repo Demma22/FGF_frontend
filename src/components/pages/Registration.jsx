@@ -104,8 +104,6 @@ export const Register = (props) => {
               <input
                 value={pswd2}
                 onChange={(e) => setPswd2(e.target.value)}
-                value={pswd2}
-                onChange={(e) => setPswd2(e.target.value)}
                 type="password"
                 placeholder="Confirm Password"
                 //id="password"

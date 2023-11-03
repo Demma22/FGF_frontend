@@ -107,7 +107,7 @@ export default function Animal () {
                         <TextInput
                         label="Name"
                         value={animal_name}
-                        onChange={(event) => setEngName(event.target.value)}
+                        onChange={(event) => setLocalName(event.target.value)}
                         description="Name in one of Uganda's Native Language"
                         error="*"
                         />
