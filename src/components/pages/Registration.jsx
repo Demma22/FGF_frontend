@@ -1,39 +1,40 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { TextInput, Button, Paper, Col, Container, Text, Checkbox } from '@mantine/core';
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
   const [pswd, setPswd] = useState("");
   const [pswd2, setPswd2] = useState("");
+  const [name, setName] = useState("");
+  
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(email);
 
-    // Check if passwords match
-    if (pswd !== pswd2) {
-      console.error("Passwords do not match");
-      return;
-    }
-
-    fetch("https://127.0.0.1:8000/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    try {
+      const response = await axios.post('http://localhost:8000/register/', {
         email: email,
-        firstName: firstName,
-        lastName: lastName,
-        pswd: pswd, // Using "pswd" field name
-        pswd2: pswd2, // Using "pswd2" field name
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
-  };
+        username: username,
+        password1: pswd,
+        password2: pswd2,
+        name: name,
+
+      });
+
+      if (response.ok) {
+        console.log('Successfully register!');
+        navigate("/Layout")
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+    }
+  }
+
 
   return (
     <div className="square-block">
@@ -67,50 +68,46 @@ export const Register = (props) => {
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
               <p>Signup with Email</p>
-              <label htmlFor="firstName"></label>
-              <input
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                type="text"
-                id="firstName"
-                name="firstName"
-                placeholder="First Name"
+              <label htmlfor="name"></label>
+              <input value={name} name="name" id="name" placeholder="Name" />
+              <label htmlfor="name"></label>
+              
+              <input 
+              value={username} 
+              onChange={(e) => setUsername(e.target.value)}
+              name="username" 
+              //id="name" 
+              placeholder=" Username" 
               />
-              <label htmlFor="lastName"></label>
-              <input
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="Last Name"
-              />
-              <label htmlFor="email"></label>
+              
+              <label htnmlfor="email"></label>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                id="email"
-                name="email"
-                placeholder="Email"
+                placeholder=" Email"
+                //id="email"
+                //name="email"
+                required
               />
               <label htmlFor="password"></label>
               <input
                 value={pswd}
                 onChange={(e) => setPswd(e.target.value)}
                 type="password"
-                id="password"
-                name="password"
                 placeholder="Password"
+                //id="password"
+                //name="password"
+                required
               />
               <label htmlFor="password"></label>
               <input
                 value={pswd2}
                 onChange={(e) => setPswd2(e.target.value)}
                 type="password"
-                id="password"
-                name="password"
                 placeholder="Confirm Password"
+                //id="password"
+                //name="password"
               />
               <button type="submit">Register</button>
             </form>

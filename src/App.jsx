@@ -11,8 +11,9 @@ import Logout from './components/pages/Logout';
 import Search from './components/pages/List';
 import { Layout } from "./components/Layout";
 import AnimalForm from "./components/pages/AnimalForm";
-import PlantForm from "./components/pages/PlantForm";
+import CreatePlant from "./components/pages/CreatePlant";
 import Contributor from "./components/pages/Contributors";
+import ListPlant from "./components/pages/ListPlant";
 
 
 function App() {
@@ -30,7 +31,8 @@ function App() {
         <Route path="/Search" element={<Search />} />
         <Route path="/Layout" element={<Layout />} />
         <Route path="/AnimalForm" element={<AnimalForm />} />
-        <Route path="/PlantForm" element={<PlantForm />} />
+        <Route path="/CreatePlant" element={<CreatePlant />} />
+        <Route path="/ListPlant" element={<ListPlant />} />
         <Route path="/Contributors" element={<Contributor />} />
 
 

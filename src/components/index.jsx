@@ -10,5 +10,6 @@ export * from "./pages/List";
 export * from "./pages/Contribute";
 
 export * from "./pages/AnimalForm";
-export * from "./pages/PlantForm";
-export * from "./pages/Contributors"
+export * from "./pages/CreatePlant";
+export * from "./pages/ListPlant";
+export * from "./pages/Contributors";
