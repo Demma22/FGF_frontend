@@ -56,7 +56,7 @@ export default function ListPlant () {
     const image_url = 'http://localhost:8000/api/plants/id/plant_images/';
 
     useEffect(() => {
-        axios.get(url)  // Adjust the URL as needed
+        axios.get(url)  
           .then((response) => {
             setPlants(response.data);
           })
@@ -68,17 +68,6 @@ export default function ListPlant () {
     const handleSubmit = (e) => {
         e.preventDefault();
             
-        /* axios
-            // Use the 'posts' object to send data
-            .get("http://localhost:8000/api/plants/", formData, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-        }) 
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err)); */
-      
-        //navigate("/");
     };
 
   return (

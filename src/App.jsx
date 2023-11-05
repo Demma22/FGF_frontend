@@ -14,6 +14,10 @@ import CreatePlant from "./components/pages/CreatePlant";
 import Contributor from "./components/pages/Contributors";
 import ListPlant from "./components/pages/ListPlant";
 import CreateAnimal from "./components/pages/CreateAnimal";
+import CreateCulture from "./components/pages/Culture/CreateCulture";
+import CreateEthnicity from "./components/pages/Culture/CreateEthnicity";
+import CreateClan from "./components/pages/Culture/CreateClan";
+import CreateKingdom from "./components/pages/Culture/CreateKingdom";
 
 
 function App() {
@@ -34,6 +38,11 @@ function App() {
         <Route path="/CreatePlant" element={<CreatePlant />} />
         <Route path="/ListPlant" element={<ListPlant />} />
         <Route path="/Contributors" element={<Contributor />} />
+
+        <Route path="/CreateCulture" element={<CreateCulture />} />
+        <Route path="/CreateEthnicity" element={<CreateEthnicity />} />
+        <Route path="/CreateClan" element={<CreateClan />} />
+        <Route path="/CreateKingdom" element={<CreateKingdom />} />
 
 
       </Routes>

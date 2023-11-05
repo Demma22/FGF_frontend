@@ -13,3 +13,5 @@ export * from "./pages/CreateAnimal";
 export * from "./pages/CreatePlant";
 export * from "./pages/ListPlant";
 export * from "./pages/Contributors";
+
+export * from "./pages/Culture";
