@@ -13,3 +13,4 @@ export * from "./pages/AnimalForm";
 export * from "./pages/CreatePlant";
 export * from "./pages/ListPlant";
 export * from "./pages/Contributors";
+export * from ",/pages/CultureForm";

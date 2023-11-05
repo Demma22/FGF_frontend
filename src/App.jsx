@@ -14,6 +14,7 @@ import AnimalForm from "./components/pages/AnimalForm";
 import CreatePlant from "./components/pages/CreatePlant";
 import Contributor from "./components/pages/Contributors";
 import ListPlant from "./components/pages/ListPlant";
+import CultureForm from "./components/pages/CultureForm";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/CreatePlant" element={<CreatePlant />} />
         <Route path="/ListPlant" element={<ListPlant />} />
         <Route path="/Contributors" element={<Contributor />} />
+        <Route path="/CultureForm" element={<CultureForm />} />
 
 
       </Routes>
