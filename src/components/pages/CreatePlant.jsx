@@ -93,7 +93,6 @@ export default function CreatePlant () {
           .then((res) => console.log(res))
           .catch((err) => console.log(err));
       
-        //navigate("/");
     };
 
     const lifeFormOptions = [
@@ -320,93 +319,3 @@ export default function CreatePlant () {
   )
   }
 
-  
-
-
-  /* const [botanical_name, setBotName] = useState("");
-    const [medicinal_plant, setMedPlant] = useState("");
-    const [names, setNames] = useState(""); 
-    const [language, setLanguage] = useState("")
-    const [description, setDescrip] = useState(""); 
-    const [region_in_Uganda, setRegion] = useState("");
-    const [habitat, setHabitat] = useState("");
-    const [life_form, setLifeForm] = useState("");
-    const [health_issues, setHealthIssues] = useState("");
-    const [part_used, setPartUsed] = useState("");
-    const [preparation_steps, setSteps] = useState("");
-    const [dosage, setDose] = useState("");
-    const [contraindications, setContIndic] = useState("");
-    const [shelf_life, setShelfLife] = useState("");    
-    const [social_value, setSocialVal] = useState("");
-    const [economical_value, setEcoVal]  = useState(""); 
-    const [cultural_value, setCulturalVals] = useState(""); 
-    const [other_value, setOtherVal] =  useState("");
-    
-    const [notes, setNotes] = useState("");
-    const [contributor_name, setContribName] = useState("");
-    const [citation, setCitation] = useState(""); */
-
-    
-
-/*
-      const handleSubmit = async (event) => {
-        event.preventDefault();
-        // Clear the form inputs
-        setBotName('');
-        setMedPlant(''); 
-        setNames('');
-        setLanguage('');
-        setDescrip('');
-        setRegion('');
-        setHabitat('');
-        setLifeForm('');
-        setHealthIssues('');
-        setPartUsed('');
-        setSteps('');
-        setDose('');
-        setContIndic('');
-        setShelfLife('');
-        setSocialVal('');
-        setEcoVal('');
-        setCulturalVals('');
-        setOtherVal('');
-        setNotes('');
-        setContribName('');
-        setCitation('');
-      
-        try {
-          const response = await axios.post(url, {
-            botanical_name: botanical_name,
-            medicinal_plant: medicinal_plant,
-            names: names,
-            language: language,
-            description: description,
-            region_in_Uganda: region_in_Uganda,
-            habitat: habitat,
-            life_form: life_form,
-            health_issues: health_issues,
-            part_used: part_used,
-            preparation_steps: preparation_steps,
-            dosage: dosage,
-            contraindications: contraindications,
-            shelf_life: shelf_life,
-            social_value: social_value,
-            economical_value: economical_value,
-            cultural_value: cultural_value, 
-            other_value: other_value, 
-            notes: notes,
-            contributor_name: contributor_name,
-          }, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
-  
-          if (response.ok) {
-            navigate("/Layout")
-          }else{
-            console.error('Error Submitting details');
-            navigate("/Plant")
-          }
-  
-          
-        } catch (error) {
-          console.error('Error logging in:', error);
-        }
-      } */
