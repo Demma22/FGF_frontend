@@ -117,17 +117,19 @@ export default function ListPlant () {
         
         {plants.map((plant) => (
           <Grid.Col span={4} key={plant.id} >
-            <Card shadow="sm" padding="lg" radius="md" withBorder>
+            <Card shadow="sm" padding="lg" radius="md" withBorder style={{ backgroundColor: '#112A00', color:'white' }}> 
+            {/* #8EBD6C */}
               
 
               <Group justify="space-between" mt="md" mb="xs">
-                <Text fw={500}>{plant.botanical_name}</Text>
+                <Text fw={500} >{plant.botanical_name}</Text>
                 <Badge color="orange" variant="light">
                   {plant.medicinal_plant}
                 </Badge>
               </Group>
 
-              <Text size="sm" c="dimmed">
+              {/* <Text size="sm" c="dimmed"> */}
+              <Text size="sm"y>
                 {plant.names} ({plant.language})
               </Text>
               <Text>Region: {plant.region_in_Uganda}</Text>
@@ -148,7 +150,7 @@ export default function ListPlant () {
                 />
               </Card.Section>
 
-              <Button variant="light" type="" color="green" fullWidth mt="md" radius="md">
+              <Button type="" color="green.0" variant="filled" c="black" fullWidth mt="md" radius="md">
                   View More
               </Button>
             </Card>
