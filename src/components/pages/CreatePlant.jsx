@@ -114,7 +114,7 @@ export default function CreatePlant () {
             <Title order={3}> ADD NEW PLANT</Title> 
         </Container>   
         {/* <Grid columns={{ xs: 2, sm: 2, md: 3 }} gap="md"> */}
-        <Container className='container' container-fluid shadow="sm" id="form">
+        <Container className='container' container-fluid='true' shadow="sm" id="form">
               
             <form onSubmit={handleSubmit}>
                 {/* <Grid> */}
