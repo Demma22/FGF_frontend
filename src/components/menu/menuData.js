@@ -8,9 +8,22 @@ import {
 
 export const menuData = {
     admin: [
+        
         {
-            label: "Entries",
-            link: "/entries",
+            label: "Animals",
+            link: "/ListAnimals",
+            icon: FaRegListAlt,
+            roles: ['administrator'],
+        },
+        {
+            label: "Plants",
+            link: "/ListPlant",
+            icon: FaRegListAlt,
+            roles: ['administrator', 'contributor'],
+        },
+        {
+            label: "Cultures",
+            link: "/ListCultures",
             icon: FaRegListAlt,
             roles: ['administrator', 'contributor'],
         },

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, TextInput, Text, Title, Group, Grid, Select, FileInput } from "@mantine/core";
-
+import { Container, Button, TextInput, Text, Title, Box, Grid, Select, FileInput, Textarea } from "@mantine/core";
+import "./Plant.css"
 import { Layout } from "../Layout"
 
 export default function CreatePlant () {  
@@ -93,7 +93,6 @@ export default function CreatePlant () {
           .then((res) => console.log(res))
           .catch((err) => console.log(err));
       
-        //navigate("/");
     };
 
     const lifeFormOptions = [
@@ -109,39 +108,61 @@ export default function CreatePlant () {
 
   return (
     <Layout>
-        <Title order={3} ta="center"> PLANT FORM</Title>
-           
-        <Grid columns={24}>
-            <Grid.Col span={22}>  
-                <form onSubmit={handleSubmit}>
-                    <div>
+        {/* <Title order={3} ta="center"> PLANT FORM</Title> */}
+        
+        <Container className='container' id="form_title">
+            <Title order={3}> ADD NEW PLANT</Title> 
+        </Container>   
+        {/* <Grid columns={{ xs: 2, sm: 2, md: 3 }} gap="md"> */}
+        <Container className='container' container-fluid shadow="sm" id="form">
+              
+            <form onSubmit={handleSubmit}>
+                {/* <Grid> */}
+                    {/* <Box maw={600} mx="md" style={{ padding: '2px' }}> */}
+                <div className="row">
+                    <div className="col-md-6" id="col">        
                         <TextInput
-                        label="Botanical Name"
-                        value={posts.botanical_name}
-                        onChange={handleChange}
-                        description="Enter Name of Plant"
-                        error="*"
-                        name="botanical_name"
+                            label="Botanical Name"
+                            value={posts.botanical_name}
+                            onChange={handleChange}
+                            // description="Enter Name of Plant"
+                        
+                            name="botanical_name"
+                        
                         />
                     </div>
-                    <div>
+
+                    {/* </Box> */}
+                    {/* <Box maw={600} mx="auto"> */}
+                    
+                    <div className="col-md-6" id="col">
                         <TextInput
-                        label="Medicinal Plant"
-                        value={posts.medicinal_plant}
-                        onChange={handleChange}
-                        name="medicinal_plant"
+                            label="Medicinal Plant"
+                            value={posts.medicinal_plant}
+                            onChange={handleChange}
+                            name="medicinal_plant"
                         />
                     </div>
-                    <div>
-                        <TextInput
-                        label="Names"
-                        value={posts.names}
-                        onChange={handleChange}
-                        description="Names by which the plant is known"
-                        name="names"
-                        />
-                    </div>
-                    <div>
+                </div>
+                    {/* </Box> */}
+                    {/* <Box maw={400} mx="auto"> */}
+                <div className="row">
+                    <div className="col-md-6" id="col">
+                            <TextInput
+                            label="Names"
+                            value={posts.names}
+                            onChange={handleChange}
+                            //description="Names by which the plant is known"
+                            name="names"
+                            />
+                        </div>
+                    {/* </Box> */}   
+                {/* </Grid> */}
+                
+                {/* <Grid> */}
+                    {/* <Box maw={400} mx="auto"> */}
+                   
+                    <div className="col-md-6" id="col">   
                         <TextInput
                         label="Language"
                         value={posts.language}
@@ -149,130 +170,157 @@ export default function CreatePlant () {
                         name="language"
                         />
                     </div>
-                    <div>
+                </div>
+                    {/* </Box> */}
+                    {/* <Box maw={400} mx="auto"> */}
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
-                        label="Description"
-                        value={posts.description}
-                        onChange={handleChange}
-                        error="*"
-                        name="description"
-                        />
+                            label="Habitat"
+                            value={posts.habitat}
+                            onChange={handleChange}
+                            name="habitat"
+                            />
                     </div>
-
-                    <div>
+                    
+                    {/* <Box maw={400} mx="auto"> */}
+                    
+                    <div className="col-md-6" id="col">
                         <TextInput
-                        label="Areas in Uganda"
-                        value={posts.region_in_Uganda}
-                        onChange={handleChange}
-                        name="region_in_Uganda"
-                        />
+                            label="Areas in Uganda"
+                            value={posts.region_in_Uganda}
+                            onChange={handleChange}
+                            name="region_in_Uganda"
+                            />
                     </div>
-                    <div>
-                        <TextInput
-                        label="Habitat"
-                        value={posts.habitat}
-                        onChange={handleChange}
-                        name="habitat"
-                        />
-                    </div>
- 
-                    <div>
+                </div>
+                    {/* </Box> */}
+                
+                {/* </Grid> */}
+                <div className="row">
+                    {/* <div className="col-md-6" id="col"> */}
+                        <Textarea
+                            label="Description"
+                            value={posts.description}
+                            onChange={handleChange}
+                            error="*"
+                            name="description"
+                            minRows={4}
+                            maxRows={6}
+                            />
+                            
+                    {/* </div> */}
+                     
+                </div>  
+                      <div className="row">
                         <Select
                             label="Life Form"
                             value={posts.life_form}
                             onChange={(value) => handleChange({ target: { name: "life_form", value } })}
                             data={lifeFormOptions}
                         />
-                    </div>
-
-                    <div>
+                    </div>   
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
-                        label="Health Issues"
-                        value={posts.health_issues}
-                        onChange={handleChange}
-                        name="health_issues"
-                        />
+                            label="Health Issues"
+                            value={posts.health_issues}
+                            onChange={handleChange}
+                            name="health_issues"
+                            />
                     </div>
-                    <div>
+                    <div className="col-md-6" id="col">
                         <TextInput
-                        label="Part Used"
-                        value={posts.part_used}
-                        onChange={handleChange}
-                        name="part_used"
-                        />
+                            label="Part Used"
+                            value={posts.part_used}
+                            onChange={handleChange}
+                            name="part_used"
+                            />
                     </div>
-                    <div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
-                        label="Preparation Steps"
-                        value={posts.preparation_steps}
-                        onChange={handleChange}
-                        name="preparation_steps"
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Dosage"
-                        value={posts.dosage}
-                        onChange={handleChange}
-                        name="dosage"
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Contra Indications"
-                        value={posts.contraindications}
-                        onChange={handleChange}
-                        name="contraindications"
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Shelf Life"
-                        value={posts.shelf_life}
-                        onChange={handleChange}
-                        name="shelf_life"
-                        
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Social Value"
-                        value={posts.social_value}
-                        onChange={handleChange}
-                        name="social_value"
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Economic Value"
-                        value={posts.economical_value}
-                        onChange={handleChange}
-                        name="economical_value"
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Cultural Value"
-                        value={posts.cultural_value}
-                        onChange={handleChange}
-                        name="cultural_value"
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Other Value"
-                        value={posts.other_value}
-                        onChange={handleChange}
-                        name="other_value"
-                        />
+                            label="Preparation Steps"
+                            value={posts.preparation_steps}
+                            onChange={handleChange}
+                            name="preparation_steps"
+                            />
                     </div>
                     
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Dosage"
+                            value={posts.dosage}
+                            onChange={handleChange}
+                            name="dosage"
+                            />
+                    </div>
+                </div>
+                    
+                <div className="row">
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Contra Indications"
+                            value={posts.contraindications}
+                            onChange={handleChange}
+                            name="contraindications"
+                            />
+                    </div>
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Shelf Life"
+                            value={posts.shelf_life}
+                            onChange={handleChange}
+                            name="shelf_life"
+                            
+                        />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Social Value"
+                            value={posts.social_value}
+                            onChange={handleChange}
+                            name="social_value"
+                            />
+                    
+                    </div>
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Economic Value"
+                            value={posts.economical_value}
+                            onChange={handleChange}
+                            name="economical_value"
+                        />
+                    </div>
+                </div>
+
+                <div>
+                        <TextInput
+                            label="Cultural Value"
+                            value={posts.cultural_value}
+                            onChange={handleChange}
+                            name="cultural_value"
+                            />
+                    </div>
+                    <div>
+                        <TextInput
+                            label="Other Value"
+                            value={posts.other_value}
+                            onChange={handleChange}
+                            name="other_value"
+                            />
+                    </div>
+
+
                     <div>
                         {/* Handle Images Here and other File uploads*/}
                     </div>
                    
                     <div>
-                        <FileInput
+                    <FileInput
                             label="Image"
                             files={image ? [image] : []}
                             onChange={handleImageChange}
@@ -280,14 +328,27 @@ export default function CreatePlant () {
                         {image && <Text>{image.name}</Text>}
 
                     </div>
-
-
                     <div>
-                        <TextInput
-                        label="Notes"
-                        value={posts.notes}
-                        onChange={handleChange}
-                        name="notes"
+                        <Textarea
+                            label="Notes"
+                            value={posts.notes}
+                            onChange={handleChange}
+                            name="notes"
+                            autosize
+                            minRows={4}
+                            maxRows={6}
+                        />
+                    </div>
+                        
+                    <div>
+                        <Textarea
+                            label="Citation"
+                            value={posts.citation}
+                            onChange={handleChange}
+                            name="citation"
+                            autosize
+                            minRows={2}
+                            maxRows={4}
                         />
                     </div>
                     <div>
@@ -298,115 +359,16 @@ export default function CreatePlant () {
                         name="contributor_name"
                         />
                     </div>
-
-                    <div>
-                        <TextInput
-                        label="Citation"
-                        value={posts.citation}
-                        onChange={handleChange}
-                        name="citation"
-                        />
-                    </div>
-
+                 
                     <div>
                         <Button color="lime.6" type='' variant="filled" radius="md"> Submit </Button>
                     </div>
-                    </form>
-                </Grid.Col>
-            </Grid>
+                </form>
+            </Container>    
+            {/* </Grid> */}
       
     </Layout>
     
   )
   }
 
-  
-
-
-  /* const [botanical_name, setBotName] = useState("");
-    const [medicinal_plant, setMedPlant] = useState("");
-    const [names, setNames] = useState(""); 
-    const [language, setLanguage] = useState("")
-    const [description, setDescrip] = useState(""); 
-    const [region_in_Uganda, setRegion] = useState("");
-    const [habitat, setHabitat] = useState("");
-    const [life_form, setLifeForm] = useState("");
-    const [health_issues, setHealthIssues] = useState("");
-    const [part_used, setPartUsed] = useState("");
-    const [preparation_steps, setSteps] = useState("");
-    const [dosage, setDose] = useState("");
-    const [contraindications, setContIndic] = useState("");
-    const [shelf_life, setShelfLife] = useState("");    
-    const [social_value, setSocialVal] = useState("");
-    const [economical_value, setEcoVal]  = useState(""); 
-    const [cultural_value, setCulturalVals] = useState(""); 
-    const [other_value, setOtherVal] =  useState("");
-    
-    const [notes, setNotes] = useState("");
-    const [contributor_name, setContribName] = useState("");
-    const [citation, setCitation] = useState(""); */
-
-    
-
-/*
-      const handleSubmit = async (event) => {
-        event.preventDefault();
-        // Clear the form inputs
-        setBotName('');
-        setMedPlant(''); 
-        setNames('');
-        setLanguage('');
-        setDescrip('');
-        setRegion('');
-        setHabitat('');
-        setLifeForm('');
-        setHealthIssues('');
-        setPartUsed('');
-        setSteps('');
-        setDose('');
-        setContIndic('');
-        setShelfLife('');
-        setSocialVal('');
-        setEcoVal('');
-        setCulturalVals('');
-        setOtherVal('');
-        setNotes('');
-        setContribName('');
-        setCitation('');
-      
-        try {
-          const response = await axios.post(url, {
-            botanical_name: botanical_name,
-            medicinal_plant: medicinal_plant,
-            names: names,
-            language: language,
-            description: description,
-            region_in_Uganda: region_in_Uganda,
-            habitat: habitat,
-            life_form: life_form,
-            health_issues: health_issues,
-            part_used: part_used,
-            preparation_steps: preparation_steps,
-            dosage: dosage,
-            contraindications: contraindications,
-            shelf_life: shelf_life,
-            social_value: social_value,
-            economical_value: economical_value,
-            cultural_value: cultural_value, 
-            other_value: other_value, 
-            notes: notes,
-            contributor_name: contributor_name,
-          }, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
-  
-          if (response.ok) {
-            navigate("/Layout")
-          }else{
-            console.error('Error Submitting details');
-            navigate("/Plant")
-          }
-  
-          
-        } catch (error) {
-          console.error('Error logging in:', error);
-        }
-      } */
