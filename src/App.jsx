@@ -1,6 +1,8 @@
 /* import { useState } from 'react' */
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.css';
+
 import Landing from './components/pages/landing/Landing';
 
 import { Login } from './components/pages/Login';
