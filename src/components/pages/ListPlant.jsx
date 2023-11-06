@@ -3,53 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, Image, Text, Card, Badge, Group, Grid } from "@mantine/core";
 
+import ViewPlantDetail from './ViewPlantDetail';
 import { Layout } from "../Layout"
 
 export default function ListPlant () {  
     const navigate = useNavigate();
     const [plants, setPlants] = useState([]);
-        /* {
-        botanical_name:"",
-        medicinal_plant:"",
-        names:"",
-        language:"",
-        description: "",
-        region_in_Uganda:"",
-        habitat:"",
-        life_form:"",
-        health_issues: "",
-        part_used: "",
-        preparation_steps: "",
-        dosage:"",
-        contraindications:"", 
-        shelf_life: "",
-        social_value: "",
-        economical_value:"",
-        cultural_value: "",
-        other_value: "",
-        
-        notes: "", 
-        contributor_name: "",
-        citation: ""
-    }); */
-
     const [image, getImageFile] = useState(null);
-
-    /* const handleChange = (e) => {
-        const {name, value } = e.target;
-        setPosts((prev) => {
-            return {
-                ...prev,
-                [name]: value,
-            };
-        });
-    };
-
-    const handleImageChange = (files) => {
-        if (files && files.length > 0) {
-          setImageFile(files[0]);
-        }
-    }; */
 
     //const url = 'https://fgf-app.onrender.com/api/plants/';
     const url = 'http://localhost:8000/api/plants/';
@@ -65,54 +25,20 @@ export default function ListPlant () {
           });
       }, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-            
-    };
+      const [selectedPlant, setSelectedPlant] = useState(null);
+
+      const openPlantDetail = (plant) => {
+        setSelectedPlant(plant);
+      };
+      
+
+      const closePlantDetail = () => {
+        setSelectedPlant(null);
+      };
+      
 
   return (
     <Layout>
-        {/* <div>
-            <h1>Plant List</h1>
-            {plants.map((plant) => (
-                <Card key={plant.id} shadow="xs" style={{ marginBottom: '20px' }}>
-                <Text size="xl" weight={700}>{plant.botanical_name}</Text>
-                <Text>{plant.medicinal_plant}</Text>
-                <Text size="xl" weight={500}>{plant.names} ({plant.language})</Text>
-                <Text size="xl" weight={400}>{plant.description}</Text>
-                  <Image 
-                      radius="md"
-                      h={200}
-                      w={100}
-                      fit="contain"
-                      src={plant.image_url ? plant.image_url : "https://placehold.co/600x400?text=Placeholder"} 
-                      // alt={plant.image.name} 
-                    />
-                <Text>Region: {plant.region_in_Uganda}</Text>
-                <Text>Habitat: {plant.habitat}</Text>
-                <Text>Life Form: {plant.life_form}</Text>
-                <Text>Health Issues: </Text>
-                    <Text>{plant.health_issues}</Text>
-                <Text>Part Used: {plant.part_used}</Text>
-                <Text>Preparation Steps: {plant.preparation_steps}</Text>
-                <Text>Dosage: {plant.dosage}</Text>
-                <Text>Contra Indications: {plant.contraindications}</Text>
-                <Text size="xl" weight={500}>Shelf Life: {plant.shelf_life}</Text>
-                <Text>Social Value: </Text>
-                    <Text>{plant.social_value}</Text>
-                <Text>Economic Value: </Text>
-                    <Text>{plant.economical_value}</Text>
-                <Text>Cultural Value: {plant.cultural_value}</Text>
-                <Text>Other Value: </Text>
-                    <Text> {plant.other_value}</Text> 
-                <Text size="xl" weight={500}>Notes:</Text> 
-                    <Text>{plant.notes}</Text>
-                <Text>Contributor Name: {plant.contributor_name}</Text>
-                <Text>Citation: {plant.citation}</Text>
-                </Card>
-            ))}
-        </div> */}
-
       <Grid>
         
         {plants.map((plant) => (
@@ -129,7 +55,7 @@ export default function ListPlant () {
               </Group>
 
               {/* <Text size="sm" c="dimmed"> */}
-              <Text size="sm"y>
+              <Text size="sm">
                 {plant.names} ({plant.language})
               </Text>
               <Text>Region: {plant.region_in_Uganda}</Text>
@@ -150,15 +76,30 @@ export default function ListPlant () {
                 />
               </Card.Section>
 
-              <Button type="" color="green.0" variant="filled" c="black" fullWidth mt="md" radius="md">
+              <Button 
+              type="" 
+              color="green.0" 
+              variant="filled" 
+              c="black" 
+              fullWidth 
+              mt="md" 
+              radius="md"
+              onClick={() => openPlantDetail(plant.id)} // Open detail view
+              >
                   View More
               </Button>
             </Card>
+            
           </Grid.Col>
         ))}      
-    
-      </Grid>
 
+      {selectedPlant && selectedPlant.id && (
+        <ViewPlantDetail plantId={selectedPlant.id} onClose={closePlantDetail} />
+
+      )}
+      
+      </Grid>
+      
     </Layout>
     
   )
