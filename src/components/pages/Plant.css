@@ -55,6 +55,10 @@
     padding: 1%;
 }
 
+.div_content {
+    padding: 5%;
+}
+
 input{
     width: 100%;
 }
