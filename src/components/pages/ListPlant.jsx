@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, Image, Text, Card, Badge, Group, Grid } from "@mantine/core";
-
+import { Link } from 'react-router-dom';
 import ViewPlantDetail from './ViewPlantDetail';
 import { Layout } from "../Layout"
+
 
 export default function ListPlant () {  
     const navigate = useNavigate();
@@ -13,29 +14,21 @@ export default function ListPlant () {
 
     //const url = 'https://fgf-app.onrender.com/api/plants/';
     const url = 'http://localhost:8000/api/plants/';
+
     const image_url = 'http://localhost:8000/api/plants/id/plant_images/';
 
     useEffect(() => {
         axios.get(url)  
+          
           .then((response) => {
             setPlants(response.data);
           })
           .catch((error) => {
-            console.err(err);
+            console.error(error);
           });
       }, []);
 
-      const [selectedPlant, setSelectedPlant] = useState(null);
-
-      const openPlantDetail = (plant) => {
-        setSelectedPlant(plant);
-      };
-      
-
-      const closePlantDetail = () => {
-        setSelectedPlant(null);
-      };
-      
+      const [selectedPlant, setSelectedPlant] = useState(null);    
 
   return (
     <Layout>
@@ -43,10 +36,10 @@ export default function ListPlant () {
         
         {plants.map((plant) => (
           <Grid.Col span={4} key={plant.id} >
-            <Card shadow="sm" padding="lg" radius="md" withBorder style={{ backgroundColor: '#112A00', color:'white' }}> 
-            {/* #8EBD6C */}
-              
+            <Link to={`/ViewPlantDetail/${plant.id}`} >
 
+              <Card shadow="sm" padding="lg" radius="md" withBorder style={{ backgroundColor: '#112A00', color:'white' }}> 
+              
               <Group justify="space-between" mt="md" mb="xs">
                 <Text fw={500} >{plant.botanical_name}</Text>
                 <Badge color="orange" variant="light">
@@ -84,12 +77,13 @@ export default function ListPlant () {
               fullWidth 
               mt="md" 
               radius="md"
-              onClick={() => openPlantDetail(plant.id)} // Open detail view
+              // onClick={() => openPlantDetail(plant.id)} // Open detailed view
+              
               >
-                  View More
+                   View More 
               </Button>
             </Card>
-            
+            </Link> 
           </Grid.Col>
         ))}      
 

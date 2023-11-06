@@ -20,6 +20,7 @@ import CreateCulture from "./components/pages/Culture/CreateCulture";
 import CreateEthnicity from "./components/pages/Culture/CreateEthnicity";
 import CreateClan from "./components/pages/Culture/CreateClan";
 import CreateKingdom from "./components/pages/Culture/CreateKingdom";
+import ViewPlantDetail from "./components/pages/ViewPlantDetail";
 
 
 function App() {
@@ -37,8 +38,11 @@ function App() {
         <Route path="/Search" element={<Search />} />
         <Route path="/Layout" element={<Layout />} />
         <Route path="/CreateAnimal" element={<CreateAnimal />} />
+
         <Route path="/CreatePlant" element={<CreatePlant />} />
         <Route path="/ListPlant" element={<ListPlant />} />
+        <Route path="/ViewPlantDetail/:id" element={<ViewPlantDetail />} />
+
         <Route path="/Contributors" element={<Contributor />} />
 
         <Route path="/CreateCulture" element={<CreateCulture />} />
