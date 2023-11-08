@@ -18,6 +18,25 @@
 
 }
 
+#titles{
+    text-transform: capitalize;
+    margin: 0;
+}
+
+#content{
+    margin-top: 25px;
+    padding: 5%;
+    text-align: justify;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1rem;
+    position: relative;
+}
+
+#contributor{
+    text-align: right;
+    font-style: italic;
+}
 #form{
     margin-top: 15px;
     padding: 5%;
@@ -28,10 +47,30 @@
     position: relative;
 }
 
+#card_content {
+    padding: 2%;
+}
+
 #col {
     padding: 1%;
 }
 
+.div_content {
+    padding: 5%;
+}
+
 input{
     width: 100%;
+}
+
+#sub_tile_no_spc{
+    display: inline;
+    text-wrap: nowrap;
+}
+#back_btn{
+    float: right;
+    background-color: rgb(3, 62, 16);
+    border-color: rgb(3, 62, 16);
+    color: white;
+    width: 160px;
 }

@@ -23,7 +23,7 @@ export const menuData = {
         },
         {
             label: "Cultures",
-            link: "/ListCultures",
+            link: "/CreateClan",  //set back to ListCultures
             icon: FaRegListAlt,
             roles: ['administrator', 'contributor'],
         },

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, TextInput, Text, Title, Group, FileInput, Grid } from "@mantine/core";
+import { Container, Button, TextInput, Text, Title, Group, FileInput, Grid } from "@mantine/core";
 import { Layout } from "../../Layout"
 
 import './Culture.css'
@@ -107,12 +107,15 @@ export default function CreateCulture () {
   return (
     <Layout>
         
-        <Title order={3} ta="center"> CULTURE</Title>
-        
-        <Grid columns={24}>
-            <Grid.Col span={22}>  
-                <form onSubmit={handleSubmit}>
-                    <div>
+        {/* <Title order={3} ta="center"> CULTURE</Title> */}
+        <Container className='container' id="form_title">
+            <Title order={3}> ADD NEW CULTURE</Title> 
+        </Container> 
+        <Container className='container' container-fluid shadow="sm" id="form">
+            
+            <form onSubmit={handleSubmit}>
+                <div> 4. Add Culture Details </div>
+                    <div id='sub'>
                         <TextInput
                         label="Ethnic Group Name "
                         value={posts.ethnic_group_name}
@@ -214,20 +217,19 @@ export default function CreateCulture () {
                     <div>
                         <Button color="lime.6" type='' variant="filled" radius="md"> Submit </Button>
                     </div>
-                    </form>
-                    {/* {successMessage && <div className="success-message">{successMessage}</div>} */}
-                    <Text
-                        className="success-message"
-                        size="sm"
-                        color="green"
-                        style={{ marginTop: '10px' }}
-                    >
-                        {successMessage}
-                    </Text> 
-                    {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
+                </form>
+                {/* {successMessage && <div className="success-message">{successMessage}</div>} */}
+                <Text
+                    className="success-message"
+                    size="sm"
+                    color="green"
+                    style={{ marginTop: '10px' }}
+                >
+                    {successMessage}
+                </Text> 
+                {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
+        </Container> 
 
-                </Grid.Col>
-            </Grid>
       
     </Layout>
     
