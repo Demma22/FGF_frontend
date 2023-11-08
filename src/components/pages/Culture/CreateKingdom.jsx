@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, TextInput, Text, Title, Group, FileInput, Grid } from "@mantine/core";
+import { Container, Button, TextInput, Text, Title, Group, FileInput, Grid } from "@mantine/core";
 import { Layout } from "../../Layout"
 
+
 import './Culture.css'
+import './Kingdom.css'
 
 export default function CreateKingdom () {
     const navigate = useNavigate();
@@ -89,10 +91,14 @@ export default function CreateKingdom () {
   return (
     <Layout>
         
-        <Title order={3} ta="center"> CULTURE</Title>
+        {/* <Title order={3} ta="center"> CULTURE</Title> */}
+        <Container className='container' id="form_title">
+            <Title order={3}> ADD NEW CULTURE</Title> 
+        </Container>
         
-        <Grid columns={24}>
-            <Grid.Col span={22}>  
+        {/*<Grid columns={24}> */}
+        <Container className='container' container-fluid shadow="sm" id="form">
+            {/*<Grid.Col span={22}> */}  
                 <form onSubmit={handleSubmit}>
                     <div>
                         <TextInput
@@ -167,8 +173,9 @@ export default function CreateKingdom () {
                     </Text> 
                     {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
 
-                </Grid.Col>
-            </Grid>
+                {/*</Grid.Col> */}
+            </Container>
+            {/*</Grid> */}
       
     </Layout>
     

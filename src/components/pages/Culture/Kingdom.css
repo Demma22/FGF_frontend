@@ -1,0 +1,37 @@
+#sub_title{
+    border-bottom-color: black;
+    border-bottom: 4px solid grey;
+    border-bottom-width: 5px;
+    padding-top: 2%;
+    
+}
+
+
+#form_title{
+    margin-top: 15px;
+    padding: 1%;
+    border-radius: 1rem;
+    background-color: rgb(4, 66, 37);
+    color: white;
+    
+    text-align: center;
+
+}
+
+#form{
+    margin-top: 15px;
+    padding: 5%;
+    border: 2cm;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 1rem;
+    position: relative;
+}
+
+#col {
+    padding: 1%;
+}
+
+input{
+    width: 100%;
+}
