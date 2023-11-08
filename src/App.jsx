@@ -15,6 +15,7 @@ import { Layout } from "./components/Layout";
 import CreatePlant from "./components/pages/CreatePlant";
 import Contributor from "./components/pages/Contributors";
 import ListPlant from "./components/pages/ListPlant";
+import ListAnimal from "./components/pages/ListAnimal";
 import CreateAnimal from "./components/pages/CreateAnimal";
 import CreateCulture from "./components/pages/Culture/CreateCulture";
 import CreateEthnicity from "./components/pages/Culture/CreateEthnicity";
@@ -41,6 +42,7 @@ function App() {
 
         <Route path="/CreatePlant" element={<CreatePlant />} />
         <Route path="/ListPlant" element={<ListPlant />} />
+        <Route path="/ListAnimal" element={<ListAnimal />} />
         <Route path="/ViewPlantDetail/:id" element={<ViewPlantDetail />} />
 
         <Route path="/Contributors" element={<Contributor />} />

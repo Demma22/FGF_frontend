@@ -51,7 +51,7 @@ function Landing() {
             />
             <h2 className="text-2xl font-semibold mb-2">Animals</h2>
             <p className="text-gray-700">Discover fascinating facts about animals from around the globe.</p>
-            <a href="Search" className="text-blue-400 hover:underline"> See More.... </a>
+            <a href="ListAnimal" className="text-blue-400 hover:underline"> See More.... </a>
           </div>
 
           {/* Card 2 - Plants */}
@@ -63,7 +63,7 @@ function Landing() {
             />
             <h2 className="text-2xl font-semibold mb-2">Plants</h2>
             <p className="text-gray-700">Explore the beauty and diversity of plant life on our planet.</p>
-            <a href="Search" className="text-blue-400 hover:underline"> See More.... </a>
+            <a href="ListPlant" className="text-blue-400 hover:underline"> See More.... </a>
           </div>
 
           {/* Card 3 - Culture */}
