@@ -67,12 +67,9 @@ export default function CreateCulture () {
           .post("http://127.0.0.1:8000/api/cultures/", formData, {
             headers: {
               "Content-Type": "multipart/form-data",
-            },
-
-      
+            },     
         }) 
-        
-          //.then((res) => console.log(res))
+
           .then((res) => {
             // Display success message and clear form
             setSuccessMessage("Culture created successfully!");
@@ -91,30 +88,23 @@ export default function CreateCulture () {
                 
             });
             setImageFile(null);
-    
             // Navigate back to the previous page
             //navigate(-1);
         })
           
-          .catch((err) => console.log(err));
-        
-            
-          
+          .catch((err) => console.log(err)); 
     };
-
-
 
   return (
     <Layout>
-        
-        {/* <Title order={3} ta="center"> CULTURE</Title> */}
+
         <Container className='container' id="form_title">
             <Title order={3}> ADD NEW CULTURE</Title> 
         </Container> 
-        <Container className='container' container-fluid shadow="sm" id="form">
+        <Container className='container' container-fluid='true' shadow="sm" id="form">
             
             <form onSubmit={handleSubmit}>
-                <div> 4. Add Culture Details </div>
+                <div> 4. Add Ethnic Group Details </div>
                     <div id='sub'>
                         <TextInput
                         label="Ethnic Group Name "

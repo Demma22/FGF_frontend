@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, TextInput, Text, Title, Group, FileInput, Grid } from "@mantine/core";
+import { Button, TextInput, Text, Title, Container, Group, FileInput, Grid } from "@mantine/core";
 import { Layout } from "../../Layout"
 
 import './Culture.css'
@@ -92,21 +92,20 @@ export default function CreateEthnicity () {
             // Navigate CreateCulture component
             navigate("/CreateCulture");
         })
-          
-          .catch((err) => console.log(err));
-          
+          .catch((err) => console.log(err));          
     };
-
-
 
   return (
     <Layout>
         
-        <Title order={3} ta="center"> CULTURE</Title>
+        <Container className='container' id="form_title">
+            <Title order={3}> ADD NEW CULTURE</Title> 
+        </Container> 
         
-        <Grid columns={24}>
-            <Grid.Col span={22}>  
+        <Container className='container' container-fluid='true' shadow="sm" id="form">
+         
                 <form onSubmit={handleSubmit}>
+                <div> 3. Add Ethnicity Details </div>
                     <div>
                         <TextInput
                         label="Ethnicity Name"
@@ -231,9 +230,7 @@ export default function CreateEthnicity () {
                         {successMessage}
                     </Text> 
                     {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
-
-                </Grid.Col>
-            </Grid>
+            </Container>
       
     </Layout>
     
