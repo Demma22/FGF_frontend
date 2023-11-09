@@ -10,17 +10,17 @@ import { Register } from './components/pages/Registration';
 import Settings from './components/pages/Settings';
 
 import Logout from './components/pages/Logout';
-import Search from './components/pages/List';
+import Search from './components/Search/Search';
 import { Layout } from "./components/Layout";
 import CreatePlant from "./components/pages/CreatePlant";
 import Contributor from "./components/pages/Contributors";
 import ListPlant from "./components/pages/ListPlant";
 import ListAnimal from "./components/pages/ListAnimal";
 import CreateAnimal from "./components/pages/CreateAnimal";
-import CreateCulture from "./components/pages/Culture/CreateCulture";
-import CreateEthnicity from "./components/pages/Culture/CreateEthnicity";
-import CreateClan from "./components/pages/Culture/CreateClan";
-import CreateKingdom from "./components/pages/Culture/CreateKingdom";
+import CreateCulture from "./components/Culture/CreateCulture";
+import CreateEthnicity from "./components/Culture/CreateEthnicity";
+import CreateClan from "./components/Culture/CreateClan";
+import CreateKingdom from "./components/Culture/CreateKingdom";
 import ViewPlantDetail from "./components/pages/ViewPlantDetail";
 
 
