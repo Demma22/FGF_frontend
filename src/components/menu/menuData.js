@@ -11,7 +11,7 @@ export const menuData = {
         
         {
             label: "Animals",
-            link: "/ListAnimals",
+            link: "/ListAnimal",
             icon: FaRegListAlt,
             roles: ['administrator'],
         },
