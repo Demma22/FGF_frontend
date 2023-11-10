@@ -181,25 +181,28 @@ export default function CreatePlant () {
                 </div>
 
                 <div className="row">
-
+                    <div className="col-md-12" id="col">
                         <Textarea
                             label="Description"
                             value={posts.description}
                             onChange={handleChange}
-                            error="*"
+                            // error="*"
                             name="description"
                             minRows={4}
                             maxRows={6}
-                            />                     
+                        />
+                    </div>                     
                 </div>  
-                      <div className="row">
+                <div className="row">
+                    <div className="col-md-12" id="col">
                         <Select
                             label="Life Form"
                             value={posts.life_form}
                             onChange={(value) => handleChange({ target: { name: "life_form", value } })}
                             data={lifeFormOptions}
                         />
-                    </div>   
+                    </div>
+                </div>   
                 <div className="row">
                     <div className="col-md-6" id="col">
                         <TextInput

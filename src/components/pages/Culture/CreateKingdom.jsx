@@ -36,10 +36,10 @@ export default function CreateKingdom () {
     useEffect(() => {
         axios.get(url)  
           .then((response) => {
-            setPlants(response.data);
+            setPosts(response.data);
           })
           .catch((error) => {
-            console.err(err);
+            console.error(error);
           });
       }, []);
 
@@ -80,7 +80,7 @@ export default function CreateKingdom () {
             navigate("/CreateEthnicity");
         })
           
-          .catch((err) => console.log(err));
+          .catch((error) => console.log(error));
           
     };
 
@@ -94,7 +94,12 @@ export default function CreateKingdom () {
         <Container className='container' container-fluid='true' shadow="sm" id="form">
          
                 <form onSubmit={handleSubmit}>
-                <div> 2. Add Kingdom Details </div>
+                <div id="sub_tile_no_spc" style={{ display: 'flex', alignItems: 'center' }}>
+                    <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center">
+                        2.
+                    </div>
+                    <span style={{ whiteSpace: 'nowrap' }}> Add Kingdom Details </span> 
+                </div>
                     <div>
                         <TextInput
                         label="Kingdom Name"

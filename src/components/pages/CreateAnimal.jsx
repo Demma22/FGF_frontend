@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, TextInput, Text, Title, Group, FileInput, Grid } from "@mantine/core";
+import { Button, TextInput, Text, Title, Container, Group, FileInput, Grid, Textarea } from "@mantine/core";
 import { Layout } from "../Layout"
 import Popup from './Popup';
 import './Animal.css'
@@ -125,22 +125,23 @@ export default function CreateAnimal () {
 
   return (
     <Layout>
-        
-        <Title order={3} ta="center"> ANIMALS FORM</Title>
-        
-        <Grid columns={24}>
-            <Grid.Col span={22}>  
-                <form onSubmit={handleSubmit}>
-                    <div>
+        <Container className='container' id="form_title">
+            <Title order={3}> ADD NEW ANIMAL</Title> 
+        </Container>   
+        <Container className='container' container-fluid='true' shadow="sm" id="form">
+
+            <form onSubmit={handleSubmit}>
+                <div className="row">
+                    <div className="col-md-6" id="col">  
                         <TextInput
                         label="English Name"
                         value={posts.english_name}
                         onChange={handleChange}
                         description="Enter Name of Animal"
                         name="english_name"
-                        />
+                        /> 
                     </div>
-                    <div>
+                    <div className="col-md-6" id="col"> 
                         <TextInput
                         label="Name"
                         value={posts.animal_name}
@@ -149,7 +150,9 @@ export default function CreateAnimal () {
                         name='animal_name'
                         />
                     </div>
-                    <div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Language"
                         value={posts.language}
@@ -157,8 +160,8 @@ export default function CreateAnimal () {
                         name='language'
                         
                         />
-                    </div>
-                    <div>
+                    </div>   
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Scientific Name"
                         value={posts.scientific_name}
@@ -166,16 +169,20 @@ export default function CreateAnimal () {
                         name='scientific_name'
                         />
                     </div>
-                    <div>
-                        <TextInput
+                </div>
+                <div className="row">                         
+                    <Textarea
                         label="Description"
                         value={posts.description}
                         onChange={handleChange}
-                        name='description'
-                        />
-                    </div>
-
-                    <div>
+                        name="description"
+                        autosize
+                        minRows={4}
+                        maxRows={6}
+                    />
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Areas in Uganda"
                         value={posts.areas_in_Uganda}
@@ -183,7 +190,7 @@ export default function CreateAnimal () {
                         name='areas_in_Uganda'
                         />
                     </div>
-                    <div>
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Animal Classifications"
                         value={posts.animal_classifications}
@@ -191,7 +198,9 @@ export default function CreateAnimal () {
                         name='animal_classifications'
                         />
                     </div>
-                    <div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Kingdom"
                         value={posts.kingdom_name}
@@ -199,7 +208,7 @@ export default function CreateAnimal () {
                         name='kingdom_name'
                         />
                     </div>
-                    <div>
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Species"
                         value={posts.species}
@@ -207,7 +216,9 @@ export default function CreateAnimal () {
                         name='species'
                         />
                     </div>
-                    <div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Known Values"
                         value={posts.known_values}
@@ -215,15 +226,17 @@ export default function CreateAnimal () {
                         name='known_values'
                         />
                     </div>
-                    <div>
-                        <TextInput
-                        label="Value Details"
-                        value={posts.value_details}
-                        onChange={handleChange}
-                        name='value_details'
-                        />
+                    <div className="col-md-6" id="col">
+                            <TextInput
+                            label="Value Details"
+                            value={posts.value_details}
+                            onChange={handleChange}
+                            name='value_details'
+                            />
                     </div>
-                    <div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
                         <TextInput
                         label="Unique Habitat"
                         value={posts.unique_habitat}
@@ -231,70 +244,77 @@ export default function CreateAnimal () {
                         name='unique_habitat'
                         />
                     </div>
-                    <div>
-                        <TextInput
-                        label="Threats"
-                        value={posts.threats}
-                        onChange={handleChange}
-                        name='threats'
-                        />
+                    <div className="col-md-6" id="col">
+                            <TextInput
+                            label="Threats"
+                            value={posts.threats}
+                            onChange={handleChange}
+                            name='threats'
+                            />
                     </div>
-                    <div>
-                        {/* Handle Images Here and other File uploads*/}
-                    </div>
-                   
-                    <div>
-                        <FileInput
-                            label="Image"
-                            files={image ? [image] : []}
-                            onChange={handleImageChange}
-                        />
-                        {image && <Text>{image.name}</Text>}
+                </div>
+                        
+                {/* Handle Images Here and other File uploads*/}
 
-                    </div>
+                <div>
+                    <FileInput
+                        label="Image"
+                        files={image ? [image] : []}
+                        onChange={handleImageChange}
+                    />
+                    {image && <Text>{image.name}</Text>}
 
-
-                    <div>
-                        <TextInput
+                </div>
+                <div>
+                    <Textarea
                         label="Notes"
                         value={posts.notes}
                         onChange={handleChange}
-                        name='notes'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Contributor Name"
-                        value={posts.contributor_name}
-                        onChange={handleChange}
-                        name='contributor_name'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
+                        name="notes"
+                        autosize
+                        minRows={4}
+                        maxRows={6}
+                    />
+                </div>
+                <div>
+                    <Textarea
                         label="Citation"
                         value={posts.citation}
                         onChange={handleChange}
                         name="citation"
-                        />
-                    </div>
-                    <div>
-                        <Button color="lime.6" type='' variant="filled" radius="md"> Submit </Button>
-                    </div>
-                    </form>
-                    {/* {successMessage && <div className="success-message">{successMessage}</div>} */}
-                    <Text
-                        className="success-message"
-                        size="sm"
-                        color="green"
-                        style={{ marginTop: '10px' }}
-                    >
-                        {successMessage}
-                    </Text> 
-                    {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
+                        autosize
+                        minRows={2}
+                        maxRows={4}
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Contributor Name"
+                    value={posts.contributor_name}
+                    onChange={handleChange}
+                    name='contributor_name'
+                    />
+                </div>
+                        
+                <div>
+                    <Button color="lime.6" type='' variant="filled" radius="md"> Submit </Button>
+                </div>
+            
+                    
+                </form>
+                {/* {successMessage && <div className="success-message">{successMessage}</div>} */}
+                <Text
+                    className="success-message"
+                    size="sm"
+                    color="green"
+                    style={{ marginTop: '10px' }}
+                >
+                    {successMessage}
+                </Text> 
+                {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
 
-                </Grid.Col>
-            </Grid>
+                
+            </Container>
       
     </Layout>
     

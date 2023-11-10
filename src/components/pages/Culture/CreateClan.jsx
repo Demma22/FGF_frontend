@@ -103,7 +103,12 @@ export default function CreateClan () {
         <Container className='container' container-fluid='true' shadow="sm" id="form">
          
             <form onSubmit={handleSubmit}>
-            <div> 1. Add Clan Details </div>
+                <div id="sub_tile_no_spc" style={{ display: 'flex', alignItems: 'center' }}>
+                    <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center">
+                    {/* <p className="font-medium text-sm">1.</p> */}
+                    1.</div>
+                    <span style={{ whiteSpace: 'nowrap' }}> Add Clan Details </span> 
+                </div>
                 <div>
                     <TextInput
                     label="Clan Name"
