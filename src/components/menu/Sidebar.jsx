@@ -101,11 +101,12 @@ export function Sidebar() {
 
     return (
         <Navbar width={{ sm: 250 }} className={`${classes.navbarContainer} px-2 py-2 bg-[#002200] text-white`}>
-
+            
             <Navbar.Section className="flex-grow">
                 <Group className={`${classes.header} border-b border-b-[#23A74C]/10 `} position="apart">
-                    <header className="p-5 flex gap-5 items-center">
-                        <h1 className="f text-lg">FGF</h1>
+                    <header className="p-2 flex gap-2 items-center">
+                        <img src="/imgs/logo.png" alt="" className="w-20"/>
+                        <h1 className="f text-lg">FGF</h1> 
                     </header>
                     <Code className={classes.version}>v1.0.0</Code>
                 </Group>
