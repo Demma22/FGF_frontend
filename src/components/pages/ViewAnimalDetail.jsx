@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Container, Card, Image, Title, Button, Text } from '@mantine/core';
 import { Layout } from '../Layout';
 import "./Animal.css"
+import { Layout2 } from '../Layout2';
 
 const ViewAnimalDetail = () => {
   const [error, setError] = useState(null);
@@ -36,7 +37,8 @@ const ViewAnimalDetail = () => {
   }
 
   return (
-    <Layout>
+    // <Layout>
+    <Layout2>
       <Container className='container' container-fluid='true' shadow="sm" id='content'>
         <Title>{data.english_name}</Title>
         <div>
@@ -94,7 +96,8 @@ const ViewAnimalDetail = () => {
             Back
         </Button>
       </Link> 
-    </Layout> 
+      </Layout2>
+    // </Layout>
   );
 };
 

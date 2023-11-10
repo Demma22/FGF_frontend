@@ -2,6 +2,7 @@ export * from "./menu/Sidebar";
 export * from "./Header";
 export * from "./Header2"
 export * from "./Layout";
+export * from "./Layout2";
 export * from "./Search";
 
 export * from "./pages/landing/Landing";

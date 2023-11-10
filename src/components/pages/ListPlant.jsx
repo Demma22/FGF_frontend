@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ViewPlantDetail from './ViewPlantDetail';
 import { Layout } from "../Layout"
 import "./Plant.css"
+import { Layout2 } from '../Layout2';
 
 export default function ListPlant () {  
     const navigate = useNavigate();
@@ -31,7 +32,8 @@ export default function ListPlant () {
       const [selectedPlant, setSelectedPlant] = useState(null);    
 
   return (
-    <Layout>
+    // <Layout>
+    <Layout2>
       <Container className='container' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
       </Container>
@@ -98,10 +100,10 @@ export default function ListPlant () {
         </div>
       
       </Container>
-      
-    </Layout>
+    </Layout2>
+    // </Layout>
     
-  )
+  );
   }
 
   

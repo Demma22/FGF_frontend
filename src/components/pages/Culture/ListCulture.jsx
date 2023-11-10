@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ViewCultureDetail from './ViewCultureDetail';
 import { Layout } from "../../Layout"
 import "./Culture.css"
+import { Layout2 } from '../../Layout2';
 
 export default function ListCulture () {  
     const navigate = useNavigate();
@@ -30,8 +31,8 @@ export default function ListCulture () {
    
 
   return (
-    <Layout>
-      
+    // <Layout>
+    <Layout2>  
       <Container className='container' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
         {/* <Search onSearchResults={handleSearchResults} categories={categories} />  */}
@@ -91,8 +92,9 @@ export default function ListCulture () {
             ))}      
         </div>
       </Container>
-      
-    </Layout>
+
+    </Layout2>  
+  //  </Layout>
     
   )
   }

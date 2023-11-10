@@ -13,6 +13,7 @@ import Settings from './components/pages/Settings';
 import Logout from './components/pages/Logout';
 import Search from './components/Search/Search';
 import { Layout } from "./components/Layout";
+import { Layout2 } from "./components/Layout2";
 
 import Contributor from "./components/pages/Contributors";
 
@@ -32,6 +33,7 @@ import ListCulture from "./components/pages/Culture/ListCulture";
 import ViewCultureDetail from "./components/pages/Culture/ViewCultureDetail";
 
 
+
 function App() {
 
   return (
@@ -39,6 +41,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/Layout" element={<Layout />} />
+        <Route path="/Layout2" element={<Layout2 />} />
+
         
         <Route path="/login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
