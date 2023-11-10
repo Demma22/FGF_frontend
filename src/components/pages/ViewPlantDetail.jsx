@@ -40,9 +40,9 @@ const ViewPlantDetail = () => {
       <Container className='container' container-fluid='true' shadow="sm" id='content'>
         <Title>{data.botanical_name}</Title>
         <div>
-          {data.names}
-          {data.language}
-          {data.description}
+          <p>{data.names}</p>
+          <p>{data.language}</p>
+          <p>{data.description}</p>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -83,8 +83,9 @@ const ViewPlantDetail = () => {
 
           <Card.Section id='card_content'>
             <Title order={5}>Citation</Title>
-            <pre>{data.citation}</pre>
+            <p>{data.citation}</p>
           </Card.Section>
+
       </Container>
       <Link to="#" onClick={() => window.history.back()}>
         <Button type='' id='back_btn'>

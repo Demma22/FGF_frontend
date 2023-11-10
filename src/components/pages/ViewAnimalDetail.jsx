@@ -43,7 +43,6 @@ const ViewAnimalDetail = () => {
           <p>{data.animal_name}</p>
           <p>{data.scientific_name}</p>
           <p>{data.language}</p>
-          {/* {data.description} */}
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -82,21 +81,20 @@ const ViewAnimalDetail = () => {
             <pre id='contributor'> By: {data.contributor_name}</pre>
           </Card.Section>
 
+          
           <Card.Section id='card_content'>
             <Title order={5}>Citation</Title>
-            <pre>{data.citation}</pre>
+            <p>{data.citation}</p>
           </Card.Section>
+      
       </Container>
+
       <Link to="#" onClick={() => window.history.back()}>
         <Button type='' id='back_btn'>
             Back
         </Button>
-
-      </Link>
-      
-      
-    </Layout>
-    
+      </Link> 
+    </Layout> 
   );
 };
 

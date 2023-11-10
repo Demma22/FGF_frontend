@@ -146,7 +146,7 @@ export default function CreateAnimal () {
                         label="Name"
                         value={posts.animal_name}
                         onChange={handleChange}
-                        description="Name in one of Uganda's Native Language"
+                        description="Name in one of Uganda's Native Languages"
                         name='animal_name'
                         />
                     </div>

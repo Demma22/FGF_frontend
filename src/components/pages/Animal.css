@@ -46,3 +46,17 @@
 #card_text {
     padding: 1%;
 }
+
+#content{
+    margin-top: 25px;
+    padding: 5%;
+    text-align: justify;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1rem;
+    position: relative;
+}
+
+#card_content {
+    padding: 2%;
+}

@@ -84,7 +84,7 @@ const ViewCultureDetail = () => {
 
           <Card.Section id='card_content'>
             <Title order={5}>Citation</Title>
-            <pre>{data.citation}</pre>
+            <p>{data.citation}</p>
           </Card.Section>
       </Container>
       <Link to="#" onClick={() => window.history.back()}>
