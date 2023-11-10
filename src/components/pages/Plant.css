@@ -21,6 +21,7 @@
 #titles{
     text-transform: capitalize;
     margin: 0;
+    padding: auto;
 }
 
 #content{

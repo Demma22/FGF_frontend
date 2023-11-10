@@ -13,9 +13,9 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
-  }
+}
   
-  .popup-content {
+.popup-content {
     background-color: #f9f9f9;
     margin: 15% auto;
     padding: 20px;
@@ -23,12 +23,26 @@
     width: 50%;
     text-align: center;
     position: relative;
-  }
+}
   
-  .close {
+.close {
     position: absolute;
     top: 5px;
     right: 5px;
     cursor: pointer;
   }
   
+#list_card {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: #112A00;
+    color: white;
+    
+    
+    /* color: 'white;  */
+}
+
+#card_text {
+    padding: 1%;
+}

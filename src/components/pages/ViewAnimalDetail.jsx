@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-import "./Plant.css"
 import { Container, Card, Image, Title, Button, Text } from '@mantine/core';
 import { Layout } from '../Layout';
+import "./Animal.css"
 
 const ViewAnimalDetail = () => {
   const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ const ViewAnimalDetail = () => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    const apiUrl = "http://localhost:8000/api/animals/animals/" + id;
+    const apiUrl = "http://localhost:8000/api/animals/" + id;
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl);
@@ -38,11 +38,12 @@ const ViewAnimalDetail = () => {
   return (
     <Layout>
       <Container className='container' container-fluid='true' shadow="sm" id='content'>
-        <Title>{data.english}</Title>
+        <Title>{data.english_name}</Title>
         <div>
-          {data.names}
-          {data.language}
-          {data.description}
+          <p>{data.animal_name}</p>
+          <p>{data.scientific_name}</p>
+          <p>{data.language}</p>
+          {/* {data.description} */}
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -55,7 +56,7 @@ const ViewAnimalDetail = () => {
             <Image
               //src={data.image_url ? data.image_url : "https://placehold.co/600x400?text=Placeholder"}           
               //src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-              src={data.image_url ? data.image_url :"https://fastly.picsum.photos/id/292/3852/2556.jpg?hmac=cPYEh0I48Xpek2DPFLxTBhlZnKVhQCJsbprR-Awl9lo"}
+              src={data.image_url ? data.image_url :"https://placehold.co/600x400?text=Placeholder"}
               height={260}
               alt="data.image.name"
               radius={4}
@@ -69,11 +70,11 @@ const ViewAnimalDetail = () => {
             
           </Card.Section>
 
-          <Card.Section id='card_content'>
-            <Title order={5}>Common Uses</Title>
+          {/* <Card.Section id='card_content'>
+            <Title order={5}>Economic Value</Title>
             <p>{data.other_value}</p>
             
-          </Card.Section>
+          </Card.Section> */}
 
           <Card.Section id='card_content'>
             <Title order={5}>Contributors Notes</Title>

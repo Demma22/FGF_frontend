@@ -12,7 +12,7 @@ function Search({ onSearchResults, categories }) {
 
       for (const category of categories) {
         // Update the API URL based on the category
-        const apiUrl = `https://fgf-app.onrender.com/api/${category}/`;
+        const apiUrl = `http://localhost:8000/api/${category}/`;
 
         // Fetch data from the selected category
         const response = await axios.get(apiUrl);
@@ -42,7 +42,7 @@ function Search({ onSearchResults, categories }) {
   const matchSearchCriteria = (item, category) => {
     const searchLower = searchTerm.toLowerCase();
 
-    if (category === "animals/animals") {
+    if (category === "animals") { //changed from animals/animals
       return (
         item.english_name.toLowerCase().includes(searchLower) ||
         item.local_names.toLowerCase().includes(searchLower) ||
@@ -50,14 +50,14 @@ function Search({ onSearchResults, categories }) {
       );
     } else if (category === "plants") {
       return (
-        item.english_name.toLowerCase().includes(searchLower) ||
-        item.local_names.toLowerCase().includes(searchLower) ||
-        item.scientific_name.toLowerCase().includes(searchLower)
+        (item.english_name && item.english_name.toLowerCase().includes(searchLower)) ||
+        (item.local_names && item.local_names.toLowerCase().includes(searchLower)) ||
+        (item.scientific_name && item.scientific_name.toLowerCase().includes(searchLower))
       );
     } else if (category === "cultures") {
       return (
-        item.kingdom_name.toLowerCase().includes(searchLower) ||
-        item.ethnicity.toLowerCase().includes(searchLower)
+        item.ethnic_group_name.toLowerCase().includes(searchLower) ||
+        item.animal_name.toLowerCase().includes(searchLower)
       );
     }
 

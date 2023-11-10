@@ -65,3 +65,11 @@
     padding: 1%;
 }
 
+#list_card_culture {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background-color: white;
+  color: #112A00;
+  /* color: 'white;  */
+}
