@@ -127,7 +127,7 @@ export function Sidebar() {
                     </li>
                 )}
 
-                <li
+                {/* <li
                     className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' border border-[#002800]`}
                     onClick={(event) => {
                         event.preventDefault();
@@ -137,7 +137,19 @@ export function Sidebar() {
                 >
                     <FaSignOutAlt className={classes.linkIcon} stroke={1.5} />
                     <span>Logout</span>
-                </li>
+                </li> */}
+
+                    <li
+                        className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' border border-[#002800]`}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            signOut();
+                            navigate('/login');
+                        }}
+                    >
+                        <FaSignOutAlt className={classes.linkIcon} stroke={1.5} />
+                        <span>Create Account</span>
+                    </li>
             </Navbar.Section>
 
         </Navbar>

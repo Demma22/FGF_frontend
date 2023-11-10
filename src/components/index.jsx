@@ -1,5 +1,6 @@
 export * from "./menu/Sidebar";
 export * from "./Header";
+export * from "./Header2"
 export * from "./Layout";
 export * from "./Search";
 

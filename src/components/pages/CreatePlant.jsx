@@ -111,7 +111,6 @@ export default function CreatePlant () {
         <Container className='container' id="form_title">
             <Title order={3}> ADD NEW PLANT</Title> 
         </Container>   
-        {/* <Grid columns={{ xs: 2, sm: 2, md: 3 }} gap="md"> */}
         <Container className='container' container-fluid='true' shadow="sm" id="form">
               
             <form onSubmit={handleSubmit}>
