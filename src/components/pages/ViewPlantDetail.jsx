@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Container, Card, Image, Title, Button, Text } from '@mantine/core';
 import { Layout } from '../Layout';
 import "./Plant.css"
+import { Layout2 } from '../Layout2';
 
 const ViewPlantDetail = () => {
   const [error, setError] = useState(null);
@@ -36,7 +37,8 @@ const ViewPlantDetail = () => {
   }
 
   return (
-    <Layout>
+    // <Layout>
+    <Layout2>
       <Container className='container' container-fluid='true' shadow="sm" id='content'>
         <Title>{data.botanical_name}</Title>
         <div>
@@ -91,12 +93,9 @@ const ViewPlantDetail = () => {
         <Button type='' id='back_btn'>
             Back
         </Button>
-
-      </Link>
-      
-      
-    </Layout>
-    
+      </Link>  
+    </Layout2> 
+    // </Layout> 
   );
 };
 
