@@ -104,7 +104,12 @@ export default function CreateCulture () {
         <Container className='container' container-fluid='true' shadow="sm" id="form">
             
             <form onSubmit={handleSubmit}>
-                <div> 4. Add Ethnic Group Details </div>
+                <div id="sub_tile_no_spc" style={{ display: 'flex', alignItems: 'center' }}>
+                    <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center">
+                        4.
+                    </div>
+                    <span style={{ whiteSpace: 'nowrap' }}> Add Ethnic Group Details </span> 
+                </div>
                     <div id='sub'>
                         <TextInput
                         label="Ethnic Group Name "
