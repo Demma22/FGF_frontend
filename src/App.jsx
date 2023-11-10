@@ -2,6 +2,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css';
+// import '@mantine/carousel';
 
 import Landing from './components/pages/landing/Landing';
 
