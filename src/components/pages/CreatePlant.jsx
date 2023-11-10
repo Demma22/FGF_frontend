@@ -107,9 +107,7 @@ export default function CreatePlant () {
 
 
   return (
-    <Layout>
-        {/* <Title order={3} ta="center"> PLANT FORM</Title> */}
-        
+    <Layout>        
         <Container className='container' id="form_title">
             <Title order={3}> ADD NEW PLANT</Title> 
         </Container>   
@@ -117,8 +115,6 @@ export default function CreatePlant () {
         <Container className='container' container-fluid='true' shadow="sm" id="form">
               
             <form onSubmit={handleSubmit}>
-                {/* <Grid> */}
-                    {/* <Box maw={600} mx="md" style={{ padding: '2px' }}> */}
                 <div className="row">
                     <div className="col-md-6" id="col">        
                         <TextInput
@@ -131,9 +127,6 @@ export default function CreatePlant () {
                         
                         />
                     </div>
-
-                    {/* </Box> */}
-                    {/* <Box maw={600} mx="auto"> */}
                     
                     <div className="col-md-6" id="col">
                         <TextInput
@@ -144,8 +137,7 @@ export default function CreatePlant () {
                         />
                     </div>
                 </div>
-                    {/* </Box> */}
-                    {/* <Box maw={400} mx="auto"> */}
+
                 <div className="row">
                     <div className="col-md-6" id="col">
                             <TextInput
@@ -156,11 +148,7 @@ export default function CreatePlant () {
                             name="names"
                             />
                         </div>
-                    {/* </Box> */}   
-                {/* </Grid> */}
-                
-                {/* <Grid> */}
-                    {/* <Box maw={400} mx="auto"> */}
+
                    
                     <div className="col-md-6" id="col">   
                         <TextInput
@@ -171,8 +159,7 @@ export default function CreatePlant () {
                         />
                     </div>
                 </div>
-                    {/* </Box> */}
-                    {/* <Box maw={400} mx="auto"> */}
+
                 <div className="row">
                     <div className="col-md-6" id="col">
                         <TextInput
@@ -182,8 +169,7 @@ export default function CreatePlant () {
                             name="habitat"
                             />
                     </div>
-                    
-                    {/* <Box maw={400} mx="auto"> */}
+
                     
                     <div className="col-md-6" id="col">
                         <TextInput
@@ -194,11 +180,9 @@ export default function CreatePlant () {
                             />
                     </div>
                 </div>
-                    {/* </Box> */}
-                
-                {/* </Grid> */}
+
                 <div className="row">
-                    {/* <div className="col-md-6" id="col"> */}
+
                         <Textarea
                             label="Description"
                             value={posts.description}
@@ -207,10 +191,7 @@ export default function CreatePlant () {
                             name="description"
                             minRows={4}
                             maxRows={6}
-                            />
-                            
-                    {/* </div> */}
-                     
+                            />                     
                 </div>  
                       <div className="row">
                         <Select
@@ -313,8 +294,6 @@ export default function CreatePlant () {
                             name="other_value"
                             />
                     </div>
-
-
                     <div>
                         {/* Handle Images Here and other File uploads*/}
                     </div>
@@ -365,7 +344,6 @@ export default function CreatePlant () {
                     </div>
                 </form>
             </Container>    
-            {/* </Grid> */}
       
     </Layout>
     

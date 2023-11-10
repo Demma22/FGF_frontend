@@ -17,10 +17,10 @@ import Contributor from "./components/pages/Contributors";
 import ListPlant from "./components/pages/ListPlant";
 import ListAnimal from "./components/pages/ListAnimal";
 import CreateAnimal from "./components/pages/CreateAnimal";
-import CreateCulture from "./components/Culture/CreateCulture";
-import CreateEthnicity from "./components/Culture/CreateEthnicity";
-import CreateClan from "./components/Culture/CreateClan";
-import CreateKingdom from "./components/Culture/CreateKingdom";
+import CreateCulture from "./components/pages/Culture/CreateCulture";
+import CreateEthnicity from "./components/pages/Culture/CreateEthnicity";
+import CreateClan from "./components/pages/Culture/CreateClan";
+import CreateKingdom from "./components/pages/Culture/CreateKingdom";
 import ViewPlantDetail from "./components/pages/ViewPlantDetail";
 
 
@@ -38,12 +38,14 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/Search" element={<Search />} />
         <Route path="/Layout" element={<Layout />} />
-        <Route path="/CreateAnimal" element={<CreateAnimal />} />
+        
 
         <Route path="/CreatePlant" element={<CreatePlant />} />
         <Route path="/ListPlant" element={<ListPlant />} />
-        <Route path="/ListAnimal" element={<ListAnimal />} />
         <Route path="/ViewPlantDetail/:id" element={<ViewPlantDetail />} />
+
+        <Route path="/ListAnimal" element={<ListAnimal />} />
+        <Route path="/CreateAnimal" element={<CreateAnimal />} />
 
         <Route path="/Contributors" element={<Contributor />} />
 

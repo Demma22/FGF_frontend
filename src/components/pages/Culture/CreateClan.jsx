@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, TextInput, Text, Title, Group, FileInput, Grid } from "@mantine/core";
+import { Button, TextInput, Text, Title, Container, Group, FileInput, Grid } from "@mantine/core";
 import { Layout } from "../../Layout"
 
 import './Culture.css'
@@ -94,144 +94,141 @@ export default function CreateClan () {
           .catch((err) => console.log(err));
           
     };
-
-
-
   return (
     <Layout>
         
-        <Title order={3} ta="center"> CULTURE</Title>
-        
-        <Grid columns={24}>
-            <Grid.Col span={22}>  
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <TextInput
-                        label="Clan Name"
-                        value={posts.clan_name}
-                        onChange={handleChange}
-                        description="Enter Clan Name"
-                        name="clan_name"
-                        />
-                    </div>
-        
-                    <div>
-                        <TextInput
-                        label="Clan Seat"
-                        value={posts.clan_seat}
-                        onChange={handleChange}
-                        
-                        name='clan_seat'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Totem"
-                        value={posts.totem}
-                        onChange={handleChange}
-                        name='totem'
-                        
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Secondary Totem"
-                        value={posts.secondary_totem}
-                        onChange={handleChange}
-                        name='secondary_totem'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Clan History"
-                        value={posts.clan_history}
-                        onChange={handleChange}
-                        name='clan_history'
-                        />
-                    </div>
-
-                    <div>
-                        <TextInput
-                        label="Title of Clan Leader"
-                        value={posts.clan_leader_title}
-                        onChange={handleChange}
-                        name='clan_leader_title'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Name of Clan Leader"
-                        value={posts.clan_leader_name}
-                        onChange={handleChange}
-                        name='clan_leader_name'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Cultural Sites"
-                        value={posts.cultural_sites}
-                        onChange={handleChange}
-                        name='cultural_sites'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Common Male Names"
-                        value={posts.male_names}
-                        onChange={handleChange}
-                        name='male_names'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Common Female Names"
-                        value={posts.female_names}
-                        onChange={handleChange}
-                        name='female_names'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Taboos"
-                        value={posts.taboos}
-                        onChange={handleChange}
-                        name='taboos'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Lead God"
-                        value={posts.lead_god}
-                        onChange={handleChange}
-                        name='lead_god'
-                        />
-                    </div>
-                    <div>
-                        <TextInput
-                        label="Other Gods"
-                        value={posts.other_gods}
-                        onChange={handleChange}
-                        name='other_gods'
-                        />
-                    </div>
+       <Container className='container' id="form_title">
+            <Title order={3}> ADD NEW CULTURE</Title> 
+        </Container> 
+        <Container className='container' container-fluid='true' shadow="sm" id="form">
+         
+            <form onSubmit={handleSubmit}>
+            <div> 1. Add Clan Details </div>
+                <div>
+                    <TextInput
+                    label="Clan Name"
+                    value={posts.clan_name}
+                    onChange={handleChange}
+                    description="Enter Clan Name"
+                    name="clan_name"
+                    />
+                </div>
+    
+                <div>
+                    <TextInput
+                    label="Clan Seat"
+                    value={posts.clan_seat}
+                    onChange={handleChange}
                     
-                    <div>
-                        <Button color="lime.6" type='' variant="filled" radius="md"> Next </Button>
-                    </div>
-                    </form>
-                    {/* {successMessage && <div className="success-message">{successMessage}</div>} */}
-                    <Text
-                        className="success-message"
-                        size="sm"
-                        color="green"
-                        style={{ marginTop: '10px' }}
-                    >
-                        {successMessage}
-                    </Text> 
-                    {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
+                    name='clan_seat'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Totem"
+                    value={posts.totem}
+                    onChange={handleChange}
+                    name='totem'
+                    
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Secondary Totem"
+                    value={posts.secondary_totem}
+                    onChange={handleChange}
+                    name='secondary_totem'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Clan History"
+                    value={posts.clan_history}
+                    onChange={handleChange}
+                    name='clan_history'
+                    />
+                </div>
 
-                </Grid.Col>
-            </Grid>
+                <div>
+                    <TextInput
+                    label="Title of Clan Leader"
+                    value={posts.clan_leader_title}
+                    onChange={handleChange}
+                    name='clan_leader_title'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Name of Clan Leader"
+                    value={posts.clan_leader_name}
+                    onChange={handleChange}
+                    name='clan_leader_name'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Cultural Sites"
+                    value={posts.cultural_sites}
+                    onChange={handleChange}
+                    name='cultural_sites'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Common Male Names"
+                    value={posts.male_names}
+                    onChange={handleChange}
+                    name='male_names'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Common Female Names"
+                    value={posts.female_names}
+                    onChange={handleChange}
+                    name='female_names'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Taboos"
+                    value={posts.taboos}
+                    onChange={handleChange}
+                    name='taboos'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Lead God"
+                    value={posts.lead_god}
+                    onChange={handleChange}
+                    name='lead_god'
+                    />
+                </div>
+                <div>
+                    <TextInput
+                    label="Other Gods"
+                    value={posts.other_gods}
+                    onChange={handleChange}
+                    name='other_gods'
+                    />
+                </div>
+                
+                <div>
+                    <Button color="lime.6" type='' variant="filled" radius="md"> Next </Button>
+                </div>
+                </form>
+                {/* {successMessage && <div className="success-message">{successMessage}</div>} */}
+                <Text
+                    className="success-message"
+                    size="sm"
+                    color="green"
+                    style={{ marginTop: '10px' }}
+                >
+                    {successMessage}
+                </Text> 
+                {/* <Popup message={successMessage} onClose={() => setSuccessMessage(null)} /> */}
+        </Container>
       
     </Layout>
     
