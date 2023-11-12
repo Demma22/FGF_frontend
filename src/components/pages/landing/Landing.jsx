@@ -34,7 +34,7 @@ function Landing() {
       </Header2>
       <Container className='container' container-fluid='true' id='landing_text'>
           {/* Hero Section */}
-        <section className="bg-green-900 text-white py-20 ml-9 mr-9 mt-5">
+        <section className="text-white py-20 ml-9 mr-9 mt-5" id='top_bar'>
           <div className="container mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">Welcome to Future Generations Encyclopedia</h1>
             <p className="text-lg leading-relaxed">
@@ -42,11 +42,11 @@ function Landing() {
               On this platform, you'll discover a wealth of information about a wide array of subjects, complete with captivating images that bring these topics to life. Whether you're here to learn or conduct research, our comprehensive resources are accessible to all users.
               We're united in our commitment to safeguarding our natural surroundings for the benefit of future generations. Together, we can ensure that the beauty and diversity of our world endure for years to come."
             </p>
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <a href="/Login" className="text-xl font-semibold border-b-2 border-white hover:border-green-400">
                 Explore Now
               </a>
-            </div>
+            </div> */}
           </div>
         </section>
 
@@ -69,7 +69,7 @@ function Landing() {
               {/* Card 2 - Plants */}
               <div className="bg-white rounded-lg shadow-lg p-3 w-full md:w-1/2 lg:w-1/4 mb-4">
                 <img
-                  src="imgs/Tree.jpg" 
+                  src="imgs/forest.jpg" 
                   alt="Plants"
                   className="w-full object-cover rounded-t-lg mb-4"
                 />
@@ -121,7 +121,7 @@ function Landing() {
           </p>
 
           {/* Search Item */}
-          <div className="flex items-center space-x-2 mt-4">
+          {/* <div className="flex items-center space-x-2 mt-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-blue-500"
@@ -144,7 +144,7 @@ function Landing() {
               here
             </a>{' '}
             to be able to read all about them.
-          </p>
+          </p> */}
 
           {/* Provide Information (Contribute) */}
           <div className="flex items-center space-x-2 mt-4">
@@ -217,12 +217,17 @@ function Landing() {
                   Create an account and start sharing your knowledge!
                 </p>
                 <div className="flex justify-center">
-                <a href="Register" className="text-blue-400 hover:underline"><button className="bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded mr-4">
+                <a href="Register" >
+                  <button className="hover:bg-green-100 text-white justify-center font-bold py-1 px-4 rounded mr-4 w-60" id='top_bar'
+                  >
                     Create Account
-                  </button></a>
-                  <a href="Login" className="text-blue-400 hover:underline"><button className="bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
+                  </button>
+                </a>
+                  <a href="Login" className="text-blue-400">
+                    <button className="hover:bg-green-100 text-white justify-center  font-bold py-1 px-4 rounded mr-4 w-60" id='top_bar'>
                     Login
-                  </button></a>
+                  </button>
+                  </a>
                 </div>
               </div>
             </div>

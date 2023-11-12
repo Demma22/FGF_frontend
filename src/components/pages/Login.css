@@ -1,0 +1,71 @@
+/* .......Specifically_LOGIN......... */
+/* Login Component Css */
+
+.success-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.auth-form-container.login {
+    /* max-width: 400px; */
+    margin: 0 auto;
+    /* padding: 20px; */
+    background: #fff;
+    border: 1px solid #2b5a36;
+    border-radius: 5px;
+    text-align: center;
+    }
+    
+    h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    }
+    
+    h1 {
+    font-size: 18px;
+    margin: 20px 0;
+    }
+    
+    button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    }
+    
+    button img.login {
+    width: 100px;
+    height: 50px;
+    margin-left: 130px;
+    
+    }
+    
+    form.login-form {
+    text-align: left;
+    margin: 10px 0;
+    }
+    
+    
+    
+    /* all underlined links */
+    .underlog-links{
+    text-decoration: underline;
+    padding: 0 100px;
+    }
+    
+    .undereg-links{
+    text-decoration: underline;
+    padding: 0 10px;
+    }
+    
+    /* anchor tag for both login and registration */
+    a{
+    margin-left: 30px; 
+    }
+    
+    /* Login logo bottom */
+    .llogin{
+    margin: 65px 120px;
+    width: 100px;
+    height: 100px;
+    }

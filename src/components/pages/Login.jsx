@@ -2,58 +2,111 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, TextInput, Text, Group, Box } from "@mantine/core";
+import "./Login.css"
+
 
 export const Login = (props) => {
-  const [formData, setFormData] = useState({
-    email: "",
+  const [posts, setPosts] = useState({
+    username: "",
     password: "",
   });
+  // const history = useHistory();
   // const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
   // const users = [{ username: "Fgf", password: "testpassword" }];
   // const [isLoggedIn,setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      email: '',
-      password: '',
-    });
+  //initialise success message state
+  // const [successMessage, setSuccessMessage] = useState(null);
+  const [token, setToken] = useState(''); // Store the authentication token
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPosts((prevPosts) => ({
+      ...prevPosts,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
-  // Clear the form inputs
-  //setEmail('');
-  //setPswd('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    /* const account = users.find((user) => user.username === username);
-    if (account && account.password === password) {
-      setauthenticated(true)
-      localStorage.setItem("authenticated", true);
+    const postData = {
+      username: posts.username,
+      password: posts.password,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:8000/api/login/', postData, {
+        headers: {
+          // 'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        // body: JSON.stringify({ username, password }),
+      });
+
+      if (response.status === 200) {
+        // Successful login
+        setSuccessMessage('Logged in successfully!');
+        setErrorMessage(''); // Clear any previous error message'
+
+        const isAuthenticated = true;
+        setToken(response.data.token);
+        // Delay the navigation to another page for 2 seconds (2000 milliseconds)
+        setTimeout(() => {
+          // history.push('/another-page'); // Replace '/another-page' with the desired route
+          if (isAuthenticated) {
+            //history.pushState('/CreatePlant')
+            navigate('/CreatePlant');
+          }
+        }, 2000);
+        
+      } else {
+        // Handle other response status codes if needed
+        setErrorMessage('Login failed. Please check your credentials.');
+        setSuccessMessage('');
+      }
+    } catch (error) {
+      // Handle network errors or other issues
+      console.error('Login error:', error);
+      setErrorMessage('Login failed. Please try again.');
+      setSuccessMessage('');
     }
-    // Create a data object with the form values
-    const login = {
-      email: email,
-      password: pswd,
-    }; */
-
-      try {
-        const response = await axios.post('http://localhost:8000/login/', {
-          email: formData.email,
-          password: formData.password,
+  };
+  /* const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const postData = {
+        email: posts.email,
+        username: posts.username,
+        password: posts.password,
+    };
+    
+    axios
+        // Use the 'posts' object to send data
+      .post("http://localhost:8000/api/login/", postData, {
+        headers: {
+            "Content-Type": "application/json", 
+        },
+    }) 
+      .then((res) => {
+        // Display success message and clear form
+        setSuccessMessage("Logged in successfully!");
+        
+        // Clear the form inputs
+        setPosts({
+          // email: "",
+          username: "",
+          password: "",
         });
 
-        if (response.data.email === email) {
-          navigate("/Layout")
-        }else if (response.data.email === "is_contributor"){
-          navigate("/Layout")
-        }
-      } catch (error) {
-        console.error('Error logging in:', error);
-      }
-    }
+    })
+      .catch((err) => console.log(err));          
+  }; */
+  
+  
     return (
       <div className="square-block">
         <div className="main-container">
@@ -68,36 +121,53 @@ export const Login = (props) => {
             <button><img className="login-logo" src="imgs/login/google_logo.png" alt="" /></button>
             <button><img className="login-logo" src="imgs/login/Facebook-Logo-2019.png" alt="facebookLogo" /></button>
             <form className="login-form" onSubmit={handleSubmit}>
-              
-            <TextInput
-                value={formData.email}
-                onChange={handleInputChange}
-                name="email"
-                placeholder="Username/Email"
-                label="Email"
-              />
+
+
+            <div>
               <TextInput
-                value={formData.password}
-                onChange={handleInputChange}
+                label="Username"
+                value={posts.username}
+                onChange={handleChange}
+                placeholder="Enter Your Username" 
+                name="username"
+                required
+                />
+            </div>  
+            <div>
+              <TextInput
+                label="Password"
+                value={posts.password}
+                onChange={handleChange}
+                placeholder="Enter Your Password" 
                 name="password"
                 type="password"
-                placeholder="Password"
-                label="Password"
-              />
-              <button type="submit" className="login-button">Log In </button>
-              <div>
-                <a className="log" href="#">Remember me</a><a href="#">forgot password?</a>
-              </div>
-            </form>
-            <Link to={"/Register"}>
-              <button
-                // className="link-btn"
-                // onClick={() => props.onFormSwitch('Login')}
-              className="underlog-links">
-                Register/SignUp
+                required
+                />
+            </div>
+              <button type="submit" className="login-button rounded">
+                Log In 
               </button>
-              <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" />
-            </Link>
+            <div>
+              <a className="log" href="#">Remember me</a><a href="#">Forgot password?</a>
+            </div>
+            </form>
+            <Link to={"/Register"} className="underlog-links">
+              Register/SignUp
+            </Link>  
+
+            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            {/* <Text
+                    className="success-message"
+                    size="sm"
+                    color="green"
+                    style={{ marginTop: '10px' }}
+                >
+                    {successMessage}
+              </Text> */} 
+
+            <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" />
+            
           </div>
         </div>
       </div>
