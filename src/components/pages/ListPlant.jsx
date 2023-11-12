@@ -56,7 +56,7 @@ export default function ListPlant () {
                 {/* <Text size="sm" c="dimmed"> */}
                 <div className='div_content' id='titles'>
                   <Text size="sm">
-                    {plant.names} 
+                    {/* {plant.names}  */}
                   </Text>
                   <Text>{plant.language}</Text>
                   <Text>Region: {plant.region_in_Uganda}</Text>

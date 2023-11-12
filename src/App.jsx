@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Landing from './components/pages/landing/Landing';
 
 import { Login } from './components/pages/Login';
-import { Register } from './components/pages/Registration';
+import Register from "./components/pages/Register";
+// import { Register } from './components/pages/Registration';
 import Settings from './components/pages/Settings';
 
 import Logout from './components/pages/Logout';

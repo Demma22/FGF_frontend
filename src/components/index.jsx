@@ -7,6 +7,7 @@ export * from "./Search";
 
 export * from "./pages/landing/Landing";
 
+export * from "./pages/Register";
 export * from "./pages/Logout";
 export * from "./pages/Settings";
 export * from "./pages/Contribute";

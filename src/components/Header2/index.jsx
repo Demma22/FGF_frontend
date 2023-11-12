@@ -24,7 +24,7 @@ export function Header2() {
 
   return (
     // <nav className="w-full h-[77px] flex justify-between items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
-    <nav className="h-[77px] flex items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
+    <nav className="h-[100px] flex items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
       <h2 className="font-bold text-lg">{heading}</h2>
       <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
       
