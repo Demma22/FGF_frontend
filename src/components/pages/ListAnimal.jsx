@@ -14,36 +14,43 @@ export default function ListAnimal() {
 
   const animalCategoryData = {
     apiUrl: 'https://fgf-app.onrender.com/api/animals/animals/',
-    searchCriteria: ['english_name', 'local_names', 'scientific_name'],
+    searchCriteria: ['english_name', 'description', 'scientific_name'],
   };
 
   const categories = ['animals', 'plants', 'cultures'];
 
   useEffect(() => {
-    axios
-      .get(animalCategoryData.apiUrl)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(animalCategoryData.apiUrl);
         setAnimals(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error(error);
-      });
-  }, []);
+      }
+    };})
+    
+    useEffect(() => {
+      if (searchResults.length > 0) {
+        setAnimals(searchResults);
+      } else {
+        // Fetch all animals if there are no search results
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(animalCategoryData.apiUrl);
+            setAnimals(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+    
+        fetchData();
+      }
+    }, [searchResults, animalCategoryData.apiUrl]);
+    
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
   };
-
-  useEffect(() => {
-    axios
-      .get('https://fgf-app.onrender.com/api/animals/animals/')
-      .then((response) => {
-        setAnimals(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
 
   const [selectedAnimal, setSelectedAnimal] = useState(null);
 
@@ -51,12 +58,21 @@ export default function ListAnimal() {
     <Layout>
       <Grid>
         <Grid.Col span={12}>
-          <Search onSearchResults={handleSearchResults} categories={categories} />
+          <Search
+            onSearchResults={handleSearchResults}
+            categories={categories}
+          />
         </Grid.Col>
         {(searchResults.length > 0 ? searchResults : animals).map((animal) => (
           <Grid.Col span={4} key={animal.id}>
             <Link to={`/ViewAnimalDetail/${animal.id}`}>
-              <Card shadow="sm" padding="lg" radius="md" withBorder style={{ backgroundColor: '#112A00', color: 'white' }}>
+              <Card
+                shadow="sm"
+                padding="lg"
+                radius="md"
+                withBorder
+                style={{ backgroundColor: '#112A00', color: 'white' }}
+              >
                 <Group justify="space-between" mt="md" mb="xs">
                   <Text fw={500} id="titles">
                     {animal.english_name}
@@ -76,12 +92,24 @@ export default function ListAnimal() {
                 <Card.Section>{animal.description}</Card.Section>
                 <Card.Section>
                   <Image
-                    src={animal.image_url ? animal.image_url : 'https://fastly.picsum.photos/id/292/3852/2556.jpg?hmac=cPYEh0I48Xpek2DPFLxTBhlZnKVhQCJsbprR-Awl9lo'}
+                    src={
+                      animal.image_url
+                        ? animal.image_url
+                        : 'https://fastly.picsum.photos/id/292/3852/2556.jpg?hmac=cPYEh0I48Xpek2DPFLxTBhlZnKVhQCJsbprR-Awl9lo'
+                    }
                     height={260}
                     alt={animal.english_name}
                   />
                 </Card.Section>
-                <Button type="" color="green.0" variant="filled" c="black" fullWidth mt="md" radius="md">
+                <Button
+                  type=""
+                  color="green.0"
+                  variant="filled"
+                  c="black"
+                  fullWidth
+                  mt="md"
+                  radius="md"
+                >
                   View More
                 </Button>
               </Card>
@@ -89,7 +117,10 @@ export default function ListAnimal() {
           </Grid.Col>
         ))}
         {selectedAnimal && selectedAnimal.id && (
-          <ViewAnimalDetail animalId={selectedAnimal.id} onClose={closeAnimalDetail} />
+          <ViewAnimalDetail
+            animalId={selectedAnimal.id}
+            onClose={closeAnimalDetail}
+          />
         )}
       </Grid>
     </Layout>

@@ -12,7 +12,7 @@ const ViewAnimalDetail = () => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    const apiUrl = "http://localhost:8000/api/animals/animals/" + id;
+    const apiUrl = "https://fgf-app.onrender.com/api/animals/animals/" + id;
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl);

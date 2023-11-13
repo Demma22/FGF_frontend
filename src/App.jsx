@@ -22,7 +22,7 @@ import CreateEthnicity from "./components/Culture/CreateEthnicity";
 import CreateClan from "./components/Culture/CreateClan";
 import CreateKingdom from "./components/Culture/CreateKingdom";
 import ViewPlantDetail from "./components/pages/ViewPlantDetail";
-
+import ViewAnimalDetail from "./components/pages/ViewAnimalDetail";
 
 function App() {
 
@@ -44,7 +44,7 @@ function App() {
         <Route path="/ListPlant" element={<ListPlant />} />
         <Route path="/ListAnimal" element={<ListAnimal />} />
         <Route path="/ViewPlantDetail/:id" element={<ViewPlantDetail />} />
-
+        <Route path="/ViewAnimalDetail/:id" element={<ViewAnimalDetail />} />
         <Route path="/Contributors" element={<Contributor />} />
 
         <Route path="/CreateCulture" element={<CreateCulture />} />
