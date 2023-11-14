@@ -9,75 +9,6 @@
   
 }
 
-
-/* login-interface */
-.main-container{
-  display: flex;
- 
-}
-
-.auth-form-container{
-  border-radius: 0px !important;
-}
-
-.auth-form-container,  .login-side-list{
-  flex: 0.5; /* Distributes the available space equally */
-  padding: 10px;
-  border: 1px solid #000;
-  background-color: #2b5a36;
-
-}
-
-.side-log-message{
-  color: #00ff00;
-  font-size: 50px;
-  font-family: "'Courier New', Courier, monospace'";
-}
-
-.line-breaks{
-  margin: 0 150px;
-  color: #00ff00;
-  font-size: 50px;
-  font-family: "'Courier New', Courier, monospace'";
-  margin: 0 20px;
-  padding: 0 50px;
-}
-
-.most-out-block{
-  margin: 20px;
-}
-
-.login-button{
-  /* padding-left:  232px !important; */
-  border: 1px solid #2b5a36;
-  background-color: #2b5a36; 
-}
-
-/* login interface stops here */
-
-/* Register starts here */
-.register{
-  border-radius: 0px !important
-}
-
-/* This also affects the login page */
-.square-block {
-  width: stretch; /* Adjust the width to your desired size */
-  height: stretch; /* Make it a square by setting the same height as the width */
-  padding: 10px;
-  background-color: #4a844a;; /* Set a background color or use an image */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#reg-side{
-  font-size: 0 10px;
-}
-
-
-/* Register stops Here */
-
 /* form border  */
 @media screen and (min-width:600px) {
   .auth-form-container {
@@ -105,38 +36,7 @@ input {
 }
 
 
-h2 span {
-display: inline-block;
-vertical-align: middle; /* Adjust as needed for vertical alignment */
-margin-left: 10px; /* Add margin for spacing between text and image */
-}
 
-.login-logo {
-width: 100px;
-height: 50px;
-margin: 0 180px;
-/* Additional styling for the image */
-}
-
-
-
-.auth-form-Container.register {
-max-width: 400px;
-margin: 0 auto;
-padding: 20px;
-border: 1px solid #ccc;
-border-radius: 5px;
-background-color: #fff;
-text-align: center;
-}
-
-h2 {
-font-size: 24px;
-margin: 0;
-color: #2b5a34 !important;
-font-weight: bolder !important;
-font-family: Arial, Helvetica, sans-serif;
-}
 
 button {
 background-color: #2b5a34;
@@ -156,10 +56,7 @@ height: 20px;
 margin-right: 10px;
 }
 
-.register-form {
-text-align: left;
-margin: 20px 0;
-}
+
 
 label {
 display: block;

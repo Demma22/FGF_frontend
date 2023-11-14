@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { menuData } from "../menu/menuData";
 import "./index.css"
@@ -6,16 +7,66 @@ import {
   FaCaretDown
 } from 'react-icons/fa';
 
+import CreateAnimal from "../pages/CreateAnimal";
+
 import ListPlant from "../pages/ListPlant";
 import ListAnimal from "../pages/ListAnimal";
 import ListCulture from "../pages/Culture/ListCulture";
 
 export function Header2() {
   const location = useLocation();
+  const [username, setUsername] = useState('');
 
-  useEffect(() => {
-  }, []);
+  
+  // const [authenticated, setAuthenticated] = useState(
+  //   localStorage.getItem('authenticated') === 'true'
+  // );
+  /* axios.post('http://localhost:8000/api/refresh-token', { refreshToken })
+  .then((response) => {
+    const newAuthToken = response.data.token;
+    localStorage.setItem('authToken', newAuthToken);
+    // Now you can use newAuthToken in your Authorization header.
+  })
+  .catch((error) => {
+    console.error('Token refresh failed:', error);
+  }); */
 
+  const url = 'http://localhost:8000/api/profile/';
+  // useEffect(() => {
+  //   const token = localStorage.getItem('authToken');
+  //   // Make a request to get user information using the stored token
+  //   axios.get(url, token)
+  //   // axios.get(url)  
+  //   .then((response) => {
+  //     setUsername(response.data.username);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+    
+    
+  // }, []);
+
+  const getUserDetails = async () => {
+    const token = localStorage.getItem('authToken');
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+
+      });
+
+      const userDetails = response.data;
+      setUsername(userDetails);
+      console.log('User Details: ', userDetails);
+    } catch(error){
+      console.error('Failed to get user details: ', error)
+    }
+  };
+
+    
   const heading =
     menuData.admin &&
     menuData.admin
@@ -44,13 +95,13 @@ export function Header2() {
         <Link to="/ListCulture"> <span> Cultures </span></Link>
       </div>
 
-      {/* <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>
+      <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>
         <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center">
-          <p className="font-medium text-sm">JM</p>
+          {/* <p className="font-medium text-sm">JM</p>  */}
         </div>
-        <span>John Mark</span>
+         <span>{username}</span>
         <FaCaretDown size={18} className="text-[#515861]" />
-      </div> */}
+      </div>
     </nav>
   );
 }

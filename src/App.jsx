@@ -8,6 +8,8 @@ import Landing from './components/pages/landing/Landing';
 
 import { Login } from './components/pages/Login';
 import Register from "./components/pages/Register";
+import Admin from "./components/pages/Admin"
+
 // import { Register } from './components/pages/Registration';
 import Settings from './components/pages/Settings';
 
@@ -24,6 +26,7 @@ import ViewPlantDetail from "./components/pages/ViewPlantDetail";
 
 import ListAnimal from "./components/pages/ListAnimal";
 import CreateAnimal from "./components/pages/CreateAnimal";
+import Animal from "./components/pages/Animal";
 import ViewAnimalDetail from "./components/pages/ViewAnimalDetail";
 
 import CreateCulture from "./components/pages/Culture/CreateCulture";
@@ -32,6 +35,10 @@ import CreateClan from "./components/pages/Culture/CreateClan";
 import CreateKingdom from "./components/pages/Culture/CreateKingdom";
 import ListCulture from "./components/pages/Culture/ListCulture";
 import ViewCultureDetail from "./components/pages/Culture/ViewCultureDetail";
+
+import Dashboard from "./components/Dashboard";
+import LogoutButton from "./components/LogoutButton";
+import Plant from "./components/pages/Plant";
 
 
 
@@ -43,22 +50,26 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/Layout" element={<Layout />} />
         <Route path="/Layout2" element={<Layout2 />} />
-
+        <Route path="/Admin" element={<Admin />} />
+        <Route path="/Dashboard" element={<Dashboard />} /> 
         
         <Route path="/login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         
         <Route path="/logout" element={<Logout />} />
+        <Route path="/logoutbutton" element={<LogoutButton />} />
         
         <Route path="/Settings" element={<Settings />} />
         <Route path="/Search" element={<Search />} />      
 
+        <Route path="/Plant" element={<Plant />} />
         <Route path="/CreatePlant" element={<CreatePlant />} />
         <Route path="/ListPlant" element={<ListPlant />} />
         <Route path="/ViewPlantDetail/:id" element={<ViewPlantDetail />} />
 
         <Route path="/ListAnimal" element={<ListAnimal />} />
-        <Route path="/CreateAnimal" element={<CreateAnimal />} />
+        <Route path="/CreateAnimal" element={<CreateAnimal />} /> 
+        <Route path="/Animal" element={<Animal />} />
         <Route path="/ViewAnimalDetail/:id" element={<ViewAnimalDetail />} />
 
         <Route path="/Contributors" element={<Contributor />} />

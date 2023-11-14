@@ -11,13 +11,13 @@ export const menuData = {
         
         {
             label: "Animals",
-            link: "/CreateAnimal",
+            link: "/Animal",
             icon: FaRegListAlt,
             roles: ['administrator', 'contributor'],
         },
         {
             label: "Plants",
-            link: "/CreatePlant",
+            link: "/Plant",
             icon: FaRegListAlt,
             roles: ['administrator', 'contributor'],
         },
