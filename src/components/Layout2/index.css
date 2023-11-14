@@ -1,0 +1,5 @@
+.pro-sidebar .pro-menu-item:hover {
+    background-color: rgb(5, 112, 5); 
+    color: black; /* Text color on hover */
+    /* Add any additional styles as needed */
+  }

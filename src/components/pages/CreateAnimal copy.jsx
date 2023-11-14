@@ -6,8 +6,7 @@ import { Layout } from "../Layout"
 import Popup from './Popup';
 import './Animal.css'
 
-//function CreateAnimal () {
-const CreateAnimal = () => {
+export default function CreateAnimal () {
     const navigate = useNavigate();
     const [posts, setPosts] = useState({
         english_name:"",
@@ -125,7 +124,7 @@ const CreateAnimal = () => {
 
 
   return (
-    <div>
+    <Layout>
         <Container className='container' id="form_title">
             <Title order={3}> ADD NEW ANIMAL</Title> 
         </Container>   
@@ -317,10 +316,10 @@ const CreateAnimal = () => {
                 
             </Container>
       
-   </div>
+    </Layout>
     
   )
   }
   
-  export default CreateAnimal
+  //export default Animal
   

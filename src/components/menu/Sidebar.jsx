@@ -6,6 +6,7 @@ import {
     FaCog,
     FaSignOutAlt,
 } from 'react-icons/fa';
+import LogoutButton from "../LogoutButton";
 
 const useStyles = createStyles((theme) => ({
     navbar: {
@@ -69,6 +70,9 @@ export function Sidebar() {
 
     const allowedMenuItems = menuData.admin.filter(item => item.roles.includes(userRole));
 
+    const navigate = useNavigate();
+
+
     const toggleActiveClassStyle = (current_path) =>
         current_path === location.pathname
             ? " my-1 w-full font-medium relative bg-white/10"
@@ -100,59 +104,50 @@ export function Sidebar() {
 
 
     return (
-        <Navbar width={{ sm: 250 }} className={`${classes.navbarContainer} px-2 py-2 bg-[#002200] text-white`}>
-            
-            <Navbar.Section className="flex-grow">
-                <Group className={`${classes.header} border-b border-b-[#23A74C]/10 `} position="apart">
-                    <header className="p-2 flex gap-2 items-center">
-                        <img src="/imgs/logo.png" alt="" className="w-20"/>
-                        <h1 className="f text-lg">FGF</h1> 
-                    </header>
-                    <Code className={classes.version}>v1.0.0</Code>
-                </Group>
+        <>
+            <Navbar width={{ sm: 250 }} className={`${classes.navbarContainer} px-2 py-2 bg-[#002200] text-white`}>
 
-                {links}
-            </Navbar.Section>
+                <Navbar.Section className="flex-grow">
+                    <Group className={`${classes.header} border-b border-b-[#23A74C]/10 `} position="apart">
+                        <header className="p-2 flex gap-2 items-center">
+                            <img src="/imgs/logo.png" alt="" className="w-20" />
+                            <h1 className="f text-lg">FGF</h1>
+                        </header>
+                        <Code className={classes.version}>v1.0.0</Code>
+                    </Group>
 
-            <Navbar.Section className={`${classes.footer} border-t border-[#23A74C]/10`}>
-                {userRole === "administrator" && (
-                    <li
-                        className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' toggleActiveClassStyle(item.link)`}
-                        onClick={(event) => {
-                            event.preventDefault();
-                            navigate('/settings');
-                        }}
-                    >
-                        <FaCog className={classes.linkIcon} stroke={1.5} />
-                        <span>Settings</span>
-                    </li>
-                )}
+                    {links}
+                </Navbar.Section>
 
-                {/* <li
-                    className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' border border-[#002800]`}
-                    onClick={(event) => {
-                        event.preventDefault();
-                        signOut();
-                        navigate('/login');
-                    }}
-                >
-                    <FaSignOutAlt className={classes.linkIcon} stroke={1.5} />
-                    <span>Logout</span>
-                </li> */}
+                <Navbar.Section className={`${classes.footer} border-t border-[#23A74C]/10`}>
+                    {userRole === "administrator" && (
+                        <li
+                            className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' toggleActiveClassStyle(item.link)`}
+                            onClick={(event) => {
+                                event.preventDefault();
+                                navigate('/settings');
+                            }}
+                        >
+                            <FaCog className={classes.linkIcon} stroke={1.5} />
+                            <span>Settings</span>
+                        </li>
+                    )}
 
                     <li
-                        className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' border border-[#002800]`}
+                        className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]'`}
                         onClick={(event) => {
                             event.preventDefault();
-                            signOut();
-                            navigate('/login');
+                            navigate('/logout');
+
                         }}
                     >
                         <FaSignOutAlt className={classes.linkIcon} stroke={1.5} />
-                        <span>Create Account</span>
+                        <span>Logout</span>
                     </li>
-            </Navbar.Section>
 
-        </Navbar>
+                </Navbar.Section>
+
+            </Navbar>
+        </>
     );
 }

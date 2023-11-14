@@ -2,6 +2,8 @@ import { React, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { TextInput, Button, Paper, Col, Container, Text, Checkbox } from '@mantine/core';
+import "./register.css"
+
 
 export default function Register () { 
   const navigate = useNavigate();
@@ -43,23 +45,23 @@ export default function Register () {
       .then((res) => {
         // Display success message and clear form
         setSuccessMessage("Registered successfully!");
-        
+        alert('Registered successfully!');
         // Clear the form inputs
         setPosts({
           email: "",
           username: "",
           password: "",
         });
-        // navigate("/");
+        navigate("/login");
     })
       .catch((err) => console.log(err));          
   };
   
   return (
-    <Container className="container-fluid container">
-      <div className="square-block">
+    // <Container className="container-fluid container">
+      <div className="flex h-screen items-center justify-center square-block ">
         <div className="main-container">
-          <div className="login-side-list">
+          <div className="login-side-list ">
             <div className="line-breaks">
               <h1>Help us Grow</h1>
               <h1>
@@ -72,7 +74,7 @@ export default function Register () {
               <h2>
                 Register{" "}
                 <span>
-                  <img className="login-logo" src="imgs/login/fgfoundation_logo.png" alt="" />
+                  <img className="login-logo-register" src="imgs/login/fgfoundation_logo.png" alt="" />
                 </span>
               </h2>
               <div>
@@ -119,9 +121,7 @@ export default function Register () {
                     required
                     />
                 </div>
-                
-                
-                <button type="submit">Register</button>
+                <button type="submit" className="rounded">Register</button>
               </form>
 
               <Text
@@ -141,7 +141,7 @@ export default function Register () {
       </div>
 
 
-    </Container>
+    // </Container>
     
   );
 };

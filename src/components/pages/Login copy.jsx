@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, TextInput, Text, Group, Box } from "@mantine/core";
-import "./login.css"
+import "./Login.css"
 
 
 export const Login = (props) => {
@@ -38,38 +38,35 @@ export const Login = (props) => {
       password: posts.password,
     };
 
-    // Successful login
-    const authToken = token;
-
-    // Store the authentication token in localStorage
-    localStorage.setItem('authToken', authToken);
-    
-    // setToken(response.data.token);
-    setToken(authToken);
-    
     try {
       const response = await axios.post('http://localhost:8000/api/login/', postData, {
         headers: {
           // 'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}`,
+          Authorization: `Bearer ${token}`,
         },
         //Console: console.log(headers)
         // body: JSON.stringify({ username, password }),
       });
 
       if (response.status === 200) {
-     
         // Successful login
         setSuccessMessage('Logged in successfully!');
-        alert('Logged in successfully!');
         setErrorMessage(''); // Clear any previous error message'
 
         const isAuthenticated = true;
+
+        // Successful login
+        const authToken = response.data.token;
+
+        // Store the authentication token in localStorage
+        localStorage.setItem('authToken', authToken);
         
-        
+        // setToken(response.data.token);
+        setToken(authToken);
+
         // Delay the navigation to another page for 2 seconds (2000 milliseconds)
         setTimeout(() => {
-          
+          // history.push('/another-page'); // Replace '/another-page' with the desired route
           if (isAuthenticated) {
             //history.pushState('/CreatePlant')
             navigate('/CreatePlant');
@@ -88,9 +85,40 @@ export const Login = (props) => {
       setSuccessMessage('');
     }
   };
+  /* const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const postData = {
+        email: posts.email,
+        username: posts.username,
+        password: posts.password,
+    };
+    
+    axios
+        // Use the 'posts' object to send data
+      .post("http://localhost:8000/api/login/", postData, {
+        headers: {
+            "Content-Type": "application/json", 
+        },
+    }) 
+      .then((res) => {
+        // Display success message and clear form
+        setSuccessMessage("Logged in successfully!");
+        
+        // Clear the form inputs
+        setPosts({
+          // email: "",
+          username: "",
+          password: "",
+        });
+
+    })
+      .catch((err) => console.log(err));          
+  }; */
+  
   
     return (
-      <div className="flex h-screen items-center justify-center square-block">
+      <div className="square-block">
         <div className="main-container">
           <div  className="login-side-list">
             <div className="line-breaks">
@@ -100,11 +128,8 @@ export const Login = (props) => {
           <div className="auth-form-container login">
             <h2> Hello Again </h2>
             <h1> Login with </h1>
-            {/* <button> */}
-              <img className="login-logo1" src="imgs/login/google_logo.png" alt="" />
-              {/* </button> */}
-            {/* <button><img className="login-logo" src="imgs/login/Facebook-Logo-2019.png" alt="facebookLogo" /></button> */}
-            <h1> or Enter Login Details </h1>
+            <button><img className="login-logo" src="imgs/login/google_logo.png" alt="" /></button>
+            <button><img className="login-logo" src="imgs/login/Facebook-Logo-2019.png" alt="facebookLogo" /></button>
             <form className="login-form" onSubmit={handleSubmit}>
 
 
@@ -129,7 +154,7 @@ export const Login = (props) => {
                 required
                 />
             </div>
-              <button type="submit" className=" rounded">
+              <button type="submit" className="login-button rounded">
                 Log In 
               </button>
             <div>
