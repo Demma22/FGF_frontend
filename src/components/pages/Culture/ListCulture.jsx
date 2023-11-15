@@ -7,40 +7,57 @@ import ViewCultureDetail from './ViewCultureDetail';
 import { Layout } from "../../Layout"
 import "./Culture.css"
 import { Layout2 } from '../../Layout2';
+import Search from '../../Search/Search';
 
 export default function ListCulture () {  
     const navigate = useNavigate();
     const [cultures, setCultures] = useState([]);
     const [image, getImageFile] = useState(null);
+    const [searchResults, setSearchResults] = useState([]);
 
     //const url = 'https://fgf-app.onrender.com/api/cultures/';
-    const url = 'http://localhost:8000/api/cultures/';
 
     const image_url = 'http://localhost:8000/api/cultures/id/culture_images/';
 
     useEffect(() => {
-        axios.get(url)  
-          
-          .then((response) => {
-            setCultures(response.data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }, []);
-   
+      const fetchData = async (category) => {
+        try {
+          const apiUrl = `http://localhost:8000/api/${category}/`;
+          const response = await axios.get(apiUrl);
+          return response.data;
+        } catch (error) {
+          console.error(error);
+          return [];
+        }
+      };
+  
+      const loadData = async () => {
+        try {
+          const cultureData = await fetchData('cultures');
+          setCultures(cultureData);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+  
+      loadData();
+    }, []);
+  
+    const handleSearchResults = (results) => {
+      setSearchResults(results);
+    };
 
   return (
     // <Layout>
     <Layout2>  
       <Container className='container' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
-        {/* <Search onSearchResults={handleSearchResults} categories={categories} />  */}
+        <Search onSearchResults={handleSearchResults} category="cultures" searchField="ethnic_group_name" />
       </Container>
       <Container className='container' container-fluid='true' id="">
       <div className='row d-flex flex-wrap'>
       
-        {cultures.map((culture) => (
+      {(searchResults.length > 0 ? searchResults : cultures).map((culture) => (
         //   <div className='row d-flex flex-wrap' key={culture.id} >
             <div key={culture.id} className="col-md-4 mb-4">
                 <Link to={`/ViewCultureDetail/${culture.id}`} >
