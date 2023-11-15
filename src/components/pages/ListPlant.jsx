@@ -7,7 +7,6 @@ import ViewPlantDetail from './ViewPlantDetail';
 import { Layout } from "../Layout"
 import "./Plant.css"
 import { Layout2 } from '../Layout2';
-import Search from '../Search/Search';
 
 export default function ListPlant () {  
     const navigate = useNavigate();
@@ -47,18 +46,19 @@ export default function ListPlant () {
     loadData();
   }, []);
 
-        const handleSearchResults = (results) => {
-      setSearchResults(results);
-    };
+      const [selectedPlant, setSelectedPlant] = useState(null);    
 
   return (
-    // <Layout>
-    <Layout2>
-      <Container className='container' id="">
+
+    <>
+    <Header2/>
+    <Container className='container px-20' container-fluid='true' id="">
+
+      <Container className='container pt-5 px-10' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="plants" searchField="botanical_name" />
       </Container>
-      <Container className='container' container-fluid='true' id="">
+      <Container className='container px-10' container-fluid='true' id="">
         <div className='row d-flex flex-wrap'>
         
           {/* {plants.map((plant) => ( */}
@@ -110,8 +110,7 @@ export default function ListPlant () {
                 fullWidth 
                 mt="md" 
                 radius="md"
-                // onClick={() => openPlantDetail(plant.id)} // Open detailed view
-                
+               
                 >
                     View More 
                 </Button>
@@ -123,9 +122,9 @@ export default function ListPlant () {
         </div>
       
       </Container>
-    </Layout2>
-    // </Layout>
-    
+ 
+      </Container>
+    </>
   );
   }
 

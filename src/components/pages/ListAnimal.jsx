@@ -9,6 +9,7 @@ import Search from '../Search/Search';
 import "./Animal.css"
 import { Layout2 } from '../Layout2';
 import { Header } from '../Header';
+import { Header2 } from '../Header2';
 
 
 export default function ListAnimal() {
@@ -47,13 +48,15 @@ export default function ListAnimal() {
   };
 
   return (
-    // <Layout>
-    <Layout2>  
-      <Container className='container' id="">
+    <>
+    <Header2 />  
+    <Container className='container px-20' container-fluid='true' id="">
+
+      <Container className='container pt-5 px-10' id="">
         <Title order={3}> UGANDA'S BIO-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="animals" searchField="english_name" />
       </Container>
-      <Container className='container' container-fluid='true' id="">
+      <Container className='container px-10' container-fluid='true' id="">
       <div className='row d-flex flex-wrap'>
       {/* {animals.map((animal) => ( */}
         {(searchResults.length > 0 ? searchResults : animals).map((animal) => (
@@ -103,7 +106,8 @@ export default function ListAnimal() {
         ))}
         </div> 
       </Container>
+      </Container>
     {/* </Layout> */}
-    </Layout2>
+    </>
   );
 }
