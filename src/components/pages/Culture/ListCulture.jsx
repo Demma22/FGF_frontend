@@ -8,6 +8,7 @@ import { Layout } from "../../Layout"
 import "./Culture.css"
 import { Layout2 } from '../../Layout2';
 import Search from '../../Search/Search';
+import { Header2 } from '../../Header2';
 
 export default function ListCulture () {  
     const navigate = useNavigate();
@@ -48,13 +49,14 @@ export default function ListCulture () {
     };
 
   return (
-    // <Layout>
-    <Layout2>  
-      <Container className='container' id="">
+    <>
+    <Header2 />  
+    <Container className='container px-20 pt-10' container-fluid='true' id="">
+      <Container className='container pt-1 px-10' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="cultures" searchField="ethnic_group_name" />
       </Container>
-      <Container className='container' container-fluid='true' id="">
+      <Container className='container pt-1 px-10'>
       <div className='row d-flex flex-wrap'>
       
       {(searchResults.length > 0 ? searchResults : cultures).map((culture) => (
@@ -62,7 +64,7 @@ export default function ListCulture () {
             <div key={culture.id} className="col-md-4 mb-4">
                 <Link to={`/ViewCultureDetail/${culture.id}`} >
                 
-                <Card shadow="sm" padding="lg" radius="md" withBorder className="flex-fill" id='list_card_culture' > 
+                <Card shadow="sm" padding="lg" radius="md" withBorder className="flex-fill" id='list_card' > 
                 
                     <Group justify="space-between" mt="md" mb="xs">
                         <Text fw={500} id='titles'>{culture.ethnic_group_name}</Text>
@@ -94,7 +96,7 @@ export default function ListCulture () {
 
                         <Button 
                         type="" 
-                        color="green.6" 
+                        color="green.0" 
                         variant="filled" 
                         c="black" 
                         fullWidth 
@@ -109,9 +111,8 @@ export default function ListCulture () {
             ))}      
         </div>
       </Container>
-
-    </Layout2>  
-  //  </Layout>
+      </Container>
+    </>
     
   )
   }

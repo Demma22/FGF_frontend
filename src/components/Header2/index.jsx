@@ -106,7 +106,7 @@ export function Header2() {
         <span></span>
         <Link to="/ListCulture"> <span> Cultures </span></Link>
       </div>
-
+    
       <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>
         {/* <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center"> */}
           {/* <p className="font-medium text-sm">JM</p>  */}

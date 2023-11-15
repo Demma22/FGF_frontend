@@ -4,6 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { Container, Card, Image, Title, Button, Text } from '@mantine/core';
 import { Layout } from '../../Layout';
 import "./Culture.css"
+import { Layout2 } from '../../Layout2';
+import { Header2 } from '../../Header2';
 
 
 const ViewCultureDetail = () => {
@@ -37,8 +39,10 @@ const ViewCultureDetail = () => {
   }
 
   return (
-    <Layout>
-      <Container className='container' container-fluid='true' shadow="sm" id='content'>
+    <>
+    <Header2 />
+    <Container className='container px-20 pt-10' container-fluid='true' id="">
+    <div shadow="sm" id='content'>
         <Title>{data.ethnic_group_name}</Title>
         <div>
             <Text>Region: {data.region_in_Uganda}</Text>
@@ -86,16 +90,18 @@ const ViewCultureDetail = () => {
             <Title order={5}>Citation</Title>
             <p>{data.citation}</p>
           </Card.Section>
-      </Container>
+      </div>
       <Link to="#" onClick={() => window.history.back()}>
         <Button type='' id='back_btn'>
             Back
         </Button>
 
       </Link>
+    </Container>
       
       
-    </Layout>
+      
+    </>
     
   );
 };
