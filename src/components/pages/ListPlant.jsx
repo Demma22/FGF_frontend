@@ -36,10 +36,12 @@ export default function ListPlant () {
 
     <>
     <Header2/>
-      <Container className='container' id="">
+    <Container className='container px-20' container-fluid='true' id="">
+
+      <Container className='container pt-5 px-10' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
       </Container>
-      <Container className='container' container-fluid='true' id="">
+      <Container className='container px-10' container-fluid='true' id="">
         <div className='row d-flex flex-wrap'>
         
           {plants.map((plant) => (
@@ -102,7 +104,7 @@ export default function ListPlant () {
       
       </Container>
  
-    
+      </Container>
     </>
   );
   }

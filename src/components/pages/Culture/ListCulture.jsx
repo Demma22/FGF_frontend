@@ -35,11 +35,12 @@ export default function ListCulture () {
   return (
     <>
     <Header2 />  
-      <Container className='container' id="">
+    <Container className='container px-20' container-fluid='true' id="">
+      <Container className='container pt-5 px-10' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
         {/* <Search onSearchResults={handleSearchResults} categories={categories} />  */}
       </Container>
-      <Container className='container' container-fluid='true' id="">
+      <Container className='container px-10' container-fluid='true' id="">
       <div className='row d-flex flex-wrap'>
       
         {cultures.map((culture) => (
@@ -94,7 +95,7 @@ export default function ListCulture () {
             ))}      
         </div>
       </Container>
-
+      </Container>
     </>
 
     
