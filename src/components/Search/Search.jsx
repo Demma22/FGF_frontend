@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FaSearch } from 'react-icons/fa';
+
 
 function Search({ onSearchResults, category, searchField }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -40,9 +42,10 @@ function Search({ onSearchResults, category, searchField }) {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyUp={(e) => e.key === 'Enter' && handleSearch()}
+      
       />
-      <button onClick={handleSearch} disabled={loading}>
-        Search
+      <button onClick={handleSearch} className="mt-3" disabled={loading}>
+      <FaSearch />
       </button>
       {loading && <p>Searching...</p>}
     </div>

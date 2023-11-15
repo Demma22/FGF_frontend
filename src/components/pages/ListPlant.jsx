@@ -7,40 +7,63 @@ import ViewPlantDetail from './ViewPlantDetail';
 import { Layout } from "../Layout"
 import "./Plant.css"
 import { Layout2 } from '../Layout2';
+import Search from '../Search/Search';
 
 export default function ListPlant () {  
     const navigate = useNavigate();
     const [plants, setPlants] = useState([]);
     const [image, getImageFile] = useState(null);
+    const [searchResults, setSearchResults] = useState([]);
 
     //const url = 'https://fgf-app.onrender.com/api/plants/';
-    const url = 'http://localhost:8000/api/plants/';
+  
 
     const image_url = 'http://localhost:8000/api/plants/id/plant_images/';
+    
+    const categories = ['animals', 'plants', 'cultures'];
 
     useEffect(() => {
-        axios.get(url)  
-          
-          .then((response) => {
-            setPlants(response.data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }, []);
+      const fetchData = async (category) => {
+        try {
+          const apiUrl = `http://localhost:8000/api/${category}/`;
+          const response = await axios.get(apiUrl);
+          return response.data;
+        } catch (error) {
+          console.error(error);
+          return [];
+        }
+      };
 
-      const [selectedPlant, setSelectedPlant] = useState(null);    
+
+    const loadData = async () => {
+      try {
+        const plantData = await fetchData('plants');
+        setPlants(plantData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadData();
+  }, []);
+
+        const handleSearchResults = (results) => {
+      setSearchResults(results);
+    };
 
   return (
     // <Layout>
     <Layout2>
       <Container className='container' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
+        <Search onSearchResults={handleSearchResults} category="plants" searchField="botanical_name" />
       </Container>
       <Container className='container' container-fluid='true' id="">
         <div className='row d-flex flex-wrap'>
         
-          {plants.map((plant) => (
+          {/* {plants.map((plant) => ( */}
+          {(searchResults.length > 0 ? searchResults : plants).map((plant) => (
+  
             <div className="col-md-4 mb-4" key={plant.id} >
               <Link to={`/ViewPlantDetail/${plant.id}`} >
 
