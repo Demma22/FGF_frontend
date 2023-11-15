@@ -16,48 +16,42 @@ export default function ListAnimal() {
   const [animals, setAnimals] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
-  const animalCategoryData = {
-    apiUrl: 'http://127.0.0.1:8000/api/animals/',
-    searchCriteria: ['english_name', 'local_names', 'scientific_name'],
-  };
-
   const categories = ['animals', 'plants', 'cultures'];
 
   useEffect(() => {
-    axios
-      .get(animalCategoryData.apiUrl)
-      .then((response) => {
-        setAnimals(response.data);
-      })
-      .catch((error) => {
+    const fetchData = async (category) => {
+      try {
+        const apiUrl = `http://localhost:8000/api/${category}/`;
+        const response = await axios.get(apiUrl);
+        return response.data;
+      } catch (error) {
         console.error(error);
-      });
+        return [];
+      }
+    };
+
+    const loadData = async () => {
+      try {
+        const animalData = await fetchData('animals');
+        setAnimals(animalData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadData();
   }, []);
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
   };
 
-  useEffect(() => {
-    axios
-      // .get('https://fgf-app.onrender.com/api/animals/')
-      .get('http://localhost:8000/api/animals/')
-      .then((response) => {
-        setAnimals(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  const [selectedAnimal, setSelectedAnimal] = useState(null);
-
   return (
     // <Layout>
     <Layout2>  
       <Container className='container' id="">
         <Title order={3}> UGANDA'S BIO-DIVERSITY </Title> 
-        {/* <Search onSearchResults={handleSearchResults} categories={categories} />  */}
+        <Search onSearchResults={handleSearchResults} category="animals" searchField="english_name" />
       </Container>
       <Container className='container' container-fluid='true' id="">
       <div className='row d-flex flex-wrap'>
