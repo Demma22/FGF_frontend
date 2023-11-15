@@ -72,7 +72,7 @@ export const Login = (props) => {
           
           if (isAuthenticated) {
             //history.pushState('/CreatePlant')
-            navigate('/CreatePlant');
+            navigate('/Plant');
           }
         }, 2000);
         
@@ -149,7 +149,7 @@ export const Login = (props) => {
                     style={{ marginTop: '10px' }}
                 >
                     {successMessage}
-              </Text> */} 
+              </Text>   */}
 
             <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" />
             
