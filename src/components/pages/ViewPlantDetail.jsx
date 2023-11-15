@@ -5,6 +5,7 @@ import { Container, Card, Image, Title, Button, Text } from '@mantine/core';
 import { Layout } from '../Layout';
 import "./Plant.css"
 import { Layout2 } from '../Layout2';
+import { Header2 } from '../Header2';
 
 const ViewPlantDetail = () => {
   const [error, setError] = useState(null);
@@ -37,9 +38,10 @@ const ViewPlantDetail = () => {
   }
 
   return (
-    // <Layout>
-    <Layout2>
-      <Container className='container' container-fluid='true' shadow="sm" id='content'>
+    <>
+    <Header2 />
+    <Container className='container px-20 pt-10'>
+      <div shadow="sm" id='content'>
         <Title>{data.botanical_name}</Title>
         <div>
           <p>{data.names}</p>
@@ -88,14 +90,14 @@ const ViewPlantDetail = () => {
             <p>{data.citation}</p>
           </Card.Section>
 
-      </Container>
+      </div>
       <Link to="#" onClick={() => window.history.back()}>
         <Button type='' id='back_btn'>
             Back
         </Button>
       </Link>  
-    </Layout2> 
-    // </Layout> 
+    </Container> 
+    </> 
   );
 };
 

@@ -50,9 +50,10 @@ export default function ListAnimal() {
   return (
     <>
     <Header2 />  
-    <Container className='container px-20' container-fluid='true' id="">
+    <Container className='container px-20 pt-10' container-fluid='true' id="">
 
-      <Container className='container pt-5 px-10' id="">
+
+      <Container className='container pt-1 px-10' id="">
         <Title order={3}> UGANDA'S BIO-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="animals" searchField="english_name" />
       </Container>

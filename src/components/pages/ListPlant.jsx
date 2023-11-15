@@ -8,6 +8,7 @@ import { Layout } from "../Layout"
 import "./Plant.css"
 import { Layout2 } from '../Layout2';
 import Search from '../Search/Search';
+import { Header2 } from '../Header2';
 
 export default function ListPlant () {  
     const navigate = useNavigate();
@@ -52,13 +53,14 @@ export default function ListPlant () {
     };
 
   return (
-    // <Layout>
-    <Layout2>
-      <Container className='container' id="">
+    <>
+    <Header2 />
+      <Container className='container px-20 pt-10' container-fluid='true' id="">
+      <Container className='container pt-1 px-10' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="plants" searchField="botanical_name" />
       </Container>
-      <Container className='container' container-fluid='true' id="">
+      <Container className='container pt-1 px-10'>
         <div className='row d-flex flex-wrap'>
         
           {/* {plants.map((plant) => ( */}
@@ -123,8 +125,8 @@ export default function ListPlant () {
         </div>
       
       </Container>
-    </Layout2>
-    // </Layout>
+      </Container>
+    </>
     
   );
   }

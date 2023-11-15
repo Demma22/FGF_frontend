@@ -5,6 +5,7 @@ import { Container, Card, Image, Title, Button, Text } from '@mantine/core';
 import { Layout } from '../Layout';
 import "./Animal.css"
 import { Layout2 } from '../Layout2';
+import { Header2 } from '../Header2';
 
 const ViewAnimalDetail = () => {
   const [error, setError] = useState(null);
@@ -37,9 +38,10 @@ const ViewAnimalDetail = () => {
   }
 
   return (
-    // <Layout>
-    <Layout2>
-      <Container className='container' container-fluid='true' shadow="sm" id='content'>
+    <>
+    <Header2 />
+      <Container className='container px-20 pt-10'>
+      <div shadow="sm" id='content'>
         <Title>{data.english_name}</Title>
         <div>
           <p>{data.animal_name}</p>
@@ -88,16 +90,15 @@ const ViewAnimalDetail = () => {
             <Title order={5}>Citation</Title>
             <p>{data.citation}</p>
           </Card.Section>
-      
+          </div>
+    
+        <Link to="#" onClick={() => window.history.back()}>
+          <Button type='' id='back_btn'>
+              Back
+          </Button>
+        </Link> 
       </Container>
-
-      <Link to="#" onClick={() => window.history.back()}>
-        <Button type='' id='back_btn'>
-            Back
-        </Button>
-      </Link> 
-      </Layout2>
-    // </Layout>
+      </>
   );
 };
 
