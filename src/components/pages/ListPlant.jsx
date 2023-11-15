@@ -7,6 +7,8 @@ import ViewPlantDetail from './ViewPlantDetail';
 import { Layout } from "../Layout"
 import "./Plant.css"
 import { Layout2 } from '../Layout2';
+import { Header } from '../Header';
+import { Header2 } from '../Header2';
 
 export default function ListPlant () {  
     const navigate = useNavigate();
@@ -29,11 +31,11 @@ export default function ListPlant () {
           });
       }, []);
 
-      const [selectedPlant, setSelectedPlant] = useState(null);    
-
+ 
   return (
-    // <Layout>
-    <Layout2>
+
+    <>
+    <Header2/>
       <Container className='container' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
       </Container>
@@ -87,8 +89,7 @@ export default function ListPlant () {
                 fullWidth 
                 mt="md" 
                 radius="md"
-                // onClick={() => openPlantDetail(plant.id)} // Open detailed view
-                
+               
                 >
                     View More 
                 </Button>
@@ -100,9 +101,9 @@ export default function ListPlant () {
         </div>
       
       </Container>
-    </Layout2>
-    // </Layout>
+ 
     
+    </>
   );
   }
 

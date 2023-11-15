@@ -6,6 +6,7 @@ import Autoplay from 'embla-carousel-autoplay';
 // import { Carousel } from '@mantine/carousel';
 //import '@mantine/carousel/styles.css';
 import "./Landing.css"
+import { Layout } from '../../Layout';
 
 function Landing() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,16 +30,15 @@ function Landing() {
 
   return (
     <div>
-      <Header2>
-        
-      </Header2>
-      <Container className='container' container-fluid='true' id='landing_text'>
+      <Header2 />
+      <Container fluid className='container container-fluid flex' id='landing_text'>
+      
           {/* Hero Section */}
-        <section className="text-white py-20 ml-9 mr-9 mt-5" id='top_bar'>
+          <section className="text-white py-20 ml-9 mr-9 mt-5" id='top_bar'>
           <div className="container mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-4">Welcome to Future Generations Encyclopedia</h1>
+            <h1 className="text-4xl font-bold mb-4">Uganda's Diversity</h1>
             <p className="text-lg leading-relaxed">
-              "This platform is dedicated to raising awareness about our environment, which includes the rich tapestry of animals, plants, and cultures. Our mission is to combat the loss of cultural knowledge and to foster a deeper connection with the world around us.
+              "A rich tapestry of animals, plants, and cultures. Our mission is to combat the loss of cultural knowledge and to foster a deeper connection with the world around us.
               On this platform, you'll discover a wealth of information about a wide array of subjects, complete with captivating images that bring these topics to life. Whether you're here to learn or conduct research, our comprehensive resources are accessible to all users.
               We're united in our commitment to safeguarding our natural surroundings for the benefit of future generations. Together, we can ensure that the beauty and diversity of our world endure for years to come."
             </p>
@@ -49,6 +49,11 @@ function Landing() {
             </div> */}
           </div>
         </section>
+
+            
+      </Container>
+
+      <Container className='container' container-fluid='true' id='landing_text'>  
 
 
           {/* Cards Section */}
@@ -62,7 +67,7 @@ function Landing() {
                   className="w-full  object-cover rounded-t-lg mb-4"
                 />
                 <h2 className="text-2xl font-semibold mb-2">Animals</h2>
-                <p className="text-gray-700">Discover fascinating facts about animals from around the globe.</p>
+                <p className="text-gray-700">Discover fascinating facts about animals found in Uganda.</p>
                 <a href="ListAnimal" className="text-blue-400 hover:underline"> See More.... </a>
               </div>
 
@@ -112,7 +117,7 @@ function Landing() {
             </svg>
             <p className="text-xl font-semibold">Create an Account</p>
           </div>
-          <p className="text-gray-600 mb-20">
+          <p className="text-gray-600 mb-10">
             Unlock a world of exclusive features and captivating content by signing up for an account. With your own account, you can log in at any time to embark on research journeys, expand your knowledge, and immerse yourself in the rich tapestry of information about our environment, culture, and the steps we can take to ensure a brighter future for generations to come. If you share our mission of nurturing our culture and surroundings, we invite you to{' '}
             <a href="/register" className="text-blue-500 hover:underline">
               Register here
@@ -145,31 +150,34 @@ function Landing() {
             </a>{' '}
             to be able to read all about them.
           </p> */}
-
-          {/* Provide Information (Contribute) */}
-          <div className="flex items-center space-x-2 mt-4">
+          {/* <div className="flex items-center space-x-2 mt-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-blue-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m0 0l-6-6m6 6l-6-6"
-              />
+            >    
             </svg>
-            <p className="text-xl font-semibold">Provide Information (Contribute)</p>
+           </div> */}
+        </div>
+
+        <section className="text-white py-20 ml-9 mr-9 mt-5 mb-10" id='top_bar'>
+          <div className="container mx-auto text-center">
+            <h1 className="text-3xl font-semibold mb-4">Contribute Information</h1>
+            <p className="text-lg leading-relaxed">
+              
+            Share your knowledge and contribute to our community's growth. We appreciate your contribution 
+            of vital information, 
+            and with a registered account, you can always contribute to this platform's purpose. 
+            You can also provide more insights or corrections to already existing information. 
+            Contribution in any language is welcome. Information provided will be published and 
+            accessible to all users.{' '}
+            </p>
+ 
           </div>
-          <p className="text-gray-600 mb-20">
-            Share your knowledge and contribute to our community's growth. We appreciate your contribution of vital information, and with a registered account, you can always contribute to this platform's purpose. You can also provide more insights or corrections to already existing information. Contribution in any language is welcome. Information provided will be published and accessible to all users.{' '}
-            <a href="/contribute" className="text-blue-500 hover:underline">
-              Contribute here
-            </a>.
-          </p>
+        </section>
+        <div>
 
         </div>
         {/* Slider Section */}
@@ -233,6 +241,8 @@ function Landing() {
             </div>
           </section>
       </Container>
+     
+      
     
     </div>
   );

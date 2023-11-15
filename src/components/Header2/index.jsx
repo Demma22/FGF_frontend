@@ -7,11 +7,20 @@ import {
   FaCaretDown
 } from 'react-icons/fa';
 
+
 import CreateAnimal from "../pages/CreateAnimal";
 
 import ListPlant from "../pages/ListPlant";
 import ListAnimal from "../pages/ListAnimal";
 import ListCulture from "../pages/Culture/ListCulture";
+import { DropdownMenu } from "./DropDownMenu";
+
+const categories = [
+  { label: 'Plants', link: '/ListPlant' },
+  { label: 'Animals', link: '/ListAnimal' },
+  { label: 'Cultures', link: '/ListCulture' },
+ ];
+
 
 export function Header2() {
   const location = useLocation();
@@ -66,7 +75,8 @@ export function Header2() {
     }
   };
 
-    
+
+
   const heading =
     menuData.admin &&
     menuData.admin
@@ -75,6 +85,7 @@ export function Header2() {
 
   return (
     // <nav className="w-full h-[77px] flex justify-between items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
+    
     <nav className="h-[100px] flex items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
       <h2 className="font-bold text-lg">{heading}</h2>
       <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
@@ -82,6 +93,7 @@ export function Header2() {
       <Link to="/"><span>Home</span></Link>
 
       </div>
+      
       
       <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
       <Link to="/ListPlant"> <span> Plants </span></Link>
@@ -96,12 +108,14 @@ export function Header2() {
       </div>
 
       <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>
-        <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center">
+        {/* <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center"> */}
           {/* <p className="font-medium text-sm">JM</p>  */}
-        </div>
+        {/* </div> */}
          <span>{username}</span>
         <FaCaretDown size={18} className="text-[#515861]" />
       </div>
     </nav>
+    
+
   );
 }

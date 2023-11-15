@@ -18,7 +18,7 @@ export const menuData = {
         {
             label: "Plants",
             link: "/Plant",
-            icon: FaRegListAlt,
+            icon: FaPlusSquare,
             roles: ['administrator', 'contributor'],
         },
         {
@@ -27,29 +27,29 @@ export const menuData = {
             icon: FaRegListAlt,
             roles: ['administrator', 'contributor'],
         },
+        // {
+        //     label: "Contributions",
+        //     link: "/contributions",
+        //     icon: FaPlusSquare,
+        //     roles: ['administrator', 'contributor'],
+        // },
+        // {
+        //     label: "Contributors",
+        //     link: "/contributors",
+        //     icon: FaUsers,
+        //     roles: ['administrator', 'contributor'],
+        // },
         {
-            label: "Contributions",
-            link: "/contributions",
-            icon: FaPlusSquare,
-            roles: ['administrator', 'contributor'],
-        },
-        {
-            label: "Contributors",
-            link: "/contributors",
-            icon: FaUsers,
-            roles: ['administrator', 'contributor'],
-        },
-        {
-            label: "Analyze",
-            link: "/analyze",
+            label: "Admin",
+            link: "/Dashboard",
             icon: FaChartLine,
             roles: ['administrator']
         },
-        {
-            label: "More",
-            link: "/more",
-            icon: FaEllipsisH,
-            roles: ['administrator']
-        },
+        // {
+        //     label: "More",
+        //     link: "/more",
+        //     icon: FaEllipsisH,
+        //     roles: ['administrator']
+        // },
     ],
 };

@@ -1,12 +1,28 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 const DataCards = () => {
+    const [data, setData] = useState([]);
+    
+    const url = 'http://localhost:8000/api/count-entries/';
+
+    useEffect(() => {
+        axios.get(url)  
+          
+          .then((response) => {
+            setData(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, []);
+
     return (
-        <div className='grid lg:grid-cols-5 gap-4 p-4'>
+        <div className='grid lg:grid-cols-5 gap-4 p-4 overflow-hidden'>
             <div className='lg:col-span-2 col-span-1 bg-gray-200 flex justify-between w-full border p-4 rounded-lg'>
                 <div className='flex flex-col w-full pb-4'>
-                    <div className='text-xl font-bold'>3000</div>
-                    <div className='text-gray-600'>Total number of Entries</div>
+                    <div className='text-xl font-bold'>300</div>
+                    <div className='text-gray-600'>Total number of Visits</div>
                 </div>
                 <div className='bg-green-200 flex justify-center items-center p-2 rounded-lg'>
                     <span className='text-green-700 text-lg'>+18%</span>
@@ -14,8 +30,8 @@ const DataCards = () => {
             </div>
             <div className='lg:col-span-2 col-span-1 bg-gray-200 flex justify-between w-full border p-4 rounded-lg'>
                 <div className='flex flex-col w-full pb-4'>
-                    <div className='text-xl font-bold'>15</div>
-                    <div className='text-gray-700'>Daily Visits</div>
+                    <div className='text-xl font-bold'>{data.total_animal_count}</div>
+                    <div className='text-gray-700'>Number of Downloads</div>
                 </div>
                 <div className='bg-green-200 flex justify-center items-center p-2 rounded-lg'>
                     <span className='text-green-700 text-lg'>+5%</span>

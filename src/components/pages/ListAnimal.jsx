@@ -9,6 +9,7 @@ import Search from '../Search/Search';
 import "./Animal.css"
 import { Layout2 } from '../Layout2';
 import { Header } from '../Header';
+import { Header2 } from '../Header2';
 
 
 export default function ListAnimal() {
@@ -53,8 +54,8 @@ export default function ListAnimal() {
   const [selectedAnimal, setSelectedAnimal] = useState(null);
 
   return (
-    // <Layout>
-    <Layout2>  
+    <>
+    <Header2 />  
       <Container className='container' id="">
         <Title order={3}> UGANDA'S BIO-DIVERSITY </Title> 
         {/* <Search onSearchResults={handleSearchResults} categories={categories} />  */}
@@ -110,6 +111,6 @@ export default function ListAnimal() {
         </div> 
       </Container>
     {/* </Layout> */}
-    </Layout2>
+    </>
   );
 }
