@@ -7,6 +7,7 @@ import ViewCultureDetail from './ViewCultureDetail';
 import { Layout } from "../../Layout"
 import "./Culture.css"
 import { Layout2 } from '../../Layout2';
+import Search from '../../Search/Search';
 
 export default function ListCulture () {  
     const navigate = useNavigate();
@@ -47,14 +48,13 @@ export default function ListCulture () {
     };
 
   return (
-    <>
-    <Header2 />  
-    <Container className='container px-20' container-fluid='true' id="">
-      <Container className='container pt-5 px-10' id="">
+    // <Layout>
+    <Layout2>  
+      <Container className='container' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="cultures" searchField="ethnic_group_name" />
       </Container>
-      <Container className='container px-10' container-fluid='true' id="">
+      <Container className='container' container-fluid='true' id="">
       <div className='row d-flex flex-wrap'>
       
       {(searchResults.length > 0 ? searchResults : cultures).map((culture) => (
@@ -109,9 +109,9 @@ export default function ListCulture () {
             ))}      
         </div>
       </Container>
-      </Container>
-    </>
 
+    </Layout2>  
+  //  </Layout>
     
   )
   }
