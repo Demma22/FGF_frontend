@@ -21,7 +21,12 @@ const CreatePlant = () => {
         notes: "", 
         contributor_name: "",
         citation: "",
-        is_medicinal:"",
+        health_issues: "",
+        part_used: "",
+        preparation_steps: "",
+        dosage:"",
+        contraindications:"", 
+        shelf_life: "",
         
     });
     // plantname endpoint
@@ -29,16 +34,6 @@ const CreatePlant = () => {
         name:"",
         local_language:"",
    
-    });
-    // medicinal plant endpoint
-    const [posts2, setPosts2] = useState({
-        plant:"",
-        health_issues: "",
-        part_used: "",
-        preparation_steps: "",
-        dosage:"",
-        contraindications:"", 
-        shelf_life: "",
     });
 
     const [image, setImageFile] = useState(null);
@@ -83,39 +78,9 @@ const CreatePlant = () => {
         }
     };
 
-    //const url = 'https://fgf-app.onrender.com/api/plants/';
     const url = 'http://localhost:8000/api/plants/';
     const url1 = 'http://localhost:8000/api/plant-names/';
     const url2 = 'http://localhost:8000/api/medicinal-plants/';
-
-    const handleSubmitMedPlant = (e) => {
-        e.preventDefault();
-      
-        const postData2 = {
-        plant: posts2.plant,
-        health_issues: posts2.health_issues,
-        part_used: posts2.part_used,
-        preparation_steps: posts2.preparation_steps,
-        dosage: posts2.dosage,
-        contraindications: posts2.contraindications,
-        shelf_life: posts2.shelf_life,
-        
-        };
-        
-
-        axios
-            // Use the 'posts' object to send data
-          .post(url2, postData2, {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }) 
-        .then((res) => {
-            console.log(res);
-            alert('Form submitted successfully!');
-        }).catch((err) => console.log(err));
-      
-    };
 
     const handleSubmitPlantName = (e) => {
         e.preventDefault();
@@ -157,7 +122,12 @@ const CreatePlant = () => {
         formData.append("notes", posts.notes);
         formData.append("contributor_name", posts.contributor_name);
         formData.append("citation", posts.citation);
-
+        formData.append("health_issues", posts.health_issues);
+        formData.append("part_used", posts.part_used);
+        formData.append("preparation_steps", posts.preparation_steps);
+        formData.append("dosage", posts.dosage);
+        formData.append("contraindications", posts.contraindications);
+        formData.append("shelf_life", posts.shelf_life);
     
         if (image) {
             formData.append("image", image, image.name);
@@ -175,6 +145,24 @@ const CreatePlant = () => {
             alert('Form submitted successfully!');
         }).catch((err) => console.log(err));
       
+        const formData1 = {
+            name: posts1.name,
+            local_language: posts1.local_language,
+        }
+
+        axios
+            // Use the 'posts' object to send data
+          .post(url1, formData1, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }) 
+        .then((res) => {
+            console.log(res);
+            alert('Form submitted successfully!');
+        }).catch((err) => console.log(err));
+      
+
     };
 
     const lifeFormOptions = [
@@ -187,6 +175,22 @@ const CreatePlant = () => {
         { value: "tree", label: "Tree" },
       ];
 
+      const languageOptions = [
+        { value: "luganda", label: "Luganda" },
+        { value: "ruyankole", label: "Ruyankole" },
+        { value: "lusoga", label: "Lusoga" },
+        { value: "lugisu", label: "Lugisu" },
+        { value: "luo", label: "Luo" },
+        { value: "rukiga", label: "Rukiga" },
+        { value: "ruyakitara", label: "Ruyakitara" },
+      ];
+      const regionOptions = [
+        { value: "north_uganda", label: "Northern Uganda" },
+        { value: "eastern_uganda", label: "Eastern Uganda" },
+        { value: "west_uganda", label: "Western Uganda" },
+        { value: "central_uganda", label: "Central Uganda" },
+      ];
+
 
   return (
     <>
@@ -195,8 +199,26 @@ const CreatePlant = () => {
             <Title order={3}> ADD NEW PLANT</Title> 
         </Container>   
         <Container className='container' container-fluid='true' shadow="sm" id="form">
-            <form onSubmit={handleSubmitMedPlant}>
-                <p>Plant Names</p>
+            <form onSubmit={handleSubmitPlantName}>
+                
+                {/* <div className="row">
+                    <div className="col-md-4" id="col">
+                        <Checkbox
+                            label="Medicinal?"
+                            value={posts.is_medicinal}
+                            onChange={handleChange1}
+                            name="is_medicinal"
+                        />
+                    </div>  
+                </div> */}
+
+            </form>
+            <br />
+            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+                
+            <p>Plant Names</p>
+                <hr />
                 <div className="row">  
                     <div className="col-md-6" id="col">
                         <TextInput
@@ -208,18 +230,17 @@ const CreatePlant = () => {
                             />
                     </div>
                     <div className="col-md-6" id="col">   
-                        <TextInput
-                        label="Language"
-                        value={posts1.local_language}
-                        onChange={handleChange1}
-                        name="local_language"
+                        <Select
+                            label="Language"
+                            value={posts1.local_language}
+                            onChange={(value) => handleChange1({ target: { name: "local_language", value } })}
+                            data={languageOptions}
                         />
                     </div>
+      
                 </div> 
-
-            </form>
-            <form onSubmit={handleSubmit(onSubmit)}>
                 <p>General Information</p>
+                <hr />
                 <div className="row">
                     <div className="col-md-12" id="col">        
                         <TextInput
@@ -233,16 +254,7 @@ const CreatePlant = () => {
                         {errors.botanical_name && <span>This field is required</span>}
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-md-4" id="col">
-                        <Checkbox
-                            label="Medicinal?"
-                            value={posts.is_medicinal}
-                            onChange={handleChange1}
-                            name="is_medicinal"
-                        />
-                    </div>  
-                </div>
+                
 
                 <div className="row">
                     <div className="col-md-12" id="col">
@@ -252,6 +264,12 @@ const CreatePlant = () => {
                             onChange={handleChange}
                             name="region_in_Uganda"
                             />
+                        <Select
+                            label="Regions in Uganda"
+                            value={posts.region_in_Uganda}
+                            onChange={(value) => handleChange({ target: { name: "region_in_Uganda", value } })}
+                            data={regionOptions}
+                        />
                     </div>
                 </div>
 
@@ -325,11 +343,79 @@ const CreatePlant = () => {
                             name="other_value"
                             />
                     </div>
-                    <div>
-                        {/* Handle Images Here and other File uploads*/}
+                    <br />
+                    <p>Medicinal Plant Details</p>
+                <hr />
+                <div className="row">
+                    <div className="col-md-12" id="col">
+                        <TextInput
+                            label="Plant Name"
+                            value={posts.plant}
+                            onChange={handleChange2}
+                            name="plant"
+                            />
                     </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Health Issues"
+                            value={posts.health_issues}
+                            onChange={handleChange2}
+                            name="health_issues"
+                            />
+                    </div>
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Part Used"
+                            value={posts.part_used}
+                            onChange={handleChange2}
+                            name="part_used"
+                            />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Preparation Steps"
+                            value={posts.preparation_steps}
+                            onChange={handleChange}
+                            name="preparation_steps"
+                            />
+                    </div>
+                    
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Dosage"
+                            value={posts.dosage}
+                            onChange={handleChange}
+                            name="dosage"
+                            />
+                    </div>
+                </div>
+                    
+                {/* <div className="row">
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Contra Indications"
+                            value={posts.contraindications}
+                            onChange={handleChange}
+                            name="contraindications"
+                            />
+                    </div>
+                    <div className="col-md-6" id="col">
+                        <TextInput
+                            label="Shelf Life"
+                            value={posts.shelf_life}
+                            onChange={handleChange}
+                            name="shelf_life"
+                            
+                        />
+                    </div>
+                </div> */}
                    
                     <div>
+  
                     <FileInput
                             label="Image"
                             files={image ? [image] : []}
@@ -369,82 +455,13 @@ const CreatePlant = () => {
                         name="contributor_name"
                         />
                     </div>
-                </form>
-
-            <form onSubmit={handleSubmitMedPlant}>
-                <p>Medicinal Plant Details</p>
-                <div className="row">
-                    <div className="col-md-12" id="col">
-                        <TextInput
-                            label="Plant Name"
-                            value={posts2.plant}
-                            onChange={handleChange2}
-                            name="plant"
-                            />
+                    <br />
+                    <div>
+                        <Button color="lime.6" type='' variant="filled" radius="md"> Submit </Button>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6" id="col">
-                        <TextInput
-                            label="Health Issues"
-                            value={posts2.health_issues}
-                            onChange={handleChange2}
-                            name="health_issues"
-                            />
-                    </div>
-                    <div className="col-md-6" id="col">
-                        <TextInput
-                            label="Part Used"
-                            value={posts2.part_used}
-                            onChange={handleChange2}
-                            name="part_used"
-                            />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6" id="col">
-                        <TextInput
-                            label="Preparation Steps"
-                            value={posts2.preparation_steps}
-                            onChange={handleChange2}
-                            name="preparation_steps"
-                            />
-                    </div>
-                    
-                    <div className="col-md-6" id="col">
-                        <TextInput
-                            label="Dosage"
-                            value={posts2.dosage}
-                            onChange={handleChange2}
-                            name="dosage"
-                            />
-                    </div>
-                </div>
-                    
-                <div className="row">
-                    <div className="col-md-6" id="col">
-                        <TextInput
-                            label="Contra Indications"
-                            value={posts2.contraindications}
-                            onChange={handleChange2}
-                            name="contraindications"
-                            />
-                    </div>
-                    <div className="col-md-6" id="col">
-                        <TextInput
-                            label="Shelf Life"
-                            value={posts.shelf_life}
-                            onChange={handleChange}
-                            name="shelf_life"
-                            
-                        />
-                    </div>
-                </div>
-                              
-                <div>
-                    <Button color="lime.6" type='' variant="filled" radius="md"> Submit </Button>
-                </div>
-                </form>
+                </form>          
+                
+              
             </Container>    
       
 
