@@ -35,20 +35,30 @@ function Search({ onSearchResults, category, searchField }) {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyUp={(e) => e.key === 'Enter' && handleSearch()}
-      
-      />
-      <button onClick={handleSearch} className="mt-3" disabled={loading}>
-      <FaSearch />
-      </button>
-      {loading && <p>Searching...</p>}
-    </div>
+<div style={{ position: 'relative' }}>
+  <input
+    type="text"
+    placeholder="Search..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    onKeyUp={(e) => e.key === 'Enter' && handleSearch()}
+    style={{ paddingRight: '30px' }} // Adjust padding to make room for the search button
+  />
+  <button
+    onClick={handleSearch}
+    className="mt-0.4"
+    disabled={loading}
+    style={{
+      position: 'absolute',
+      right: '25px', // Adjust the position as needed
+      top: '50%', // Adjust the position as needed
+      transform: 'translateY(-50%)', // Center vertically
+    }}
+  >
+    <FaSearch />
+  </button>
+  {loading && <p>Searching...</p>}
+</div>
   );
 }
 
