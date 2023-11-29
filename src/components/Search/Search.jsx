@@ -6,6 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 function Search({ onSearchResults, category, searchFields }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
+  const [noResults, setNoResults] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -21,6 +22,7 @@ function Search({ onSearchResults, category, searchFields }) {
   const handleSearch = async () => {
     try {
       setLoading(true);
+      setNoResults(false);
       const data = await fetchData();
 
       // Filter data based on search criteria
@@ -31,6 +33,9 @@ function Search({ onSearchResults, category, searchFields }) {
   );
 
       onSearchResults(filteredResults);
+      if (filteredResults.length === 0) {
+        setNoResults(true);
+      }
     } finally {
       setLoading(false);
     }

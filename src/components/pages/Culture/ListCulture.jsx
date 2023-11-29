@@ -15,6 +15,8 @@ export default function ListCulture () {
     const [cultures, setCultures] = useState([]);
     const [image, getImageFile] = useState(null);
     const [searchResults, setSearchResults] = useState([]);
+    const [noResults, setNoResults] = useState(false);
+
 
     //const url = 'https://fgf-app.onrender.com/api/cultures/';
 
@@ -46,6 +48,7 @@ export default function ListCulture () {
   
     const handleSearchResults = (results) => {
       setSearchResults(results);
+      setNoResults(results.length === 0);
     };
 
   return (
@@ -59,7 +62,13 @@ export default function ListCulture () {
       <Container className='container pt-1 px-10'>
       <div className='row d-flex flex-wrap'>
       
-      {(searchResults.length > 0 ? searchResults : cultures).map((culture) => (
+      {noResults ? (
+              <div style={{ textAlign: 'center', color: '#7C7C7C', fontSize: '1.2rem', marginTop: '20px' }}>
+              🌿 Sorry, we couldn't find any results matching your search. 🌿
+            </div>
+            
+            ) : (
+              (searchResults.length > 0 ? searchResults : cultures).map((culture) => (
         //   <div className='row d-flex flex-wrap' key={culture.id} >
             <div key={culture.id} className="col-md-4 mb-4">
                 <Link to={`/ViewCultureDetail/${culture.id}`} >
@@ -108,7 +117,8 @@ export default function ListCulture () {
                     </Card>
                 </Link> 
             </div>
-            ))}      
+            ))
+          )}      
         </div>
       </Container>
       </Container>

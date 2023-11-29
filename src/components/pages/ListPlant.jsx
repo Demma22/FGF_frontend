@@ -15,6 +15,7 @@ export default function ListPlant () {
     const [plants, setPlants] = useState([]);
     const [image, getImageFile] = useState(null);
     const [searchResults, setSearchResults] = useState([]);
+    const [noResults, setNoResults] = useState(false);
 
     //const url = 'https://fgf-app.onrender.com/api/plants/';
   
@@ -50,6 +51,7 @@ export default function ListPlant () {
 
         const handleSearchResults = (results) => {
       setSearchResults(results);
+      setNoResults(results.length === 0);
     };
 
   return (
@@ -64,7 +66,13 @@ export default function ListPlant () {
         <div className='row d-flex flex-wrap'>
         
           {/* {plants.map((plant) => ( */}
-          {(searchResults.length > 0 ? searchResults : plants).map((plant) => (
+           {noResults ? (
+              <div style={{ textAlign: 'center', color: '#7C7C7C', fontSize: '1.2rem', marginTop: '20px' }}>
+              🌿 Sorry, we couldn't find any results matching your search. 🌿
+            </div>
+            
+            ) : (
+              (searchResults.length > 0 ? searchResults : plants).map((plant) => (
   
             <div className="col-md-4 mb-4" key={plant.id} >
               <Link to={`/ViewPlantDetail/${plant.id}`} >
@@ -120,7 +128,8 @@ export default function ListPlant () {
               </Card>
               </Link> 
             </div>
-          ))}      
+          ))
+        )}      
 
         </div>
       
