@@ -16,6 +16,7 @@ export default function ListAnimal() {
   const navigate = useNavigate();
   const [animals, setAnimals] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const [noResults, setNoResults] = useState(false);
 
   const categories = ['animals', 'plants', 'cultures'];
 
@@ -45,6 +46,7 @@ export default function ListAnimal() {
 
   const handleSearchResults = (results) => {
     setSearchResults(results);
+    setNoResults(results.length === 0);
   };
 
   return (
@@ -60,7 +62,13 @@ export default function ListAnimal() {
       <Container className='container px-10' container-fluid='true' id="">
       <div className='row d-flex flex-wrap'>
       {/* {animals.map((animal) => ( */}
-        {(searchResults.length > 0 ? searchResults : animals).map((animal) => (
+      {noResults ? (
+              <div style={{ textAlign: 'center', color: '#7C7C7C', fontSize: '1.2rem', marginTop: '20px' }}>
+              🌿 Sorry, we couldn't find any results matching your search. 🌿
+            </div>
+            
+            ) : (
+              (searchResults.length > 0 ? searchResults : animals).map((animal) => (
         
         <div key={animal.id} className="col-md-4 mb-4">
         {/* <div className="row" > */}
@@ -104,7 +112,8 @@ export default function ListAnimal() {
    
         {/* ))} */}
         </div>
-        ))}
+        ))
+      )}
         </div> 
       </Container>
       </Container>
