@@ -54,7 +54,7 @@ export default function ListCulture () {
     <Container className='container px-20 pt-10' container-fluid='true' id="">
       <Container className='container pt-1 px-10' id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
-        <Search onSearchResults={handleSearchResults} category="cultures" searchField="ethnic_group_name" />
+        <Search onSearchResults={handleSearchResults} category="cultures" searchFields={["ethnic_group_name", "region_in_Uganda" ]}/>
       </Container>
       <Container className='container pt-1 px-10'>
       <div className='row d-flex flex-wrap'>
@@ -77,7 +77,7 @@ export default function ListCulture () {
                     <div className='div_content' id='titles'>
                         <Text size="sm">{culture.ethnicity_name}</Text>
                         <Text>Region: {culture.region_in_Uganda}</Text>
-                        <Text>{culture.number_of_languages} Dialects</Text>
+                        <Text>Dialects: {culture.number_of_languages} </Text>
                         <Text>Ethnicity: {culture.ethnicity_name}</Text>
                     </div>
 

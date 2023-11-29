@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaSearch } from 'react-icons/fa';
 
 
-function Search({ onSearchResults, category, searchField }) {
+function Search({ onSearchResults, category, searchFields }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -25,8 +25,10 @@ function Search({ onSearchResults, category, searchField }) {
 
       // Filter data based on search criteria
       const filteredResults = data.filter((item) =>
-        item[searchField].toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      searchFields.some((field) =>
+      item[field].toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
 
       onSearchResults(filteredResults);
     } finally {

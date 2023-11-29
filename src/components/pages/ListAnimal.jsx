@@ -55,7 +55,7 @@ export default function ListAnimal() {
 
       <Container className='container pt-1 px-10' id="">
         <Title order={3}> UGANDA'S BIO-DIVERSITY </Title> 
-        <Search onSearchResults={handleSearchResults} category="animals" searchField="english_name" />
+        <Search onSearchResults={handleSearchResults} category="animals" searchFields={['english_name', 'unique_habitat', 'scientific_name','areas_in_Uganda']} />
       </Container>
       <Container className='container px-10' container-fluid='true' id="">
       <div className='row d-flex flex-wrap'>
