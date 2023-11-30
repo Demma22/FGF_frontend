@@ -64,7 +64,7 @@ function Landing() {
                 <img
                   src="imgs/Rhinos.jpg"  // Replace with the actual image URL
                   alt="Animals"
-                  className="w-full  object-cover rounded-t-lg mb-4"
+                  className="w-full  object-cover rounded-t-lg mb-4 card-image"
                 />
                 <h2 className="text-2xl font-semibold mb-2">Animals</h2>
                 <p className="text-gray-700">Discover fascinating facts about animals found in Uganda.</p>
@@ -76,7 +76,7 @@ function Landing() {
                 <img
                   src="imgs/forest.jpg" 
                   alt="Plants"
-                  className="w-full object-cover rounded-t-lg mb-4"
+                  className="w-full object-cover rounded-t-lg mb-4 card-image"
                 />
                 <h2 className="text-2xl font-semibold mb-2">Plants</h2>
                 <p className="text-gray-700">Explore the beauty and diversity of plant life on our planet.</p>
@@ -88,7 +88,7 @@ function Landing() {
                 <img
                   src="imgs/Buganda-dance.jpg" 
                   alt="Culture"
-                  className="w-full object-cover rounded-t-lg mb-4"
+                  className="w-full object-cover rounded-t-lg mb-4 card-image"
                 />
                 <h2 className="text-2xl font-semibold mb-2">Culture</h2>
                 <p className="text-gray-700">Learn about different cultures and traditions from around the world.</p>
@@ -117,8 +117,9 @@ function Landing() {
             </svg>
             <p className="text-xl font-semibold">Create an Account</p>
           </div>
-          <p className="text-gray-600 mb-10">
-            Unlock a world of exclusive features and captivating content by signing up for an account. With your own account, you can log in at any time to embark on research journeys, expand your knowledge, and immerse yourself in the rich tapestry of information about our environment, culture, and the steps we can take to ensure a brighter future for generations to come. If you share our mission of nurturing our culture and surroundings, we invite you to{' '}
+          <p className="text-gray-600 mb-10" id = 'crt'>
+            Unlock a world of exclusive features and captivating content by signing up for an account. With your own account, 
+            you can log in at any time to embark on research journeys, expand your knowledge, and immerse yourself in the rich tapestry of information about our environment, culture, and the steps we can take to ensure a brighter future for generations to come. If you share our mission of nurturing our culture and surroundings, we invite you to{' '}
             <a href="/register" className="text-blue-500 hover:underline">
               Register here
             </a>{' '}
@@ -226,13 +227,13 @@ function Landing() {
                 </p>
                 <div className="flex justify-center">
                 <a href="Register" >
-                  <button className="hover:bg-green-100 text-white justify-center font-bold py-1 px-4 rounded mr-4 w-60" id='top_bar'
+                  <button className="hover:bg-green-100 text-white justify-center font-bold py-1 px-4 rounded mr-4 w-60" id='reg'
                   >
                     Create Account
                   </button>
                 </a>
                   <a href="Login" className="text-blue-400">
-                    <button className="hover:bg-green-100 text-white justify-center  font-bold py-1 px-4 rounded mr-4 w-60" id='top_bar'>
+                    <button className="hover:bg-green-100 text-white justify-center  font-bold py-1 px-4 rounded mr-4 w-60" id='reg'>
                     Login
                   </button>
                   </a>
