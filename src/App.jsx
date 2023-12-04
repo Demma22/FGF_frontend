@@ -17,7 +17,7 @@ import Logout from './components/pages/Logout';
 import Search from './components/Search/Search';
 import { Layout } from "./components/Layout";
 import { Layout2 } from "./components/Layout2";
-
+import Footer from './components/Footer/Footer';
 import Contributor from "./components/pages/Contributors";
 
 import CreatePlant from "./components/pages/CreatePlant";
@@ -50,7 +50,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/Layout" element={<Layout />} />
         <Route path="/Layout2" element={<Layout2 />} />
-       
+        <Route path="/Footer" element={<Footer />} />
         <Route path="/Dashboard" element={<Dashboard />} /> 
         
         <Route path="/login" element={<Login />} />
