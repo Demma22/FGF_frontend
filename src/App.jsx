@@ -8,7 +8,7 @@ import Landing from './components/pages/landing/Landing';
 
 import { Login } from './components/pages/Login';
 import Register from "./components/pages/Register";
-import Admin from "./components/pages/Admin"
+
 
 // import { Register } from './components/pages/Registration';
 import Settings from './components/pages/Settings';
@@ -50,7 +50,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/Layout" element={<Layout />} />
         <Route path="/Layout2" element={<Layout2 />} />
-        <Route path="/Admin" element={<Admin />} />
+       
         <Route path="/Dashboard" element={<Dashboard />} /> 
         
         <Route path="/login" element={<Login />} />

@@ -38,6 +38,7 @@
     overflow: hidden;
     background-color: #112A00;
     color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
     
     /* color: 'white;  */
@@ -55,6 +56,7 @@
     border-width: 1px;
     border-radius: 1rem;
     position: relative;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #card_content {

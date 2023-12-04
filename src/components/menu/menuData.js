@@ -1,9 +1,9 @@
 import {
     FaRegListAlt,
     FaPlusSquare,
-    FaUsers,
-    FaChartLine,
-    FaEllipsisH,
+    // FaUsers,
+    // FaChartLine,
+    // FaEllipsisH,
 } from 'react-icons/fa';
 
 export const menuData = {
@@ -39,12 +39,12 @@ export const menuData = {
         //     icon: FaUsers,
         //     roles: ['administrator', 'contributor'],
         // },
-        {
-            label: "Admin",
-            link: "/Dashboard",
-            icon: FaChartLine,
-            roles: ['administrator']
-        },
+        // {
+           
+        //     link: "/Dashboard",
+        //     icon: FaChartLine,
+        //     roles: ['administrator']
+        // },
         // {
         //     label: "More",
         //     link: "/more",

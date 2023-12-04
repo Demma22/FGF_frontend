@@ -64,7 +64,7 @@ const useStyles = createStyles((theme) => ({
 
 export function Sidebar() {
     const { classes, cx } = useStyles();
-    const userRole = 'administrator';
+    const userRole = 'contributor';
 
     const location = useLocation();
 
@@ -120,7 +120,7 @@ export function Sidebar() {
                 </Navbar.Section>
 
                 <Navbar.Section className={`${classes.footer} border-t border-[#23A74C]/10`}>
-                    {userRole === "administrator" && (
+                    {userRole === "contributor" && (
                         <li
                             className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' toggleActiveClassStyle(item.link)`}
                             onClick={(event) => {
