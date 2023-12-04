@@ -7,6 +7,7 @@ import Autoplay from 'embla-carousel-autoplay';
 //import '@mantine/carousel/styles.css';
 import "./Landing.css"
 import { Layout } from '../../Layout';
+import Footer from '../../Footer/Footer';
 
 function Landing() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -244,7 +245,7 @@ function Landing() {
       </Container>
      
       
-    
+      <Footer />
     </div>
   );
 }

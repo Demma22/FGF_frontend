@@ -6,6 +6,7 @@ import { Layout } from '../Layout';
 import "./Plant.css"
 import { Layout2 } from '../Layout2';
 import { Header2 } from '../Header2';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 const ViewPlantDetail = () => {
   const [error, setError] = useState(null);
@@ -84,6 +85,12 @@ const ViewPlantDetail = () => {
             <p>{data.notes}</p>
             <pre id='contributor'> By: {data.contributor_name}</pre>
           </Card.Section>
+          
+          <div className='col-md-5 mt-5 ml-auto'>
+                <GoogleMap />
+                <p> Region in Uganda: {data.region_in_Uganda}</p>
+
+            </div>
 
           <Card.Section id='card_content'>
             <Title order={5}>Citation</Title>

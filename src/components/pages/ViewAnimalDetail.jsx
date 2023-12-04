@@ -6,6 +6,7 @@ import { Layout } from '../Layout';
 import "./Animal.css"
 import { Layout2 } from '../Layout2';
 import { Header2 } from '../Header2';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 const ViewAnimalDetail = () => {
   const [error, setError] = useState(null);
@@ -72,6 +73,14 @@ const ViewAnimalDetail = () => {
             <p>{data.description}</p>
             
           </Card.Section>
+
+         
+            <div className='col-md-5 mt-5 ml-auto'>
+                <GoogleMap />
+                <p> Region in Uganda: {data.areas_in_Uganda}</p>
+
+            </div>
+
 
           {/* <Card.Section id='card_content'>
             <Title order={5}>Economic Value</Title>
