@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { Button, Image, Text, Card, Badge, Group, Container, Title, Grid } from "@mantine/core";
 import { Link } from 'react-router-dom';
 import ViewPlantDetail from './ViewPlantDetail';
-import { Layout } from "../Layout"
+import { Layout } from "../../Layout"
 import "./Plant.css"
-import { Layout2 } from '../Layout2';
-import Search from '../Search/Search';
-import { Header2 } from '../Header2';
+import { Layout2 } from '../../Layout2';
+import Search from '../../Search/Search';
+import { Header2 } from '../../Header2';
 
 export default function ListPlant () {  
     const navigate = useNavigate();
@@ -98,9 +98,9 @@ export default function ListPlant () {
                 </div>
                 
 
-                <Card.Section>
+                {/* <Card.Section>
                   {plant.description}
-                </Card.Section>
+                </Card.Section> */}
 
                 <Card.Section>
                   <Image

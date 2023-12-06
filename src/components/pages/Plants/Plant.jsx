@@ -1,6 +1,6 @@
 import CreatePlant from "./CreatePlant";
 
-import { Layout } from "../Layout";
+import { Layout } from "../../Layout";
 
 
 export default function Plant() {
