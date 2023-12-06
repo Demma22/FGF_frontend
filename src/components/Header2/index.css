@@ -3,3 +3,43 @@
     padding-left: 0%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+/* Container for Login and Register links */
+#login_register_container {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto; /* Push this container to the right */
+  }
+  
+  #header_item a:hover {
+    text-decoration: none;
+    color: #269501;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Styling for Login and Register links */
+  #login_register_container {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto; /* Push this container to the right */
+    
+  }
+  
+
+  /* Styling for text turning green on hover */
+  #login_register_container a:hover {
+    color: #269501; /* Change this to the desired text color on hover (green) */
+  }
+  
+  /* Additional styling for the username container */
+  #username_container {
+    gap: 2rem;
+    cursor: pointer;
+  }
+
+  .border-right {
+    border-right: 1px solid #000; /* Change color as needed */
+    padding-right: 30px;
+    padding-left: 20px;
+   }
+   

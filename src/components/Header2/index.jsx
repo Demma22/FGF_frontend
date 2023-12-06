@@ -19,6 +19,8 @@ const categories = [
   { label: 'Plants', link: '/ListPlant' },
   { label: 'Animals', link: '/ListAnimal' },
   { label: 'Cultures', link: '/ListCulture' },
+  { label: 'Login', link: '/Login' },
+  { label: 'Register', link: '/Register' },
  ];
 
 
@@ -90,7 +92,7 @@ export function Header2() {
       <h2 className="font-bold text-lg">{heading}</h2>
       <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
       
-      <Link to="/"><span>Home</span></Link>
+      <Link to="/"><span><img src="/fgfoundation_logo.png" alt="FGF Logo"style={{ width: '100px', height: '140' }}/></span></Link>
 
       </div>
       
@@ -106,7 +108,20 @@ export function Header2() {
         <span></span>
         <Link to="/ListCulture"> <span> Cultures </span></Link>
       </div>
-    
+
+      <div id="login_register_container">
+      <div className="flex gap-1 items-center cursor- border-right" id="header_item" onClick={() => {  }}>
+  <span></span>
+  <Link to="/Login" id="login"> <span> Login </span></Link>
+</div>
+
+<div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
+  <span></span>
+  <Link to="/Register" id="register"> <span> Register </span></Link>
+</div>
+</div>
+
+
       <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>
         {/* <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center"> */}
           {/* <p className="font-medium text-sm">JM</p>  */}
