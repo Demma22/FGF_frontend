@@ -19,14 +19,14 @@ function Landing() {
 
 
   const natureImages = [
-    'imgs/Kobs.jpeg',
-    'imgs/cork2.jpg',
-    'imgs/dance.jpg',
+    'imgs/kobs.jpeg',
+    'imgs/cork.jpeg',
+    'imgs/dance.jpeg',
     'imgs/cow.jpeg',
     'imgs/leopard.jpeg',
-    'imgs/aloevera.jpg',
+    'imgs/aloevera.jpeg',
     'imgs/rhino.jpeg',
-    'imgs/tomato.jpg',
+    'imgs/tomato.jpeg',
     
     // Add more image URLs as needed
   ];
@@ -73,7 +73,7 @@ function Landing() {
 
 
           {/* Cards Section */}
-          <section className="py-10">
+          <section className="py-10 card-container">
             <div className="container mx-auto flex flex-wrap justify-center space-x-10">
               {/* Card 1 - Animals */}
               <div className="bg-white rounded-lg shadow-lg p-3 w-full md:w-1/2 lg:w-1/4 mb-4">
@@ -141,42 +141,6 @@ function Landing() {
             </a>{' '}
             and join us in our collective efforts.
           </p>
-
-          {/* Search Item */}
-          {/* <div className="flex items-center space-x-2 mt-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-blue-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm-2.293-8.293a1 1 0 111.414-1.414L12 10.586l1.293-1.293a1 1 0 111.414 1.414L13.414 12l1.293 1.293a1 1 0 01-1.414 1.414L12 13.414l-1.293 1.293a1 1 0 01-1.414-1.414L10.586 12 9.293 10.707a1 1 0 01-.293-1.414z"
-              />
-            </svg>
-            <p className="text-xl font-semibold">Search Item</p>
-          </div>
-          <p className="text-gray-600 mb-20">
-            With our platform, you can search for your preferred items in a language that feels like second nature to you. Dive into a world of exploration, whether it's unraveling the mysteries of nature, delving deep into cultural treasures, or satisfying your curiosity on a wide range of subjects. You can query/search items you need{' '}
-            <a href="/search" className="text-blue-500 hover:underline">
-              here
-            </a>{' '}
-            to be able to read all about them.
-          </p> */}
-          {/* <div className="flex items-center space-x-2 mt-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-blue-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >    
-            </svg>
-           </div> */}
         </div>
 
         <section className="text-white py-20 ml-9 mr-9 mt-5 mb-10" id='top_bar'>
@@ -235,6 +199,8 @@ function Landing() {
               </div>
             </div>
           </section>
+          <section className="bg-gray-white py-10">
+            </section>
       </Container>
      
       
