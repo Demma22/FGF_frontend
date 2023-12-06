@@ -4,12 +4,12 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Button, Image, Title, Text, Container, Card, Badge, Group, Grid } from '@mantine/core';
 import ViewAnimalDetail from './ViewAnimalDetail';
 
-import { Layout } from '../Layout';
-import Search from '../Search/Search';
+import { Layout } from '../../Layout';
+import Search from '../../Search/Search';
 import "./Animal.css"
-import { Layout2 } from '../Layout2';
-import { Header } from '../Header';
-import { Header2 } from '../Header2';
+import { Layout2 } from '../../Layout2';
+import { Header } from '../../Header';
+import { Header2 } from '../../Header2';
 
 
 export default function ListAnimal() {

@@ -6,28 +6,28 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Landing from './components/pages/landing/Landing';
 
-import { Login } from './components/pages/Login';
-import Register from "./components/pages/Register";
+import { Login } from './components/pages/Login/Login';
+import Register from "./components/pages/Register/Register";
 
 
 // import { Register } from './components/pages/Registration';
-import Settings from './components/pages/Settings';
+import Settings from './components/pages/Settings/Settings';
 
-import Logout from './components/pages/Logout';
+import Logout from './components/pages/Logout/Logout';
 import Search from './components/Search/Search';
 import { Layout } from "./components/Layout";
 import { Layout2 } from "./components/Layout2";
 import Footer from './components/Footer/Footer';
-import Contributor from "./components/pages/Contributors";
 
-import CreatePlant from "./components/pages/CreatePlant";
-import ListPlant from "./components/pages/ListPlant";
-import ViewPlantDetail from "./components/pages/ViewPlantDetail";
 
-import ListAnimal from "./components/pages/ListAnimal";
-import CreateAnimal from "./components/pages/CreateAnimal";
-import Animal from "./components/pages/Animal";
-import ViewAnimalDetail from "./components/pages/ViewAnimalDetail";
+import CreatePlant from "./components/pages/Plants/CreatePlant";
+import ListPlant from "./components/pages/Plants/ListPlant";
+import ViewPlantDetail from "./components/pages/Plants/ViewPlantDetail";
+
+import ListAnimal from "./components/pages/Animals/ListAnimal";
+import CreateAnimal from "./components/pages/Animals/CreateAnimal";
+import Animal from "./components/pages/Animals/Animal";
+import ViewAnimalDetail from "./components/pages/Animals/ViewAnimalDetail";
 
 import CreateCulture from "./components/pages/Culture/CreateCulture";
 import CreateEthnicity from "./components/pages/Culture/CreateEthnicity";
@@ -37,8 +37,8 @@ import ListCulture from "./components/pages/Culture/ListCulture";
 import ViewCultureDetail from "./components/pages/Culture/ViewCultureDetail";
 
 import Dashboard from "./components/Dashboard";
-import LogoutButton from "./components/LogoutButton";
-import Plant from "./components/pages/Plant";
+import LogoutButton from "./components/pages/Logout/LogoutButton";
+import Plant from "./components/pages/Plants/Plant";
 
 
 
@@ -72,7 +72,7 @@ function App() {
         <Route path="/Animal" element={<Animal />} />
         <Route path="/ViewAnimalDetail/:id" element={<ViewAnimalDetail />} />
 
-        <Route path="/Contributors" element={<Contributor />} />
+       
 
         <Route path="/CreateCulture" element={<CreateCulture />} />
         <Route path="/CreateEthnicity" element={<CreateEthnicity />} />
