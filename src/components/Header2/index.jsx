@@ -8,10 +8,10 @@ import {
 } from 'react-icons/fa';
 
 
-import CreateAnimal from "../pages/CreateAnimal";
+import CreateAnimal from "../pages/Animals/CreateAnimal";
 
-import ListPlant from "../pages/ListPlant";
-import ListAnimal from "../pages/ListAnimal";
+import ListPlant from "../pages/Plants/ListPlant";
+import ListAnimal from "../pages/Animals/ListAnimal";
 import ListCulture from "../pages/Culture/ListCulture";
 import { DropdownMenu } from "./DropDownMenu";
 
@@ -112,7 +112,7 @@ export function Header2() {
           {/* <p className="font-medium text-sm">JM</p>  */}
         {/* </div> */}
          <span>{username}</span>
-        <FaCaretDown size={18} className="text-[#515861]" />
+        {/* <FaCaretDown size={18} className="text-[#515861]" /> */}
       </div>
     </nav>
     

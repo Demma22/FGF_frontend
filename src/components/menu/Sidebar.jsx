@@ -6,7 +6,7 @@ import {
     FaCog,
     FaSignOutAlt,
 } from 'react-icons/fa';
-import LogoutButton from "../LogoutButton";
+import LogoutButton from "../pages/Logout/LogoutButton";
 
 const useStyles = createStyles((theme) => ({
     navbar: {
