@@ -81,3 +81,22 @@
     transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
   }
+
+  /* Add these styles to your CSS file or style block */
+.slick-arrow {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #fff; /* Adjust the color as needed */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 10px; /* Adjust the left position as needed */
+}
+
+.slick-next {
+  right: 10px; /* Adjust the right position as needed */
+}

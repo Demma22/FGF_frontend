@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Header } from '../../Header';
 import { Header2 } from '../../Header2';
 import { Container } from '@mantine/core';
@@ -8,26 +8,41 @@ import Autoplay from 'embla-carousel-autoplay';
 import "./Landing.css"
 import { Layout } from '../../Layout';
 import Footer from '../../Footer/Footer';
+// import performSlideAnimation from './landing';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 function Landing() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+
   const natureImages = [
-    'imgs/Rhinos.jpg', 
-    'imgs/forest.jpg',
-    'imgs/Buganda-dance.jpg',
+    'imgs/Kobs.jpeg',
+    'imgs/cork2.jpg',
+    'imgs/dance.jpg',
+    'imgs/cow.jpeg',
+    'imgs/leopard.jpeg',
+    'imgs/aloevera.jpg',
+    'imgs/rhino.jpeg',
+    'imgs/tomato.jpg',
+    
     // Add more image URLs as needed
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((currentSlide + 1) % natureImages.length);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // Show 3 images at a time
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '60px', // Adjust spacing between images
+    
+    beforeChange: (current, next) => setCurrentSlide(next),
   };
 
-  const previousSlide = () => {
-    setCurrentSlide((currentSlide - 1 + natureImages.length) % natureImages.length);
-  };
-
-  //const autoplay = useRef(Autoplay({ delay: 2000}))
 
   return (
     <div>
@@ -182,44 +197,22 @@ function Landing() {
         <div>
 
         </div>
-        {/* Slider Section */}
         <section className="bg-gray-100 py-10">
-            <div className="container mx-auto">
-              <div className="relative">
+        <div className="container mx-auto">
+          
+          <Slider {...settings}>
+            {natureImages.map((image, index) => (
+              <div key={index}>
                 <img
-                  src={natureImages[currentSlide]}
-                  alt="Nature"
-                  className="w-2/3 h-auto rounded-lg shadow-lg mx-auto"
+                  src={image}
+                  alt={`Nature ${index + 1}`}
+                  className="w-full h-auto rounded-lg mx-auto"
+                  style={{ width: '95%', height: '10%', objectFit: 'cover'  }} 
                 />
-                <div className="absolute top-0 left-0 w-full flex justify-between items-center">
-                  <button
-                    className="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-l-lg"
-                    onClick={previousSlide}
-                  >
-                    &lt;
-                  </button>
-                  <button
-                    className="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-r-lg"
-                    onClick={nextSlide}
-                  >
-                    &gt;
-                  </button>
-                </div>
               </div>
-
-              {/* <Carousel
-                withIndicators
-                height={200}
-                plugins={[autoplay.current]}
-                onMouseEnter={autoplay.current.stop}
-                onMouseLeave={autoplay.current.reset}
-              >
-                <Carousel.Slide>1</Carousel.Slide>
-                <Carousel.Slide>2</Carousel.Slide>
-                <Carousel.Slide>3</Carousel.Slide>
-                
-              </Carousel> */}
-
+            ))}
+          </Slider>
+         
 
               <div className="text-center mt-4">
                 <h2 className="text-2xl font-semibold mb-4">Ready to Dive In?</h2>
