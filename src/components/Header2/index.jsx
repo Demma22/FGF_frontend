@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { menuData } from "../menu/menuData";
+import { FaUser } from 'react-icons/fa'; // Import the user icon
 import "./index.css"
 import {
   FaCaretDown
@@ -110,16 +111,24 @@ export function Header2() {
       </div>
 
       <div id="login_register_container">
-      <div className="flex gap-1 items-center cursor- border-right" id="header_item" onClick={() => {  }}>
+      {/* Login Button */}
+      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
   <span></span>
-  <Link to="/Login" id="login"> <span> Login </span></Link>
+  <Link to="/Login" id="login">  
+  <FaUser style={{ marginRight: '5px', paddingRight:'1px' }} /><span> Login </span></Link>
+
+  
 </div>
 
-<div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
-  <span></span>
-  <Link to="/Register" id="register"> <span> Register </span></Link>
-</div>
-</div>
+      {/* Register Button */}
+      <div className="flex gap-1 items-center cursor-pointer" onClick={() => {  }}>
+        <button className="registration-button">
+          <Link to="/Register" id="register">
+            <span>Register</span>
+          </Link>
+        </button>
+      </div>
+    </div>
 
 
       <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>

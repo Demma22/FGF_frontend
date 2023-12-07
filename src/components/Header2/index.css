@@ -4,6 +4,18 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#register{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 30px;
+   
+}
+
+#login {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex; /* Ensure the link and icon are displayed as flex items */
+    align-items: center; /* Center items vertically */
+    padding-right: 15px;
+  }
 /* Container for Login and Register links */
 #login_register_container {
     display: flex;
@@ -16,15 +28,7 @@
     color: #269501;
     transition: color 0.3s ease-in-out;
   }
-  
-  /* Styling for Login and Register links */
-  #login_register_container {
-    display: flex;
-    gap: 1rem;
-    margin-left: auto; /* Push this container to the right */
     
-  }
-  
 
   /* Styling for text turning green on hover */
   #login_register_container a:hover {
@@ -37,9 +41,15 @@
     cursor: pointer;
   }
 
-  .border-right {
-    border-right: 1px solid #000; /* Change color as needed */
-    padding-right: 30px;
-    padding-left: 20px;
-   }
-   
+  
+  /* New styles for Registration button */
+  .registration-button {
+    background-color: white;
+    color: #4e6e39;
+    border: 2px solid #4e6e39;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px; /* Add rounded corners */
+    
+    
+  }
