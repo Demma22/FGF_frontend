@@ -89,39 +89,35 @@ export function Header2() {
   return (
     // <nav className="w-full h-[77px] flex justify-between items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
     
-    <nav className="h-[100px] flex items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
-      <h2 className="font-bold text-lg">{heading}</h2>
-      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
-      
-      <Link to="/"><span><img src="/fgfoundation_logo.png" alt="FGF Logo"style={{ width: '100px', height: '140' }}/></span></Link>
-
-      </div>
-      
-      
-      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
-      <Link to="/ListPlant"> <span> Plants </span></Link>
-      </div>
-      
-      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
-        <Link to="/ListAnimal"> <span> Animals </span></Link>
-      </div>
-      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
-        <span></span>
-        <Link to="/ListCulture"> <span> Cultures </span></Link>
-      </div>
-
-      <div id="login_register_container">
-      {/* Login Button */}
-      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => {  }}>
-  <span></span>
-  <Link to="/Login" id="login">  
-  <FaUser style={{ marginRight: '5px', paddingRight:'1px' }} /><span> Login </span></Link>
-
+    <nav className="h-[100px] pl-5 flex bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
+    <h2 className="font-bold text-lg">{heading}</h2>
   
-</div>
-
-      {/* Register Button */}
-      <div className="flex gap-1 items-center cursor-pointer" onClick={() => {  }}>
+    <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
+      <Link to="/"><span><b>Home</b></span></Link>
+    </div>
+  
+    <div className="hidden lg:flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
+      <Link to="/ListPlant"> <span> Plants </span></Link>
+    </div>
+  
+    <div className="hidden lg:flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
+      <Link to="/ListAnimal"> <span> Animals </span></Link>
+    </div>
+  
+    <div className="hidden sm:flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
+      <span></span>
+      <Link to="/ListCulture"> <span> Cultures </span></Link>
+    </div>
+  
+    <div id="login_register_container" className="flex gap-1 items-center cursor-pointer">
+      <div className="flex gap-1 items-center" id="header_item" onClick={() => {  }}>
+        <span></span>
+        <Link to="/Login" id="login">  
+          <FaUser style={{ marginRight: '5px', paddingRight:'1px' }} /><span> Login </span>
+        </Link>
+      </div>
+  
+      <div className="flex gap-1 items-center" onClick={() => {  }}>
         <button className="registration-button">
           <Link to="/Register" id="register">
             <span>Register</span>
@@ -129,17 +125,13 @@ export function Header2() {
         </button>
       </div>
     </div>
+  
+    <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>
+      <span>{username}</span>
+    </div>
+  </nav>
+  
 
-
-      <div className="flex gap-2 items-center cursor-pointer" onClick={() => { }}>
-        {/* <div className="font-bold w-8 h-8 rounded-full overflow-hidden bg-[#C1BCCD] text-[#fff] flex justify-center items-center"> */}
-          {/* <p className="font-medium text-sm">JM</p>  */}
-        {/* </div> */}
-         <span>{username}</span>
-        {/* <FaCaretDown size={18} className="text-[#515861]" /> */}
-      </div>
-    </nav>
-    
 
   );
 }

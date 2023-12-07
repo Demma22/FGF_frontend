@@ -50,7 +50,7 @@ function Landing() {
       <Container fluid className='container container-fluid flex' id='landing_text'>
       
           {/* Hero Section */}
-          <section className="text-white py-20 ml-9 mr-9 mt-5" id='top_bar'>
+          <section className="text-white py-20 ml-0 mr-0 sm:ml-9 sm:mr-9 mt-5" id='top_bar'>
           <div className="container mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">Future Generations Foundation</h1>
             <p className="text-lg leading-relaxed">
@@ -58,29 +58,20 @@ function Landing() {
               On this platform, you'll discover a wealth of information about a wide array of subjects, complete with captivating images that bring these topics to life. Whether you're here to learn or conduct research, our comprehensive resources are accessible to all users.
               We're united in our commitment to safeguarding our natural surroundings for the benefit of future generations. Together, we can ensure that the beauty and diversity of our world endure for years to come."
             </p>
-            {/* <div className="mt-8">
-              <a href="/Login" className="text-xl font-semibold border-b-2 border-white hover:border-green-400">
-                Explore Now
-              </a>
-            </div> */}
           </div>
-        </section>
-
-            
+        </section>  
       </Container>
 
       <Container className='container' container-fluid='true' id='landing_text'>  
-
-
           {/* Cards Section */}
-          <section className="py-10 card-container">
-            <div className="container mx-auto flex flex-wrap justify-center space-x-10">
+          <section className="py-5 card-container">
+            <div className="container mx-auto flex flex-wrap justify-center lg:space-x-10">
               {/* Card 1 - Animals */}
-              <div className="bg-white rounded-lg shadow-lg p-3 w-full md:w-1/2 lg:w-1/4 mb-4">
+              <div className="bg-white rounded-lg shadow-lg p-1 w-full md:w-1/2 lg:w-1/4 mb-4">
                 <img
-                  src="imgs/Rhinos.jpg"  // Replace with the actual image URL
+                  src="imgs/kobs.jpeg"  // Replace with the actual image URL
                   alt="Animals"
-                  className="w-full  object-cover rounded-t-lg mb-4 card-image"
+                  className="w-full object-cover rounded-t-lg mb-4 card-image"
                 />
                 <h2 className="text-2xl font-semibold mb-2">Animals</h2>
                 <p className="text-gray-700">Discover fascinating facts about animals found in Uganda.</p>
@@ -88,9 +79,9 @@ function Landing() {
               </div>
 
               {/* Card 2 - Plants */}
-              <div className="bg-white rounded-lg shadow-lg p-3 w-full md:w-1/2 lg:w-1/4 mb-4">
+              <div className="bg-white rounded-lg shadow-lg p-1 w-full md:w-1/2 lg:w-1/4 mb-4">
                 <img
-                  src="imgs/forest.jpg" 
+                  src="imgs/aloevera.jpeg" 
                   alt="Plants"
                   className="w-full object-cover rounded-t-lg mb-4 card-image"
                 />
@@ -100,9 +91,9 @@ function Landing() {
               </div>
 
               {/* Card 3 - Culture */}
-              <div className="bg-white rounded-lg shadow-lg p-3 w-full md:w-1/2 lg:w-1/4 mb-4">
+              <div className="bg-white rounded-lg shadow-lg p-1 w-full md:w-1/2 lg:w-1/4 mb-4">
                 <img
-                  src="imgs/Buganda-dance.jpg" 
+                  src="imgs/dance.jpeg" 
                   alt="Culture"
                   className="w-full object-cover rounded-t-lg mb-4 card-image"
                 />
@@ -143,7 +134,7 @@ function Landing() {
           </p>
         </div>
 
-        <section className="text-white py-20 ml-9 mr-9 mt-5 mb-10" id='top_bar'>
+        <section className="text-white py-20 ml-0 mr-0 sm:ml-9 sm:mr-9 mt-5" id='top_bar'>
           <div className="container mx-auto text-center">
             <h1 className="text-3xl font-semibold mb-4">Contribute Information</h1>
             <p className="text-lg leading-relaxed">
@@ -164,27 +155,28 @@ function Landing() {
         <section className="bg-gray-100 py-10">
         <div className="container mx-auto">
           
+        <section className="container mx-auto p-0">
           <Slider {...settings}>
             {natureImages.map((image, index) => (
               <div key={index}>
                 <img
                   src={image}
                   alt={`Nature ${index + 1}`}
-                  className="w-full h-auto rounded-lg mx-auto"
-                  style={{ width: '95%', height: '10%', objectFit: 'cover'  }} 
+                  className="w-full h-auto rounded-lg mx-auto sm:w-2/3 lg:w-full"
+                  style={{ width: '95%', objectFit: 'cover'  }} 
                 />
               </div>
             ))}
           </Slider>
-         
+         </section>
 
               <div className="text-center mt-4">
                 <h2 className="text-2xl font-semibold mb-4">Ready to Dive In?</h2>
                 <p className="text-gray-700 mb-4">
                   Create an account and start sharing your knowledge!
                 </p>
-                <div className="flex justify-center">
-                <a href="Register" >
+                <div className="flex flex-col justify-center items-center sm:flex-row">
+                <a href="Register" className="mb-2 sm:mr-4 sm:mb-0">
                   <button className="hover:bg-green-100 text-white justify-center font-bold py-1 px-4 rounded mr-4 w-60" id='reg'
                   >
                     Create Account

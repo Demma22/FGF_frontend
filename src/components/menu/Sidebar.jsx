@@ -68,7 +68,7 @@ export function Sidebar() {
 
     const location = useLocation();
 
-    const allowedMenuItems = menuData.admin.filter(item => item.roles.includes(userRole));
+    const allowedMenuItems = menuData.contributor.filter(item => item.roles.includes(userRole));
 
     const navigate = useNavigate();
 

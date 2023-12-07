@@ -21,6 +21,7 @@
     display: flex;
     gap: 1rem;
     margin-left: auto; /* Push this container to the right */
+    padding-right: 60px;
   }
   
   #header_item a:hover {
@@ -55,3 +56,13 @@
     
   }
 
+  /* Responsive styles for small screens */
+@media screen and (max-width: 768px) {
+  #register {
+    padding-right: 10px; /* Adjusted padding for smaller screens */
+  }
+
+  #login {
+    padding-right: 10px; /* Adjusted padding for smaller screens */
+  }
+}
