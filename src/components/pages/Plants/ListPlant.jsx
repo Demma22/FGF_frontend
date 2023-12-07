@@ -9,50 +9,51 @@ import "./Plant.css"
 import { Layout2 } from '../../Layout2';
 import Search from '../../Search/Search';
 import { Header2 } from '../../Header2';
+import Loader from '../../Loader/Loader'; // Import the Loader component
 
-export default function ListPlant () {  
-    const navigate = useNavigate();
-    const [plants, setPlants] = useState([]);
-    const [image, getImageFile] = useState(null);
-    const [searchResults, setSearchResults] = useState([]);
-    const [noResults, setNoResults] = useState(false);
+export default function ListPlant() {
+  const navigate = useNavigate();
+  const [plants, setPlants] = useState([]);
+  const [image, getImageFile] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+  const [noResults, setNoResults] = useState(false);
+  const [loading, setLoading] = useState(true); // Added loading state
 
-    //const url = 'https://fgf-app.onrender.com/api/plants/';
-  
-
-    const image_url = 'http://localhost:8000/api/plants/id/plant_images/';
-    
-    const categories = ['animals', 'plants', 'cultures'];
-
-    useEffect(() => {
-      const fetchData = async (category) => {
-        try {
-          const apiUrl = `http://localhost:8000/api/${category}/`;
-          const response = await axios.get(apiUrl);
-          return response.data;
-        } catch (error) {
-          console.error(error);
-          return [];
-        }
-      };
-
+  useEffect(() => {
+    const fetchData = async (category) => {
+      try {
+        const apiUrl = `http://localhost:8000/api/${category}/`;
+        const response = await axios.get(apiUrl);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    };
 
     const loadData = async () => {
       try {
         const plantData = await fetchData('plants');
         setPlants(plantData);
+        setLoading(false); // Set loading to false when data is loaded
       } catch (error) {
         console.error(error);
+        setLoading(false); // Set loading to false on error
       }
     };
 
     loadData();
   }, []);
 
-        const handleSearchResults = (results) => {
-      setSearchResults(results);
-      setNoResults(results.length === 0);
-    };
+  const handleSearchResults = (results) => {
+    setSearchResults(results);
+    setNoResults(results.length === 0);
+  };
+
+  if (loading) {
+    return <Loader />; // Display the loading animation while data is loading
+  }
+
 
   return (
     <>

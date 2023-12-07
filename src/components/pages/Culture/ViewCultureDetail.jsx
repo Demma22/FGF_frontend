@@ -3,10 +3,10 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Container, Card, Image, Title, Button, Text } from '@mantine/core';
 import { Layout } from '../../Layout';
-import "./Culture.css"
 import { Layout2 } from '../../Layout2';
 import { Header2 } from '../../Header2';
-
+import Loader from '../../Loader/Loader'; // Import the Loader component
+import './Culture.css';
 
 const ViewCultureDetail = () => {
   const [error, setError] = useState(null);
@@ -14,21 +14,27 @@ const ViewCultureDetail = () => {
   const id = params.id;
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Added loading state
+
   useEffect(() => {
-    const apiUrl = "http://localhost:8000/api/cultures/" + id;
     const fetchData = async () => {
       try {
+        const apiUrl = `http://localhost:8000/api/cultures/${id}`;
         const response = await axios.get(apiUrl);
         setData(response.data);
+        setLoading(false); // Set loading to false when data is loaded
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false on error
       }
     };
 
     fetchData();
+  }, [id]);
 
-  }, []);  
-      
+  if (loading) {
+    return <Loader />; // Display the loading animation while data is loading
+  }
 
   if (error) {
     return <div>Error fetching culture details: {error.message}</div>;
@@ -37,7 +43,6 @@ const ViewCultureDetail = () => {
   if (!data) {
     return <div>Loading culture details...</div>;
   }
-
   return (
     <>
     <Header2 />

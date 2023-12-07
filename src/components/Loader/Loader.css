@@ -1,0 +1,50 @@
+/* Loading.css */
+
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of other elements */
+  }
+  
+  .loading-dots {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .loading-dots:before,
+  .loading-dots:after,
+  .loading-dots-third {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #888; /* Grey color for dots */
+    border-radius: 50%;
+    animation: loading-animation 1.5s infinite ease-in-out;
+  }
+  
+  .loading-dots:before {
+    margin-right: 16px;
+  }
+  
+  .loading-dots-third {
+    margin-right: 16px;
+  }
+  
+  @keyframes loading-animation {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+  

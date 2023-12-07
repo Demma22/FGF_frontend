@@ -9,47 +9,39 @@ import "./Culture.css"
 import { Layout2 } from '../../Layout2';
 import Search from '../../Search/Search';
 import { Header2 } from '../../Header2';
-
-export default function ListCulture () {  
-    const navigate = useNavigate();
-    const [cultures, setCultures] = useState([]);
-    const [image, getImageFile] = useState(null);
-    const [searchResults, setSearchResults] = useState([]);
-    const [noResults, setNoResults] = useState(false);
+import Loading from '../../Loader/Loader';
 
 
-    //const url = 'https://fgf-app.onrender.com/api/cultures/';
+const ListCulture = () => {
+  const [cultures, setCultures] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [noResults, setNoResults] = useState(false);
+  const [loading, setLoading] = useState(true); // Added loading state
 
-    const image_url = 'http://localhost:8000/api/cultures/id/culture_images/';
-
-    useEffect(() => {
-      const fetchData = async (category) => {
-        try {
-          const apiUrl = `http://localhost:8000/api/${category}/`;
-          const response = await axios.get(apiUrl);
-          return response.data;
-        } catch (error) {
-          console.error(error);
-          return [];
-        }
-      };
-  
-      const loadData = async () => {
-        try {
-          const cultureData = await fetchData('cultures');
-          setCultures(cultureData);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-  
-      loadData();
-    }, []);
-  
-    const handleSearchResults = (results) => {
-      setSearchResults(results);
-      setNoResults(results.length === 0);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const apiUrl = 'http://localhost:8000/api/cultures/';
+        const response = await axios.get(apiUrl);
+        setCultures(response.data);
+        setLoading(false); // Set loading to false when data is loaded
+      } catch (error) {
+        console.error(error);
+        setLoading(false); // Set loading to false on error
+      }
     };
+
+    fetchData();
+  }, []);
+
+  const handleSearchResults = (results) => {
+    setSearchResults(results);
+    setNoResults(results.length === 0);
+  };
+
+  if (loading) {
+    return <Loading />; // Display the loading animation while data is loading
+  }
 
   return (
     <>
@@ -127,4 +119,4 @@ export default function ListCulture () {
   )
   }
 
-  
+  export default ListCulture;

@@ -7,6 +7,7 @@ import "./Plant.css"
 import { Layout2 } from '../../Layout2';
 import { Header2 } from '../../Header2';
 import GoogleMap from '../../GoogleMap/GoogleMap';
+import Loader from '../../Loader/Loader'; // Import the Loader component
 
 const ViewPlantDetail = () => {
   const [error, setError] = useState(null);
@@ -14,28 +15,30 @@ const ViewPlantDetail = () => {
   const id = params.id;
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Added loading state
+
   useEffect(() => {
     const apiUrl = "http://localhost:8000/api/plants/" + id;
     const fetchData = async () => {
       try {
         const response = await axios.get(apiUrl);
         setData(response.data);
+        setLoading(false); // Set loading to false when data is loaded
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false on error
       }
     };
 
     fetchData();
-
   }, []);  
       
+  if (loading) {
+    return <Loader />; // Display the loading animation while data is loading
+  }
 
   if (error) {
     return <div>Error fetching plant details: {error.message}</div>;
-  }
-
-  if (!data) {
-    return <div>Loading plant details...</div>;
   }
 
   return (
