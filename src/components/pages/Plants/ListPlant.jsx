@@ -60,7 +60,7 @@ export default function ListPlant() {
     <Header2 />
       <Container className='container px-20 pt-10' container-fluid='true' id="">
       <Container className='container pt-1 px-10' id="">
-        <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
+        <Title order={3}> UGANDA'S BIO-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="plants" searchFields={["botanical_name", 'habitat', 'life_form','region_in_Uganda' ]}/>
       </Container>
       <Container className='container pt-1 px-10'>

@@ -19,8 +19,8 @@ function Logout() {
          <LogoutButton onLogout={handleLogout} />
       </Link> */}
      
-      <Link to="/Login" className="bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        LOGIN
+      <Link to="/" className="bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Logout
       </Link>
     </div>
   );
