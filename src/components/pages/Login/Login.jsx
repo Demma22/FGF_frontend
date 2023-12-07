@@ -70,11 +70,11 @@ export const Login = (props) => {
   return (
     <div className="flex h-screen items-center justify-center square-block">
       <div className="main-container">
-        <div className="login-side-list">
+        {/* <div className="login-side-list">
           <div className="line-breaks">
             <h1><br /> <br />Indulge <br />in <br /> Ugandan <br /> Diversity</h1>
           </div>
-        </div>
+        </div> */}
         <div className="auth-form-container login">
           <h2> Hello Again </h2>
           <h1> Login with </h1>
@@ -106,7 +106,7 @@ export const Login = (props) => {
               {loading ? (
                 <ClipLoader color="#fff" loading={true} css={override} size={25} />
               ) : (
-                'Log In'
+                'LogIn'
               )}
             </button>
             <div>

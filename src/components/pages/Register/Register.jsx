@@ -72,14 +72,14 @@ export default function Register() {
   return (
     <div className="flex h-screen items-center justify-center square-block ">
       <div className="main-container">
-        <div className="login-side-list ">
+        {/* <div className="login-side-list ">
           <div className="line-breaks">
             <h1>Help us Grow</h1>
             <h1>
               <br /> <br /> Indulge <br /> in <br /> Ugandan <br /> Diversity
             </h1>
           </div>
-        </div>
+        </div> */}
         <div>
           <div className="auth-form-Container register">
             <h2>
