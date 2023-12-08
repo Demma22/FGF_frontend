@@ -44,7 +44,7 @@ const ViewPlantDetail = () => {
   return (
     <>
     <Header2 />
-    <Container className='container px-20 pt-10'>
+    <Container className='container px-30 pt-2'>
       <div shadow="sm" id='content'>
         <Title>{data.botanical_name}</Title>
         <div>

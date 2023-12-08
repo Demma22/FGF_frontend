@@ -46,8 +46,8 @@ const ListCulture = () => {
   return (
     <>
     <Header2 />  
-    <Container className='container px-20 pt-10' container-fluid='true' id="">
-      <Container className='container pt-1 px-10' id="">
+    <Container className="container px-2 pt-10" container-fluid="true" id="">
+        <Container className="container pt-1 px-50" id="">
         <Title order={3}> UGANDA'S CULTURAL-DIVERSITY </Title> 
         <Search onSearchResults={handleSearchResults} category="cultures" searchFields={["ethnic_group_name", "region_in_Uganda" ]}/>
       </Container>

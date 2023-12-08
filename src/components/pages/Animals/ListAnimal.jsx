@@ -52,8 +52,8 @@ export default function ListAnimal() {
     <>
       {loading && <Loading />} {/* Show Loading component while data is being fetched */}
       <Header2 />
-      <Container className="container px-20 pt-10" container-fluid="true" id="">
-        <Container className="container pt-1 px-10" id="">
+      <Container className="container px-2 pt-10" container-fluid="true" id="">
+        <Container className="container pt-1 px-50" id="">
           <Title order={3}> UGANDA'S BIO-DIVERSITY </Title>
           <Search onSearchResults={handleSearchResults} category="animals" searchFields={['english_name', 'unique_habitat', 'scientific_name', 'areas_in_Uganda']} />
         </Container>

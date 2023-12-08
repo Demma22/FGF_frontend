@@ -46,7 +46,7 @@ const ViewCultureDetail = () => {
   return (
     <>
     <Header2 />
-    <Container className='container px-20 pt-10' container-fluid='true' id="">
+    <Container className='container px-30 pt-2'>
     <div shadow="sm" id='content'>
         <Title>{data.ethnic_group_name}</Title>
         <div>
