@@ -4,13 +4,8 @@ import { useLocation, Link } from "react-router-dom";
 import { menuData } from "../menu/menuData";
 import { FaUser } from 'react-icons/fa'; // Import the user icon
 import "./index.css"
-import {
-  FaCaretDown
-} from 'react-icons/fa';
-
-
+import { FaBars } from 'react-icons/fa';
 import CreateAnimal from "../pages/Animals/CreateAnimal";
-
 import ListPlant from "../pages/Plants/ListPlant";
 import ListAnimal from "../pages/Animals/ListAnimal";
 import ListCulture from "../pages/Culture/ListCulture";
@@ -20,16 +15,19 @@ const categories = [
   { label: 'Plants', link: '/ListPlant' },
   { label: 'Animals', link: '/ListAnimal' },
   { label: 'Cultures', link: '/ListCulture' },
-  { label: 'Login', link: '/Login' },
-  { label: 'Register', link: '/Register' },
+
  ];
 
 
 export function Header2() {
   const location = useLocation();
   const [username, setUsername] = useState('');
-
+  const [showDropdown, setShowDropdown] = useState(false);
   
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   // const [authenticated, setAuthenticated] = useState(
   //   localStorage.getItem('authenticated') === 'true'
   // );
@@ -90,24 +88,23 @@ export function Header2() {
     // <nav className="w-full h-[77px] flex justify-between items-center px-12 py-7 bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
     
     <nav className="h-[100px] pl-5 flex bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
-    <h2 className="font-bold text-lg">{heading}</h2>
-  
-    <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
-      <Link to="/"><span><b>Home</b></span></Link>
-    </div>
-  
-    <div className="hidden lg:flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
-      <Link to="/ListPlant"> <span> Plants </span></Link>
-    </div>
-  
-    <div className="hidden lg:flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
-      <Link to="/ListAnimal"> <span> Animals </span></Link>
-    </div>
-  
-    <div className="hidden sm:flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
-      <span></span>
-      <Link to="/ListCulture"> <span> Cultures </span></Link>
-    </div>
+      <h2 className="font-bold text-lg">{heading}</h2>
+
+      {/* Home Button */}
+      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
+        <Link to="/"><span><b>Home</b></span></Link>
+      </div>
+
+        {/* Plants, Animals, and Cultures Dropdown */}
+        <div className="flex gap-1 items-center cursor-pointer relative" id="header_item">
+        <span onClick={toggleDropdown}><FaBars /></span>
+        {showDropdown && (
+          <DropdownMenu classname="" items={categories}>
+            {/*  'categories' is an array of objects with 'label' and 'link' properties */}
+            {/* You can customize the items here or pass them dynamically */}
+          </DropdownMenu>
+        )}
+      </div>
   
     <div id="login_register_container" className="flex gap-1 items-center cursor-pointer">
       <div className="flex gap-1 items-center" id="header_item" onClick={() => {  }}>
