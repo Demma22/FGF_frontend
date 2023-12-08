@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Landing from './components/pages/landing/Landing';
 
 import { Login } from './components/pages/Login/Login';
+import { AdministratorLogin } from "./components/pages/Login/AdministratorLogin";
+import AdministratorRegistration from "./components/pages/Register/AdministratorRegistration";
 import Register from "./components/pages/Register/Register";
 
 
@@ -54,8 +56,9 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} /> 
         
         <Route path="/login" element={<Login />} />
+        <Route path="/adminlogin" element={<AdministratorLogin />} />
         <Route path="/Register" element={<Register />} />
-        
+        <Route path="/AdminRegister" element={<AdministratorRegistration />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/logoutbutton" element={<LogoutButton />} />
         
