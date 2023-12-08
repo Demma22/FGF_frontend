@@ -38,7 +38,8 @@ import CreateKingdom from "./components/pages/Culture/CreateKingdom";
 import ListCulture from "./components/pages/Culture/ListCulture";
 import ViewCultureDetail from "./components/pages/Culture/ViewCultureDetail";
 
-import Dashboard from "./components/Dashboard";
+import ContributorDashboard from "./components/ContributorDashboard/ContributorDashboard";
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import LogoutButton from "./components/pages/Logout/LogoutButton";
 import Plant from "./components/pages/Plants/Plant";
 
@@ -53,10 +54,10 @@ function App() {
         <Route path="/Layout" element={<Layout />} />
         <Route path="/Layout2" element={<Layout2 />} />
         <Route path="/Footer" element={<Footer />} />
-        <Route path="/Dashboard" element={<Dashboard />} /> 
-        
+        <Route path="/ContributorDashboard" element={<ContributorDashboard />} /> 
+        <Route path="/AdminDashboard" element={<AdminDashboard />} /> 
         <Route path="/login" element={<Login />} />
-        <Route path="/adminlogin" element={<AdministratorLogin />} />
+        <Route path="/login/admin" element={<AdministratorLogin />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/AdminRegister" element={<AdministratorRegistration />} />
         <Route path="/logout" element={<Logout />} />

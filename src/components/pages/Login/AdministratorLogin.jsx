@@ -55,7 +55,7 @@ export const AdministratorLogin = (props) => {
 
         setTimeout(() => {
           if (isAuthenticated) {
-            navigate('/Plant');
+            navigate('/AdminDashboard');
           }
         }, 2000);
       }

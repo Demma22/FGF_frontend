@@ -8,7 +8,7 @@ export * from "./LogoutButton";
 export * from "./Logout";
 
 export * from "./pages/Admin";
-export * from "./Dashboard";
+export * from "./ContributorDashboard";
 export * from "./pages/landing/Landing";
 
 export * from "./pages/Register";

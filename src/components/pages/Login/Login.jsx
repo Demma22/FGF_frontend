@@ -55,7 +55,7 @@ export const Login = (props) => {
 
         setTimeout(() => {
           if (isAuthenticated) {
-            navigate('/Plant');
+            navigate('/ContributorDashboard');
           }
         }, 2000);
       }

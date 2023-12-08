@@ -11,13 +11,13 @@ import Notification from "./components/Notification";
 import { Container } from "@mantine/core";
 
 
-export default function Dashboard({ Component, pageProps }) {
+export default function AdminDashboard({ Component, pageProps }) {
  return(
     // <Sidebar>
     <Layout2>
         <Provider store={store}>
         <Container className="container container-fluid px-10">
-            <Header />     
+              
             {/* <Component {...pageProps} /> */}
             <div className="row">
                 <div className="col-12-md">

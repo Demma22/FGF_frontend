@@ -1,4 +1,4 @@
-import { Sidebar } from "../menu/Sidebar";
+import { Sidebar2 } from "../menu/Sidebar2";
 import { Header } from "../Header";
 import { Header2 } from "../Header2";
 import { Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
@@ -11,11 +11,11 @@ export function Layout2({ children }) {
         
         // <main className="flex w-screen h-screen items-center justify-between outline fixed">
         <main className="flex w-screen h-screen items-start justify-start fixed top-0 left-0">
-            <Sidebar /> 
+            <Sidebar2 /> 
 
             <section className="w-full min-h-screen bg-[#F4F4F5]">
 
-                {/* <Header2 /> */}
+                <Header />
                 <section className="px-30 py-10 text-[#434C50] h-[calc(100vh-70px-2rem)] overflow-y-scroll rounded-sm mx-7 my-2">{children}</section>
             </section>
 

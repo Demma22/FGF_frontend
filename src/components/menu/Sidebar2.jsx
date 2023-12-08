@@ -1,4 +1,4 @@
-import { menuData } from "./menuData";
+import { menuDataAdmin } from "./menuDataAdmin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createStyles, Navbar, Group, Code, getStylesRef, rem } from '@mantine/core';
 
@@ -62,13 +62,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-export function Sidebar() {
+export function Sidebar2() {
     const { classes, cx } = useStyles();
-    const userRole = 'contributor';
+    const userRole = 'administrator';
 
     const location = useLocation();
 
-    const allowedMenuItems = menuData.contributor.filter(item => item.roles.includes(userRole));
+    const allowedMenuItems = menuDataAdmin.admin.filter(item => item.roles.includes(userRole));
 
     const navigate = useNavigate();
 
@@ -120,7 +120,7 @@ export function Sidebar() {
                 </Navbar.Section>
 
                 <Navbar.Section className={`${classes.footer} border-t border-[#23A74C]/10`}>
-                    {userRole === "contributor" && (
+                    {userRole === "administrator" && (
                         <li
                             className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' toggleActiveClassStyle(item.link)`}
                             onClick={(event) => {
