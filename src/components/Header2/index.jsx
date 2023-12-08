@@ -90,11 +90,6 @@ export function Header2() {
     <nav className="h-[100px] pl-5 flex bg-[#FFF] text-[#515861] border-b border-[#e4e4e7]">
       <h2 className="font-bold text-lg">{heading}</h2>
 
-      {/* Home Button */}
-      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
-        <Link to="/"><span><b>Home</b></span></Link>
-      </div>
-
         {/* Plants, Animals, and Cultures Dropdown */}
         <div className="flex gap-1 items-center cursor-pointer relative" id="header_item">
         <span onClick={toggleDropdown}><FaBars /></span>
@@ -104,6 +99,11 @@ export function Header2() {
             {/* You can customize the items here or pass them dynamically */}
           </DropdownMenu>
         )}
+      </div>
+
+      {/* Home Button */}
+      <div className="flex gap-1 items-center cursor-pointer" id="header_item" onClick={() => { }}>
+        <Link to="/"><span><b>Home</b></span></Link>
       </div>
   
     <div id="login_register_container" className="flex gap-1 items-center cursor-pointer">
