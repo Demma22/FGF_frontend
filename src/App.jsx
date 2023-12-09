@@ -7,8 +7,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Landing from './components/pages/landing/Landing';
 
 import { Login } from './components/pages/Login/Login';
-import { AdministratorLogin } from "./components/pages/Login/AdministratorLogin";
-import AdministratorRegistration from "./components/pages/Register/AdministratorRegistration";
 import Register from "./components/pages/Register/Register";
 
 
@@ -20,7 +18,6 @@ import Search from './components/Search/Search';
 import { Layout } from "./components/Layout";
 import { Layout2 } from "./components/Layout2";
 import Footer from './components/Footer/Footer';
-
 
 import CreatePlant from "./components/pages/Plants/CreatePlant";
 import ListPlant from "./components/pages/Plants/ListPlant";
@@ -57,9 +54,8 @@ function App() {
         <Route path="/ContributorDashboard" element={<ContributorDashboard />} /> 
         <Route path="/AdminDashboard" element={<AdminDashboard />} /> 
         <Route path="/login" element={<Login />} />
-        <Route path="/login/admin" element={<AdministratorLogin />} />
+      
         <Route path="/Register" element={<Register />} />
-        <Route path="/AdminRegister" element={<AdministratorRegistration />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/logoutbutton" element={<LogoutButton />} />
         
