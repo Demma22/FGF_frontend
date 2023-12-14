@@ -1,6 +1,7 @@
 import {
     FaRegListAlt,
     FaPlusSquare,
+    FaUser,
     // FaUsers,
     // FaChartLine,
     // FaEllipsisH,
@@ -22,23 +23,29 @@ export const menuData = {
             roles:'contributor',
         },
         {
-            label: "Cultures",
+            label: "Culture",
             link: "/CreateClan", 
             icon: FaRegListAlt,
             roles: 'contributor',
         },
-        // {
+       // {
         //     label: "Contributions",
         //     link: "/contributions",
         //     icon: FaPlusSquare,
         //     roles: ['administrator', 'contributor'],
         // },
         // {
-        //     label: "Contributors",
-        //     link: "/contributors",
-        //     icon: FaUsers,
+        //     label: "Contributions",
+        //     link: "/contributions",
+        //     icon: FaPlusSquare,
         //     roles: ['administrator', 'contributor'],
         // },
+       // {
+        //    label: "Contributors",
+        //    link: "/contributors",
+         //   icon: FaUser,
+       //     roles: ['administrator', 'contributor'],
+        //},
         // {
            
         //     link: "/Dashboard",

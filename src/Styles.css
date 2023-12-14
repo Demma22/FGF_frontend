@@ -1,0 +1,87 @@
+/* Tailwind CSS styles */
+.bg-whiteg {
+  background-color: rgba(7, 6, 6, 0.6);
+}
+.max-w-3xl {
+    max-width: 48rem; /* Set the maximum width to 48rem (adjust as needed) */
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mt-8 {
+    margin-top: 2rem;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  
+  
+  .p-8 {
+    padding: 2rem;
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem; /* Adjust border-radius as needed */
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .w-1-3 {
+    width: 33.3333%;
+  }
+  
+  .w-2-3 {
+    width: 66.6667%;
+  }
+  
+  .pr-8 {
+    padding-right: 2rem;
+  }
+  
+  .w-40 {
+    width: 10rem; /* Set the width of the profile image (adjust as needed) */
+  }
+  
+  .h-40 {
+    height: 10rem; /* Set the height of the profile image (adjust as needed) */
+  }
+  
+  .object-cover {
+    object-fit: cover;
+  }
+  
+  .text-3xl {
+    font-size: 1.875rem; /* Adjust font-size as needed */
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .ml-2 {
+    margin-left: 0.5rem;
+  }
+  
+  .text-gray-500 {
+    color: #718096;
+  }
+  
+  .text-gray-600 {
+    color: #4a5568;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  .text-gray-700 {
+    color: #4a5568;
+  }
+  

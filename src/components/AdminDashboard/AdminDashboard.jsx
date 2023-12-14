@@ -6,6 +6,7 @@ import DataCards from "./components/DataCards";
 import Contributors from "./components/Contributors";
 import { Header } from "../Header";
 import Charts from "./components/Charts";
+
 import { Layout2 } from "../Layout2";
 import Notification from "./components/Notification";
 import { Container } from "@mantine/core";

@@ -52,6 +52,9 @@ function App() {
         <Route path="/Layout2" element={<Layout2 />} />
         <Route path="/Footer" element={<Footer />} />
         <Route path="/ContributorDashboard" element={<ContributorDashboard />} /> 
+       
+       
+
         <Route path="/AdminDashboard" element={<AdminDashboard />} /> 
         <Route path="/login" element={<Login />} />
       

@@ -1,53 +1,61 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { Container } from '@mantine/core';
 
 const DataCards = () => {
-    const [data, setData] = useState([]);
-    
-    const url = 'http://localhost:8000/api/count-entries/';
+  const [catalogs, setCatalogs] = useState([
+    'animals',
+    'plants',
+    'culture',
+    // Add more catalogs as needed
+  ]);
 
-    useEffect(() => {
-        axios.get(url)  
-          
-          .then((response) => {
-            setData(response.data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }, []);
+  const [data, setData] = useState({});
 
-    return (
-        <div className='grid lg:grid-cols-5 gap-4 p-4 overflow-hidden'>
-            <div className='lg:col-span-2 col-span-1 bg-gray-200 flex justify-between w-full border p-4 rounded-lg'>
-                <div className='flex flex-col w-full pb-4'>
-                    <div className='text-xl font-bold'>300</div>
-                    <div className='text-gray-600'>Total number of Visits</div>
-                </div>
-                <div className='bg-green-200 flex justify-center items-center p-2 rounded-lg'>
-                    <span className='text-green-700 text-lg'>+18%</span>
-                </div>
-            </div>
-            <div className='lg:col-span-2 col-span-1 bg-gray-200 flex justify-between w-full border p-4 rounded-lg'>
-                <div className='flex flex-col w-full pb-4'>
-                    <div className='text-xl font-bold'>{data.total_animal_count}</div>
-                    <div className='text-gray-700'>Number of Downloads</div>
-                </div>
-                <div className='bg-green-200 flex justify-center items-center p-2 rounded-lg'>
-                    <span className='text-green-700 text-lg'>+5%</span>
-                </div>
-            </div>
-            <div className='bg-gray-200 flex justify-between w-full border p-4 rounded-lg'>
-                <div className='flex flex-col w-full pb-4'>
-                    <div className='text-xl font-bold'>30</div>
-                    <div className='text-gray-600'>Users</div>
-                </div>
-                <div className='bg-green-200 flex justify-center items-center p-2 rounded-lg'>
-                    <span className='text-green-700 text-lg'>+100%</span>
-                </div>
-            </div>
-        </div>
-    )
-}
+  useEffect(() => {
+    const fetchData = async () => {
+      const newData = {};
 
-export default DataCards
+      for (const catalog of catalogs) {
+        const url = `http://localhost:8000/api/count-entries/${catalog}`;
+
+        try {
+          const response = await axios.get(url);
+          newData[catalog] = response.data;
+        } catch (error) {
+          console.error(`Error fetching data for ${catalog}:`, error);
+        }
+      }
+
+      setData(newData);
+    };
+
+    fetchData();
+  }, [catalogs]);
+
+  return (
+    <Container className='container' containerFluid>
+      {/* Cards Section */}
+      <section className="py-5 card-container">
+        {catalogs.map((catalog, catalogIndex) => (
+          <div key={catalogIndex} className="container mx-auto flex flex-wrap justify-center lg:space-x-10">
+            {data[catalog]?.map((card, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-lg p-1 w-full md:w-1/2 lg:w-1/4 mb-4">
+                <img
+                  src={card.imageUrl}
+                  alt={card.title}
+                  className="w-full object-cover rounded-t-lg mb-4 card-image"
+                />
+                <h2 className="text-2xl font-semibold mb-2">{catalog}</h2>
+                {/* Use catalog as card title */}
+                <p className="text-gray-700">{card.description}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </section>
+    </Container>
+  );
+};
+
+export default DataCards;
