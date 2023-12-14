@@ -42,7 +42,7 @@ export const Login = (props) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/auth/login/', postData, {
+      const response = await axios.post('https://fgfbackend.onrender.com/api/v1/auth/login/', postData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

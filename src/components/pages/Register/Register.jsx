@@ -18,8 +18,10 @@ export default function Register() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState({
     email: "",
-    username: "",
+    first_name: "",
+    last_name: "",
     password: "",
+    password2: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -38,12 +40,14 @@ export default function Register() {
 
     const postData = {
       email: posts.email,
-      username: posts.username,
+      first_name: posts.first_name,
+      last_name: posts.last_name,
       password: posts.password,
+      password2: posts.password2,
     };
 
     axios
-      .post("http://localhost:8000/api/v1/auth/register/", postData, {
+      .post("https://fgfbackend.onrender.com/api/v1/auth/register/", postData, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -52,8 +56,10 @@ export default function Register() {
         setLoading(false);
         setPosts({
           email: "",
-          username: "",
+          first_name: "",
+          last_name: "",
           password: "",
+          password2: "",
         });
         navigate("/login");
 
@@ -115,11 +121,21 @@ export default function Register() {
               <p>Signup with Email</p>
               <div>
                 <TextInput
-                  label="Username"
-                  value={posts.username}
+                  label="First Name"
+                  value={posts.first_name}
                   onChange={handleChange}
-                  placeholder="Enter Your Username"
-                  name="username"
+                  placeholder="Enter Your First Name"
+                  name="first_name"
+                  required
+                />
+              </div>
+              <div>
+                <TextInput
+                  label="Last Name"
+                  value={posts.last_name}
+                  onChange={handleChange}
+                  placeholder="Enter Your Last Name"
+                  name="last_name"
                   required
                 />
               </div>
@@ -141,6 +157,17 @@ export default function Register() {
                   type="password"
                   placeholder="Password"
                   name="password"
+                  required
+                />
+              </div>
+              <div>
+                <TextInput
+                  label="Repeat Password"
+                  value={posts.password2}
+                  onChange={handleChange}
+                  type="password"
+                  placeholder="Password"
+                  name="password2"
                   required
                 />
               </div>

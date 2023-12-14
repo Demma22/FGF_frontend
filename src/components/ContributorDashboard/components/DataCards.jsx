@@ -17,7 +17,7 @@ const DataCards = () => {
       const newData = {};
 
       for (const catalog of catalogs) {
-        const url = `http://localhost:8000/api/count-entries/${catalog}`;
+        const url = `https://fgfbackend.onrender.com/api/count-entries/${catalog}`;
 
         try {
           const response = await axios.get(url);

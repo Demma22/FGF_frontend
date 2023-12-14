@@ -20,7 +20,7 @@ export default function ListAnimal() {
     const fetchData = async (category) => {
       // Simulating API request
       try {
-        const apiUrl = `http://localhost:8000/api/${category}/`;
+        const apiUrl = `https://fgfbackend.onrender.com/api/${category}/`;
         const response = await axios.get(apiUrl);
         return response.data;
       } catch (error) {

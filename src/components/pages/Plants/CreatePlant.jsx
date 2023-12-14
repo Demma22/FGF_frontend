@@ -78,9 +78,9 @@ const CreatePlant = () => {
         }
     };
 
-    const url = 'http://localhost:8000/api/plants/';
-    const url1 = 'http://localhost:8000/api/plant-names/';
-    const url2 = 'http://localhost:8000/api/medicinal-plants/';
+    const url = 'https://fgfbackend.onrender.com/api/plants/';
+    const url1 = 'https://fgfbackend.onrender.com/api/plant-names/';
+    const url2 = 'https://fgfbackend.onrender.com/api/medicinal-plants/';
 
     const handleSubmitPlantName = (e) => {
         e.preventDefault();

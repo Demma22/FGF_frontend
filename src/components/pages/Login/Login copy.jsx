@@ -39,7 +39,7 @@ export const Login = (props) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/api/login/', postData, {
+      const response = await axios.post('https://fgfbackend.onrender.com/api/login/', postData, {
         headers: {
           // 'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ export const Login = (props) => {
     
     axios
         // Use the 'posts' object to send data
-      .post("http://localhost:8000/api/login/", postData, {
+      .post("https://fgfbackend.onrender.com/api/login/", postData, {
         headers: {
             "Content-Type": "application/json", 
         },

@@ -19,7 +19,7 @@ const ViewCultureDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = `http://localhost:8000/api/cultures/${id}`;
+        const apiUrl = `https://fgfbackend.onrender.com/api/cultures/${id}`;
         const response = await axios.get(apiUrl);
         setData(response.data);
         setLoading(false); // Set loading to false when data is loaded

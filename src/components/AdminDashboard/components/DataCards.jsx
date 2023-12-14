@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 const DataCards = () => {
     const [data, setData] = useState([]);
     
-    const url = 'http://localhost:8000/api/count-entries/';
+    const url = 'https://fgfbackend.onrender.com/api/count-entries/';
 
     useEffect(() => {
         axios.get(url)  

@@ -6,7 +6,7 @@ const LogoutButton = ({ onLogout }) => {
   const handleLogout = async () => {
     try {
       // Send a request to the logout endpoint on your API
-      await axios.post('http://localhost:8000/api/logout');
+      await axios.post('https://fgfbackend.onrender.com/api/logout');
 
       // Clear user authentication data from local storage
       localStorage.removeItem('authToken');

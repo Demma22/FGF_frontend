@@ -21,7 +21,7 @@ const ListCulture = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = 'http://localhost:8000/api/cultures/';
+        const apiUrl = 'https://fgfbackend.onrender.com/api/cultures/';
         const response = await axios.get(apiUrl);
         setCultures(response.data);
         setLoading(false); // Set loading to false when data is loaded

@@ -10,7 +10,7 @@ function Search({ onSearchResults, category, searchFields }) {
 
   const fetchData = async () => {
     try {
-      const apiUrl = `http://localhost:8000/api/${category}`;
+      const apiUrl = `https://fgfbackend.onrender.com/api/${category}`;
       const response = await axios.get(apiUrl);
       return response.data;
     } catch (error) {
