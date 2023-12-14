@@ -119,7 +119,7 @@ export function Sidebar2() {
                     {links}
                 </Navbar.Section>
 
-                <Navbar.Section className={`${classes.footer} border-t border-[#23A74C]/10`}>
+               <Navbar.Section className={`${classes.footer} border-t border-[#23A74C]/10`}>
                     {userRole === "administrator" && (
                         <li
                             className={`${classes.link} font-medium w-full px-5 py-3 hover:bg-[#012904] text-[#fff]' toggleActiveClassStyle(item.link)`}

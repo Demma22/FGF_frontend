@@ -2,6 +2,7 @@ import {
     FaRegListAlt,
     FaPlusSquare,
     FaChartLine,
+    FaUser,
     // FaUsers,
     
     // FaEllipsisH,
@@ -34,12 +35,12 @@ export const menuDataAdmin = {
             icon: FaRegListAlt,
             roles: 'administrator',
         },
-        // {
-        //     label: "Contributions",
-        //     link: "/contributions",
-        //     icon: FaPlusSquare,
-        //     roles: ['administrator', 'contributor'],
-        // },
+        {
+            label: "Contributers",
+            link: "/Users",
+            icon: FaUser,
+            roles: ['administrator', 'contributor'],
+        },
         // {
         //     label: "Contributors",
         //     link: "/contributors",

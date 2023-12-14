@@ -25,6 +25,7 @@ function Settings() {
             <b>Change Password</b>
             <br/>
             Update Your Password Associated with your account
+            
           </p>
         </div>
 

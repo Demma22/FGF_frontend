@@ -52,7 +52,7 @@ function Landing() {
           {/* Hero Section */}
           <section className="text-white py-20 ml-0 mr-0 sm:ml-9 sm:mr-9 mt-5" id='top_bar'>
           <div className="container mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-4">Future Generations Foundation</h1>
+            <h1 className="text-4xl font-bold mb-4"> The FGF Platform </h1>
             <p className="text-lg leading-relaxed">
               "A rich tapestry of animals, plants, and cultures. Our mission is to combat the loss of cultural knowledge and to foster a deeper connection with the world around us.
               On this platform, you'll discover a wealth of information about a wide array of subjects, complete with captivating images that bring these topics to life. Whether you're here to learn or conduct research, our comprehensive resources are accessible to all users.
