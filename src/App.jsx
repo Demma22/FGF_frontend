@@ -42,6 +42,7 @@ import Plant from "./components/pages/Plants/Plant";
 
 
 
+
 function App() {
 
   return (
@@ -83,6 +84,9 @@ function App() {
         <Route path="/CreateKingdom" element={<CreateKingdom />} />
         <Route path="/ListCulture" element={<ListCulture />} />
         <Route path="/ViewCultureDetail/:id" element={<ViewCultureDetail />} />
+        
+        
+        
 
       </Routes>
     </BrowserRouter>

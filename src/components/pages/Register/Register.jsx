@@ -47,7 +47,7 @@ export default function Register() {
     };
 
     axios
-      .post("https://fgfbackend.onrender.com/api/v1/auth/register/", postData, {
+      .post("https://fgfbackend.onrender.com/api/auth/v1/register/contributor/", postData, {
         headers: {
           "Content-Type": "application/json",
         },
