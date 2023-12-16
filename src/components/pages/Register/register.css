@@ -81,3 +81,34 @@ h2 {
     margin: 0 20px;
     padding: 0 50px;
   }
+
+  .ReactModal__Content {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .ReactModal__Content h2 {
+    font-size: 24px;
+    color: #2b5a34;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .ReactModal__Content p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .ReactModal__Content button {
+    background-color: #4a844a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  

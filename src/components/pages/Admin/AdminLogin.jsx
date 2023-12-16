@@ -14,7 +14,7 @@ const override = css`
   border-color: red;
 `;
 
-export const Login = () => {
+export const AdminLogin = () => {
   const [posts, setPosts] = useState({
     email: "",
     password: "",
@@ -45,7 +45,7 @@ export const Login = () => {
       const token = await fetchToken();  // Replace with your actual token retrieval logic
   
       const response = await axios.post(
-        "https://fgfbackend.onrender.com/api/auth/v1/login/contributor/",
+        "https://fgfbackend.onrender.com/api/auth/v1/login/admin/",
         postData,
         {
           headers: {
@@ -61,7 +61,7 @@ export const Login = () => {
   
         setTimeout(() => {
           if (isAuthenticated) {
-            navigate("/ContributorDashboard");
+            navigate("/AdministratorDashboard");
           }
         }, 2000);
       }

@@ -61,7 +61,7 @@ function App() {
 
         <Route path="/AdminDashboard" element={<AdminDashboard />} /> 
         <Route path="/login" element={<Login />} />
-      
+        <Route path="admin23fgf/login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/logoutbutton" element={<LogoutButton />} />

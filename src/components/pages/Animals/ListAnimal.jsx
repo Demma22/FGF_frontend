@@ -20,7 +20,7 @@ export default function ListAnimal() {
     const fetchData = async (category) => {
       // Simulating API request
       try {
-        const apiUrl = `https://fgfbackend.onrender.com/api/${category}/`;
+        const apiUrl = `https://fgfbackend.onrender.com/api/v1/animals/${category}/`;
         const response = await axios.get(apiUrl);
         return response.data;
       } catch (error) {
@@ -85,7 +85,7 @@ export default function ListAnimal() {
                       </div>
                       <Card.Section>
                         <Image
-                          src="imgs/Rhinos.jpg" //{animal.image_url ? animal.image_url : 'https://placehold.co/600x400?text=Placeholder'}
+                          src={animal.image }//{animal.image_url ? animal.image_url : 'https://placehold.co/600x400?text=Placeholder'}
                           height={260}
                           alt={animal.english_name}
                         />
