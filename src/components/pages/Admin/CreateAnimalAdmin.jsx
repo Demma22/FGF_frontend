@@ -3,10 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, TextInput, Text, Title, Container, Group, FileInput, Grid, Textarea } from "@mantine/core";
 import { Layout } from "../../Layout"
-import Popup from '../Popup';
+import Popup from '../Plants/Popup';
 import './Animal.css'
+import { Layout2 } from '../../Layout2';
 
-export default function CreateAnimal () {
+//function CreateAnimal () {
+const CreateAnimalAdmin = () => {
     const navigate = useNavigate();
     const [posts, setPosts] = useState({
         english_name:"",
@@ -124,7 +126,8 @@ export default function CreateAnimal () {
 
 
   return (
-    <Layout>
+    <Layout2>
+    <div>
         <Container className='container' id="form_title">
             <Title order={3}> ADD NEW ANIMAL</Title> 
         </Container>   
@@ -316,10 +319,10 @@ export default function CreateAnimal () {
                 
             </Container>
       
-    </Layout>
-    
+   </div>
+    </Layout2>
   )
   }
   
-  //export default Animal
+  export default CreateAnimalAdmin
   

@@ -19,28 +19,28 @@ export const menuDataAdmin = {
 
         {
             label: "Animals",
-            link: "/Animal",
+            link: "/CreateAnimalAdmin",
             icon: FaRegListAlt,
             roles: 'administrator',
         },
         {
             label: "Plants",
-            link: "/Plant",
+            link: "/CreatePlantAdmin",
             icon: FaPlusSquare,
             roles:'administrator',
         },
         {
             label: "Cultures",
-            link: "/CreateClan", 
+            link: "/CreateCultureAdmin", 
             icon: FaRegListAlt,
             roles: 'administrator',
         },
-        {
-            label: "Contributers",
-            link: "/Users",
-            icon: FaUser,
-            roles: ['administrator', 'contributor'],
-        },
+        // {
+        //     label: "Contributers",
+        //     link: "/Users",
+        //     icon: FaUser,
+        //     roles: ['administrator', 'contributor'],
+        // },
         // {
         //     label: "Contributors",
         //     link: "/contributors",

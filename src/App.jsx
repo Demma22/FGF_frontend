@@ -25,6 +25,8 @@ import ViewPlantDetail from "./components/pages/Plants/ViewPlantDetail";
 
 import ListAnimal from "./components/pages/Animals/ListAnimal";
 import CreateAnimal from "./components/pages/Animals/CreateAnimal";
+import CreateAnimalAdmin from "./components/pages/Admin/CreateAnimalAdmin";
+import CreatePlantAdmin from "./components/pages/Admin/CreatePlantAdmin";
 import Animal from "./components/pages/Animals/Animal";
 import ViewAnimalDetail from "./components/pages/Animals/ViewAnimalDetail";
 
@@ -39,6 +41,7 @@ import ContributorDashboard from "./components/ContributorDashboard/ContributorD
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import LogoutButton from "./components/pages/Logout/LogoutButton";
 import Plant from "./components/pages/Plants/Plant";
+import CreateCultureAdmin from "./components/pages/Admin/CreateCultureAdmin";
 
 
 
@@ -70,14 +73,13 @@ function App() {
         <Route path="/CreatePlant" element={<CreatePlant />} />
         <Route path="/ListPlant" element={<ListPlant />} />
         <Route path="/ViewPlantDetail/:id" element={<ViewPlantDetail />} />
-
+        <Route path="/CreateCultureAdmin" element={<CreateCultureAdmin />} />
         <Route path="/ListAnimal" element={<ListAnimal />} />
         <Route path="/CreateAnimal" element={<CreateAnimal />} /> 
         <Route path="/Animal" element={<Animal />} />
         <Route path="/ViewAnimalDetail/:id" element={<ViewAnimalDetail />} />
-
-       
-
+        <Route path="/CreatePlantAdmin" element={<CreatePlantAdmin />} />
+        <Route path="/CreateAnimalAdmin" element={<CreateAnimalAdmin />} />
         <Route path="/CreateCulture" element={<CreateCulture />} />
         <Route path="/CreateEthnicity" element={<CreateEthnicity />} />
         <Route path="/CreateClan" element={<CreateClan />} />

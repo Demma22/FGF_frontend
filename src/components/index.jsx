@@ -17,6 +17,9 @@ export * from "./pages/Settings";
 export * from "./pages/Contribute";
 
 export * from "./pages/CreateAnimal";
+export * from "./pages/Admin/CreateAnimalAdmin";
+export * from "./pages/Admin/CreatePlantAdmin";
+export * from "./pages/Admin/CreateCultureAdmin";
 export * from "./pages/Animal";
 export * from "./pages/ListAnimal";
 export * from "./pages/ViewAnimalDetail";
