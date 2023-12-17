@@ -15,7 +15,7 @@ export * from "./pages/Register";
 export * from "./pages/Logout";
 export * from "./pages/Settings";
 export * from "./pages/Contribute";
-export * from ".pages/AdminLogin";
+export * from "./pages/Admin/AdminLogin";
 export * from "./pages/CreateAnimal";
 export * from "./pages/Admin/CreateAnimalAdmin";
 export * from "./pages/Admin/CreatePlantAdmin";

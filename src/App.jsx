@@ -42,6 +42,7 @@ import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import LogoutButton from "./components/pages/Logout/LogoutButton";
 import Plant from "./components/pages/Plants/Plant";
 import CreateCultureAdmin from "./components/pages/Admin/CreateCultureAdmin";
+import AdminLogin from "./components/pages/Admin/AdminLogin";
 
 
 
@@ -61,7 +62,7 @@ function App() {
 
         <Route path="/AdminDashboard" element={<AdminDashboard />} /> 
         <Route path="/login" element={<Login />} />
-        <Route path="admin23fgf/login" element={<Login />} />
+        <Route path="admin23fgf/login" element={<AdminLogin />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/logoutbutton" element={<LogoutButton />} />

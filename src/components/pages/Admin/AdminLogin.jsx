@@ -14,7 +14,7 @@ const override = css`
   border-color: red;
 `;
 
-export const AdminLogin = () => {
+const AdminLogin = () => {
   const [posts, setPosts] = useState({
     email: "",
     password: "",
@@ -34,34 +34,26 @@ export const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
+
     const postData = {
       email: posts.email,
       password: posts.password,
     };
-  
+
     try {
-      // Assuming you have a separate function to get the token
-      const token = await fetchToken();  // Replace with your actual token retrieval logic
-  
       const response = await axios.post(
         "https://fgfbackend.onrender.com/api/auth/v1/login/admin/",
-        postData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        postData
       );
-  
+
       if (response.status === 200) {
         toast.success("Logged in successfully!");
-  
+
         const isAuthenticated = true;
-  
+
         setTimeout(() => {
           if (isAuthenticated) {
-            navigate("/AdministratorDashboard");
+            navigate("/AdminDashboard");
           }
         }, 2000);
       }
@@ -72,7 +64,6 @@ export const AdminLogin = () => {
       setLoading(false);
     }
   };
-  
 
   return (
     <div className="flex h-screen items-center justify-center square-block">
@@ -87,11 +78,7 @@ export const AdminLogin = () => {
         <div className="auth-form-container login">
           <h2> Hello Again </h2>
           <h1> Login with </h1>
-          <img
-            className="login-logo1"
-            src="imgs/login/google_logo.png"
-            alt=""
-          />
+          <img className="login-logo1" src="imgs/login/google_logo.png" alt="" />
           <h1> or Enter Login Details </h1>
           <form className="login-form" onSubmit={handleSubmit}>
             <div>
@@ -117,12 +104,7 @@ export const AdminLogin = () => {
             </div>
             <button type="submit" className="rounded" disabled={loading}>
               {loading ? (
-                <ClipLoader
-                  color="#fff"
-                  loading={true}
-                  css={override}
-                  size={25}
-                />
+                <ClipLoader color="#fff" loading={true} css={override} size={25} />
               ) : (
                 "LogIn"
               )}
@@ -138,13 +120,11 @@ export const AdminLogin = () => {
             Register/SignUp
           </Link>
           <ToastContainer />
-          <img
-            className="login-logo llogin"
-            src="imgs/login/fgfoundation_logo.png"
-            alt=""
-          />
+          <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" />
         </div>
       </div>
     </div>
   );
 };
+
+export default AdminLogin

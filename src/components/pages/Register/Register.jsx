@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { TextInput, Text } from "@mantine/core";
+import { TextInput } from "@mantine/core";
 import { css } from "@emotion/react";
 import { ClipLoader } from "react-spinners";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Modal from "react-modal";
 import "./register.css";
 
 const override = css`
@@ -13,6 +14,25 @@ const override = css`
   margin: 0 auto;
   border-color: red;
 `;
+
+// Initialize the modal
+Modal.setAppElement("#root");
+
+const VerificationModal = ({ isOpen, onClose }) => {
+  return (
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      contentLabel="Verification Popup"
+    >
+      <div>
+        <h2>Check your Email</h2>
+        <p>A verification code has been sent to your email.</p>
+        <button onClick={onClose}>Close</button>
+      </div>
+    </Modal>
+  );
+};
 
 export default function Register() {
   const navigate = useNavigate();
@@ -23,8 +43,8 @@ export default function Register() {
     password: "",
     password2: "",
   });
-
   const [loading, setLoading] = useState(false);
+  const [verificationModalOpen, setVerificationModalOpen] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +52,14 @@ export default function Register() {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleVerificationModalOpen = () => {
+    setVerificationModalOpen(true);
+  };
+
+  const handleVerificationModalClose = () => {
+    setVerificationModalOpen(false);
   };
 
   const handleSubmit = (e) => {
@@ -65,6 +93,9 @@ export default function Register() {
 
         // Display success message using toast
         toast.success("Registration successful!");
+
+        // Show verification modal
+        handleVerificationModalOpen();
       })
       .catch((err) => {
         setLoading(false);
@@ -78,14 +109,14 @@ export default function Register() {
   return (
     <div className="flex h-screen items-center justify-center square-block ">
       <div className="main-container">
-        {/* <div className="login-side-list ">
+        <div className="login-side-list ">
           <div className="line-breaks">
             <h1>Help us Grow</h1>
             <h1>
               <br /> <br /> Indulge <br /> in <br /> Ugandan <br /> Diversity
             </h1>
           </div>
-        </div> */}
+        </div>
         <div>
           <div className="auth-form-Container register">
             <h2>
@@ -192,6 +223,13 @@ export default function Register() {
           </div>
         </div>
       </div>
+
+      {/* Verification Modal */}
+      <VerificationModal
+        isOpen={verificationModalOpen}
+        onClose={handleVerificationModalClose}
+      />
+
       <ToastContainer />
     </div>
   );

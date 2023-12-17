@@ -34,31 +34,23 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
+
     const postData = {
       email: posts.email,
       password: posts.password,
     };
-  
+
     try {
-      // Assuming you have a separate function to get the token
-      const token = await fetchToken();  // Replace with your actual token retrieval logic
-  
       const response = await axios.post(
         "https://fgfbackend.onrender.com/api/auth/v1/login/contributor/",
-        postData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        postData
       );
-  
+
       if (response.status === 200) {
         toast.success("Logged in successfully!");
-  
+
         const isAuthenticated = true;
-  
+
         setTimeout(() => {
           if (isAuthenticated) {
             navigate("/ContributorDashboard");
@@ -72,7 +64,6 @@ export const Login = () => {
       setLoading(false);
     }
   };
-  
 
   return (
     <div className="flex h-screen items-center justify-center square-block">
