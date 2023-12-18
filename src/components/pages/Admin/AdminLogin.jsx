@@ -42,7 +42,7 @@ const AdminLogin = () => {
 
     try {
       const response = await axios.post(
-        "https://fgfbackend.onrender.com/api/auth/v1/login/admin/",
+        "https://fgfbackend.onrender.com/api/v1/auth/login/admin/",
         postData
       );
 
@@ -68,18 +68,11 @@ const AdminLogin = () => {
   return (
     <div className="flex h-screen items-center justify-center square-block">
       <div className="main-container">
-        <div className="login-side-list">
-          <div className="line-breaks">
-            <h1>
-              <br /> <br />Indulge <br />in <br /> Ugandan <br /> Diversity
-            </h1>
-          </div>
-        </div>
+
         <div className="auth-form-container login">
-          <h2> Hello Again </h2>
-          <h1> Login with </h1>
-          <img className="login-logo1" src="imgs/login/google_logo.png" alt="" />
-          <h1> or Enter Login Details </h1>
+          <h2> ADMIN LOGIN </h2>
+         
+          {/* <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" /> */}
           <form className="login-form" onSubmit={handleSubmit}>
             <div>
               <TextInput
@@ -109,18 +102,10 @@ const AdminLogin = () => {
                 "LogIn"
               )}
             </button>
-            <div>
-              <a className="log" href="#">
-                Remember me
-              </a>
-              <a href="#">Forgot password?</a>
-            </div>
           </form>
-          <Link to={"/Register"} className="underlog-links">
-            Register/SignUp
-          </Link>
+
           <ToastContainer />
-          <img className="login-logo llogin" src="imgs/login/fgfoundation_logo.png" alt="" />
+          
         </div>
       </div>
     </div>

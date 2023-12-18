@@ -42,7 +42,7 @@ export const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://fgfbackend.onrender.com/api/auth/v1/login/contributor/",
+        "https://fgfbackend.onrender.com/api/v1/auth/login/contributor/",
         postData
       );
 

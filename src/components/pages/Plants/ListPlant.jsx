@@ -22,7 +22,7 @@ export default function ListPlant() {
   useEffect(() => {
     const fetchData = async (category) => {
       try {
-        const apiUrl = `https://fgfbackend.onrender.com/api/${category}/`;
+        const apiUrl = `https://fgfbackend.onrender.com/api/v1/${category}/`;
         const response = await axios.get(apiUrl);
         return response.data;
       } catch (error) {
