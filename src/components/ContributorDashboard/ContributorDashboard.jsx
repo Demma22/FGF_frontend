@@ -7,7 +7,7 @@ const ContributorDashboard = () => {
     userName: '',
     email: '',
     gender: '',
-    dob: '',
+   // dob: '',
     phoneNumber: '',
     employment: '',
     specialization: '',
@@ -36,7 +36,7 @@ const ContributorDashboard = () => {
       userName: '',
       email: '',
       gender: '',
-      dob: '',
+      //dob: '',
       phoneNumber: '',
       employment: '',
       specialization: '',
@@ -93,22 +93,6 @@ const ContributorDashboard = () => {
           </div>
 
           <div className=" mb-3">
-          <label htmlFor="dob" className="form-label">
-              Date of Birth
-            </label>
-            <input
-              type="date"
-              className="form-control"
-              id="dob"
-              name="dob"
-              value={formData.dob}
-              onChange={handleInputChange}
-              required
-            />
-            
-          </div>
-
-          <div className=" mb-3">
           <label htmlFor="phoneNumber" className="form-label">
               Phone Number
             </label>
@@ -124,22 +108,6 @@ const ContributorDashboard = () => {
             
           </div>
           
-          <div className=" mb-3">
-          <label htmlFor="Currentemployment" className="form-label">
-          Current Employment
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="Currentemployment"
-              name="Currentemployment"
-              placeholder="Currentemployment"
-              value={formData.Currentemployment}
-              onChange={handleInputChange}
-            />
-            
-          </div>
-
           <div className=" mb-3">
           <label htmlFor="employmentstatus" className="form-label">
           Employment Status
