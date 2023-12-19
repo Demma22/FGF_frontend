@@ -150,7 +150,8 @@ export default function Register() {
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
               <p>Signup with Email</p>
-              <div>
+              <div className="flex">
+              
                 <TextInput
                   label="First Name"
                   value={posts.first_name}
@@ -159,8 +160,8 @@ export default function Register() {
                   name="first_name"
                   required
                 />
-              </div>
-              <div>
+              
+            
                 <TextInput
                   label="Last Name"
                   value={posts.last_name}
