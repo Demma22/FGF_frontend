@@ -18,13 +18,10 @@ const UserProfile = ({ profileData }) => {
           <strong>Gender:</strong> {profileData.gender}
         </li>
         <li>
-          <strong>Date of Birth:</strong> {profileData.dob}
-        </li>
-        <li>
           <strong>Phone Number:</strong> {profileData.phoneNumber}
         </li>
         <li>
-          <strong>Current Employment:</strong> {profileData.employment}
+          <strong>Employment Status:</strong> {profileData.employment}
         </li>
         <li>
           <strong>Specialization:</strong> {profileData.specialization}
