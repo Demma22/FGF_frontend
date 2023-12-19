@@ -9,8 +9,8 @@ const DropdownMenu = () => {
   return (
     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg z-10">
       {/* Add your dropdown menu items here */}
-      <Link to="/profile" className="block p-2 hover:bg-gray-100">My Profile</Link>
-      <Link to="/account-settings" className="block p-2 hover:bg-gray-100">Account Settings</Link>
+      <Link to="/Userprofile" className="block p-2 hover:bg-gray-100">My Profile</Link>
+      <Link to="/settings" className="block p-2 hover:bg-gray-100">Account Settings</Link>
       <Link to="/logout" className="block p-2 hover:bg-gray-100">Log Out</Link>
     </div>
   );
